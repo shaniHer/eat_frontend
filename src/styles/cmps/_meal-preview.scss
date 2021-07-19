@@ -1,0 +1,14 @@
+.meal-preview-card {
+  color: black;
+  text-align: center;
+  // margin: 0.5rem;
+  border-radius: 5px;
+  margin: 0.5rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+cursor: pointer;//@@@
+
+}
+
+.meal-preview-card:hover {
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+}

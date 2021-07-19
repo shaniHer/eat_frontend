@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "u101",
+    "fullname": "User 1",
+    "imgUrl": "/img/img1.jpg",
+    "username": "user1",
+    "password": "secret"
+  },
+  {
+    "_id": "u103",
+    "fullname": "User 2",
+    "imgUrl": "'assets/img/img1.jpg'",
+    "username": "user2",
+    "password": "secret",
+    "host": {
+      "desc": "mamash ahla hanot organit",
+      "rate": 4
+    },
+    "reviews": [
+      {
+        "id": "madeId",
+        "txt": "a great place to dine..",
+        "rate": 4,
+        "by": {
+          "_id": "u102",
+          "fullname": "user2",
+          "imgUrl": "/img/img2.jpg"
+        }
+      }
+    ]
+  }
+]

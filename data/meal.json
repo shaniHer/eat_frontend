@@ -1,0 +1,26 @@
+  {
+      "_id": "v140",
+      "eventTime": "none",
+      "title": "Batata Ksbia",
+      "price": 12,
+      "guests":8,//* number of guests?
+      "cuisine": "Asian",//**
+      "host": {
+        "_id": "u103",
+        "rate":4,
+        "fullname": "Dudu Da",
+        "imgUrl": "url"
+      },
+      "loc": {
+          "name": "Paris",
+          "lat": 32.9898,
+          "lng": 12.28
+        },
+      "description": "Big batata, soft at edges, can be used for a great veg soup",
+      "imgUrl": "",
+      "tags": [
+        "organic",
+        "veg",
+        "root"
+      ]
+   }
