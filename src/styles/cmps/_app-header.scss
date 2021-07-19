@@ -1,10 +1,22 @@
-.app-header{
+.app-header .other{
+    background:linear-gradient(120deg, rgba(13, 13, 13,1),rgba(13,13,13,0.3),rgba(13, 13, 13,1));
+    color:white;
+    margin-block-end:2rem;
+    .logo{
+        color:white;
+        h1{
+            font-family: Fugaz, serif;
+        }
+    }
+}
+.app-header .home{
     // background:linear-gradient(120deg, blue,aqua);
     background-image:url(~@/assets/img/back3.jpg);
     background-attachment: fixed;
-    background-position-x:25%;
-    background-position-y: 75%;
-    background-size: 1800px;
+    // background-position-x:25%;
+    // background-position-y: 75%;
+    background-size: 100%;
+    background-repeat: no-repeat;
     height: 400px;
     margin-block-end: 2rem;
     color:white;
@@ -93,8 +105,7 @@
         input:focus {
             outline:none;
             border-radius:1em;
-            border:1px solid rgb(0, 110, 255);
-            
+            border:1px solid rgb(0, 110, 255);   
         }
     }
     .button-login-signup{
@@ -114,3 +125,127 @@
         }
     }
 }
+
+
+
+
+
+
+//------old---//
+
+// .app-header{
+//     // background:linear-gradient(120deg, blue,aqua);
+//     background-image:url(~@/assets/img/back3.jpg);
+//     background-attachment: fixed;
+//     background-position-x:25%;
+//     background-position-y: 75%;
+//     background-size: 1800px;
+//     height: 400px;
+//     margin-block-end: 2rem;
+//     color:white;
+//     .logo{
+//         color:white;
+//         h1{
+//             font-family: Fugaz, serif;
+//         }
+//     }
+// }
+
+// .app-header-container{
+//     display:flex;
+//     justify-content:space-between;
+//     align-items: center;
+// }
+// .main-nav{
+//     display:flex;
+//     background:rgba(14, 14, 14, 0.3);
+//     justify-content: space-between;
+//     align-items: center;
+//     font-size: rem(20px);
+//     // height: em(150px);
+//      a:not(:last-child){
+//         // font-size: rem(20px);
+//         margin-inline-end: 5px;
+//         //     color:red;
+//         //     border:4px solid blue;
+//     }
+//     // a{
+//     //     font-size: rem(20px);
+//     // }
+// }
+// .screen-login-signup{
+//     position: fixed;
+//     // pointer-events: none;
+//     z-index:1;
+//     top:0;
+//     left:0;
+//     right:0;
+//     bottom: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-color: rgba(14,14,14,0.7);
+// }
+// .modal-login-signup{
+//     position: fixed;
+//     text-align: center;
+//     // pointer-events:all;
+//     z-index: 2;
+//     top:50%;
+//     left:50%;
+//     transform: translate(-50%,-50%);
+//     background-color: rgb(240, 240, 240);
+//     border:1px solid black;
+//     border-radius: 1em;
+//     display: flex;
+//     justify-content: center;
+//     width: 500px;
+//     .login-signup-title-btn{
+//         display: flex;
+//         justify-content: space-between;
+//         .login-signup-title{
+//             margin-block: em(16px);
+//             color:gray
+//         }
+//         .btn-close{
+//             border:none;
+//             background: none;
+//             cursor: pointer;
+//             font-size:em(20px);
+//             font-weight: 100;
+//         }
+//     }
+//     .input-login-signup{
+//         width: 400px;
+//         margin-block-end:em(20px) ;
+//         input{
+//             border:none;
+//             border-radius: 1em;
+//             box-shadow: 1px 1px 5px 1px rgb(199, 199, 199);
+//             margin:10px 0;
+//             padding: 10px;
+//             width: 100%;
+//         }
+//         input:focus {
+//             outline:none;
+//             border-radius:1em;
+//             border:1px solid rgb(0, 110, 255);
+            
+//         }
+//     }
+//     .button-login-signup{
+//         margin-block-end: em(20px);
+//         display: flex;
+//         align-items: center;
+//         justify-content: flex-end;
+//         .btn-login-signup{
+//             border:1px solid rgb(177, 177, 177);
+//             box-shadow: 0px 5px 15px 0px rgba(13, 13, 13,0.2);
+//             color:rgb(233, 233, 233);
+//             cursor: pointer;
+//             font-size:rem(18px);
+//             border-radius:em(10px);
+//             background-color: rgb(0, 132, 255);
+//             padding: em(6px);
+//         }
+//     }
+// }

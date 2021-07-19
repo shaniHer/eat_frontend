@@ -1,7 +1,6 @@
 <template>
-  <section class="main-layout">
+  <section class="home main-layout">
     <h2 class="text-home">Top rated meals</h2>
-    
     <div class="meal-list-home-container">
       <meal-list-home :meals="meals"></meal-list-home>
     </div>
@@ -10,34 +9,40 @@
     <div class="cuisine-type-container">
       <div class="cuisine-type" @click="setFilter('asian')">
         <img src="@/assets/img/chefs/4.jpg" alt="" />
+        <div class="flach">
         <h3>Asian</h3>
+        </div>
       </div>
       <div class="cuisine-type" @click="setFilter('thai')">
         <img src="@/assets/img/chefs/9.jpg" alt="" />
+         <div class="flach">
         <h3>Thai</h3>
+        </div>
       </div>
       <div class="cuisine-type" @click="setFilter('american')">
         <img src="@/assets/img/chefs/3.jpg" alt="" />
+         <div class="flach">
         <h3>American</h3>
+        </div>
       </div>
       <div class="cuisine-type" @click="setFilter('czechoslovak')">
         <img src="@/assets/img/chefs/5.jpg" alt="" />
+         <div class="flach">
         <h3>Czechoslovak</h3>
-      </div>
-      <div class="cuisine-type" @click="setFilter('italian')">
-        <img src="@/assets/img/chefs/7.jpg" alt="" />
-        <h3>Italian</h3>
-      </div>
-      <div class="cuisine-type" @click="setFilter('britain')">
-        <img src="@/assets/img/chefs/2.jpg" alt="" />
-        <h3>Great britain</h3>
+         </div>
       </div>
     </div>
     <div class="cusine-container" v-if="isByCuisine">
       <meal-list-home :meals="mealsByCuisine"></meal-list-home>
     </div>
+      <h2 class="text-home">Where to eat</h2>
+      <div class="where-container">
+        <div class="where-farm"><img src="@/assets/img/where/1.jpg" alt=""></div>
+        <div class="where-out"><img src="@/assets/img/where/2.jpg" alt=""></div>
+        <div class="where-home"><img src="@/assets/img/where/3.jpg" alt=""></div>
+      </div>
 
-    <router-link to="/meal-app"></router-link>|<!-- @@ -->
+    <!-- <router-link to="/meal-app"></router-link> -->
   </section>
 </template>
 
@@ -67,7 +72,6 @@ export default {
       return { ...this.$store.getters.getFilter };
     },
     mealsByCuisine() {
-      //  this.$router.push(`/edit/${toyId}`);
       const meals = this.$store.getters.mealsToShowCuisine;
       console.log(meals);
       this.$router.push(`/meal-app/${meals}`);

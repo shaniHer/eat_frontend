@@ -1,7 +1,7 @@
 <template>
-<section class="main-layout">
+<section >
   <ul class="meal-list-home-container card-grid"> 
-    <li v-for="meal in meals" :key="meal.id">
+    <li v-for="meal in meals" :key="meal.id" >
       <meal-preview-home :meal="meal"  ></meal-preview-home>
     </li>
   </ul>
