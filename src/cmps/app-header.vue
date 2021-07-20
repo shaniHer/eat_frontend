@@ -1,22 +1,36 @@
 <template>
-  <header class="app-header">
-    <div  :class="headerClass" class="full main-layout">
-      <section class="app-header-container">
+  <header class="app-header full main-layout" :class="headerClass">
+    <div class="app-header-container">
+      <section class="app-header-inside">
         <div class="logo">
           <router-link to="/">
             <h1>EatWith</h1>
           </router-link>
         </div>
-        <!-- <div><input type="serach" placeholder="search" /></div> -->
+        <div class="search-inputs">
+          <!-- <form action=""></form> -->
+          <!-- <div class="search-input-container"> -->
+            <!-- <label for="search-location">location</label> -->
+            <input type="search" id="search-location" />
+          <!-- </div> -->
+          <!-- <div class="search-input-container"> -->
+            <!-- <label for="search-guests">guests</label> -->
+            <!-- <select name="" id="search-guests"></select> -->
+            <input type="select" id="search-guests" />
+          <!-- </div> -->
+          <input type="search" />
+        </div>
         <!-- <section v-if="loggedinUser">
         <p>Hello {{ loggedinUser.fullname }}</p>
         <button @click="logout">Logout</button>
       </section> -->
         <nav class="main-nav">
+          <!-- <div class="main-nav-flach"> -->
           <router-link to="/meal-app">explore</router-link>
           <router-link to="/user-profile">user</router-link>
           <a @click="onLogin">login</a>
           <a @click="onSignup">signup</a>
+          <!-- </div> -->
         </nav>
         <div @click="modalClose" v-if="modal" class="screen-login-signup"></div>
         <div v-if="modal" class="modal-login-signup">
@@ -51,13 +65,12 @@ export default {
     // loggedinUser() {
     //   return this.$store.getters.loggedinUser;
     // },
-    headerClass(){
-      if(this.$route.name === "homePage"){
-        return 'home'
+    headerClass() {
+      if (this.$route.name === "homePage") {
+        return "home";
       }
-      return 'other';
-
-    }
+      return "other";
+    },
   },
   methods: {
     onLogin() {
