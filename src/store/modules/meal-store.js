@@ -1,4 +1,5 @@
 import { mealService } from '../../services/meal-service.js'
+import { NEWmealService } from '../../services/NEW-meal-service.js'
 
 export default {
     state: {
@@ -42,7 +43,7 @@ export default {
             }
 
             if (state.filterBy.cuisine) {
-                meals = meals.filter(meal => meal.cuisine === state.filterBy.cuisine)
+                meals = meals.filter(meal => meal.cuisine.toLowerCase() === state.filterBy.cuisine)
             } else if (state.filterBy.cuisine === 'all') {
                 state.filterBy.cuisine = ''
             }
@@ -68,7 +69,7 @@ export default {
     actions: {
         async loadMeals(context) {
             try {
-                const meals = await mealService.query()
+                const meals = await NEWmealService.query()
                 context.commit({ type: 'setMeals', meals })
                 return meals//*** */
             } catch (err) {

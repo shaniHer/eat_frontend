@@ -29,7 +29,7 @@
 
     <el-select
       @change="filteByCuisine"
-      v-model="cuisineIdx"
+      v-model="cuisineName"
       placeholder="Cuisine"
     >
       <el-option
@@ -127,7 +127,7 @@ export default {
           label: "Czechoslovak",
         },
       ],
-      cuisineIdx: "",
+      cuisineName: "",
 
       // ----------------------------date:
       value1: "",
@@ -161,7 +161,7 @@ export default {
     },
 
     filteByCuisine(cuisineIdx) {
-      const cuisine = this.cuisineOptions[cuisineIdx].label;
+      const cuisine = this.cuisineOptions[cuisineName].label;
       this.filter.cuisine = cuisine.toLowerCase();
       if (this.filter.cuisine === "all") this.filter.cuisine = "";
       this.emitFilter();
@@ -171,6 +171,17 @@ export default {
       this.filter = { diet: "all", price: 0, guests: {}, cuisine: "" };
       this.emitFilter();
     },
+  },
+
+  // ------------------------------------
+  created() {
+    // this.clearFilter();
+    // console.log(this.$store.getters.getFilter);
+    this.cuisineName = this.$store.getters.getFilter.cuisine;
+  },
+
+  destroyed() {
+    this.$store.getters.getFilter.cuisine = "";
   },
 };
 </script>
