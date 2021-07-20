@@ -94,6 +94,23 @@
             </div>
             <div>
               Rating <span class="rating">{{ user.host.rate }}</span>
+              <v-row justify="center">
+              <v-date-picker></v-date-picker>
+                </v-row>
+   <!-- getAStar(idx) {
+            console.log(idx + ' ' + this.review.rating);
+            if (this.review.rating < idx) return '☆'
+            return '★';
+        }, -->
+        <!-- <span v-for="star in 5"  @click="saveRate(star)"  > {{getAStar(idx)}} </span> -->
+ <!-- saveRate(idx) {
+            console.log(idx);
+            this.review.rating = idx;
+        } -->
+
+
+              <span>&#9733;</span>
+              <span>&#9734;</span>
             </div>
           </div>
           <div class="booking-bottom">
