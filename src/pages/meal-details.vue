@@ -57,10 +57,23 @@
               <li
                 v-for="review in user.host.reviews"
                 :key="review._id"
-                class="review-item"
+                class="review-card"
               >
-                <p class="bold">Guest Guestovsky</p>
-                <p>{{ review.txt }}</p>
+                <div class="review-header flex">
+                  <img
+                    class="avatar"
+                    :src="require('@/assets/img/img1.jpg')"
+                    alt=""
+                  />
+                  <div class="details">
+                    <span>user name</span>
+                    <!-- <span>review date</span> -->
+                    <div>rating stars</div>
+                  </div>
+                </div>
+                <div class="review-body">
+                  <p>{{ review.txt }}</p>
+                </div>
               </li>
             </ul>
           </div>
@@ -72,46 +85,92 @@
                 <h1 class="bold price-booking">${{ meal.price }}</h1>
                 <span class="price-detail"> Price per guest </span>
               </div>
-              <div class="avater">
-                <img
-                  class="host-avatar"
-                  :src="require('@/assets/img/img1.jpg')"
-                />
+              <div>
+                <img class="avatar" :src="require('@/assets/img/img1.jpg')" />
               </div>
             </div>
-            <div class="starts"></div>
+            <div class="starts">
+              <span class="fa fa-star"></span>
+            </div>
             <div>
               Rating <span class="rating">{{ user.host.rate }}</span>
+              <v-row justify="center">
+              <v-date-picker></v-date-picker>
+                </v-row>
+   <!-- getAStar(idx) {
+            console.log(idx + ' ' + this.review.rating);
+            if (this.review.rating < idx) return '☆'
+            return '★';
+        }, -->
+        <!-- <span v-for="star in 5"  @click="saveRate(star)"  > {{getAStar(idx)}} </span> -->
+ <!-- saveRate(idx) {
+            console.log(idx);
+            this.review.rating = idx;
+        } -->
+
+
+              <span>&#9733;</span>
+              <span>&#9734;</span>
             </div>
           </div>
           <div class="booking-bottom">
-            <form action=""></form>
-          <p class="bold">Date</p>
-          <input type="date" v-model="order.eventTime" />
-          <p class="bold">Number of guests</p>
-          <div><input type="number" v-model="order.guestsNum" /></div>
-            <button class="btn-book" @click="toggleIsBooking">
-              Book my seats
-            </button>
+            <form class="flex flex-column" action="">
+              <div class="date-container flex flex-column">
+                <div class="calendar">
+                  <div>
+                    <label class="label-input" for="">Date</label>
+                  </div>
+                  <div class="input">
+                    Select a date
+                    <input
+                      type="date"
+                      v-model="order.eventTime"
+                      aria-hidden=""
+                    />
+                  </div>
+                </div>
+                <!-- <div class="next-date">
+                  <p>Next avilable dates</p>
+                  <div class="btns-dates flex">
+                        <button>Date1</button>
+                        <button>Date2</button>
+                        <button>Date3</button>
+                  </div>
+                </div> -->
+              </div>
+              <div class="select-guests">
+                <label class="">Number of guests</label>
+                <div class="input">
+                  <input type="number" v-model="order.guestsNum" />
+                </div>
+              </div>
+              <button class="btn-book" @click="toggleIsBooking">
+                Book my seats
+              </button>
+            </form>
           </div>
-          <div>
-          </div>
+          <div></div>
         </div>
       </div>
       <div @click="toggleIsBooking" v-if="isBooking" class="dark-screen">
-        <div class="booking-modal" v-if="isBooking">
-          <h4>You're almost there!</h4>
-          <h3 class="bold">{{ meal.title }}</h3>
-          <div>
-            <span class="bold">Price per person: </span>{{ meal.price }}
+        <div class="booking-modal flex flex-column" v-if="isBooking">
+          <div class="booking-content">
+            <div class="img">
+              <img :src="require('@/assets/img/seafood/louis-hansel.jpg')" />
+            </div>
+            <div class="content">
+              <h4>You're almost there!</h4>
+              <h3 class="bold">{{ meal.title }}</h3>
+              <div><span class="bold"></span>{{ order.eventTime }}</div>
+              <div>${{ meal.price }} per person</div>
+              <div>{{ order.guestsNum }} guests</div>
+              <div><span class="bold">Total: </span>${{ totalPrice }}</div>
+            </div>
           </div>
-          <div>
-            <span class="bold">Num of guests: </span>{{ order.guestsNum }}
+          <div class="btns">
+            <button class="btn-book" @click="saveOrder">Approve</button>
+            <button class="btn-cancel" @click="toggleIsBooking">Cancel</button>
           </div>
-          <div><span class="bold">Meal time: </span>{{ order.eventTime }}</div>
-          <div><span class="bold">Total price: </span>{{ totalPrice }}</div>
-          <button class="btn-cancel" @click="toggleIsBooking">Cancel</button>
-          <button class="btn-book" @click="saveOrder">Book me in!</button>
         </div>
       </div>
       <div class="booking-modal booked" v-if="isOrderPlaced">
@@ -145,6 +204,10 @@ export default {
   computed: {
     userImg() {
       return this.user.imgUrl;
+    },
+
+    mealImg() {
+      return this.meal.mealImgUrl;
     },
     totalPrice() {
       const totalPrice = this.order.guestsNum * this.meal.price;
