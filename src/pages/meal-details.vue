@@ -94,9 +94,9 @@
             </div>
             <div>
               Rating <span class="rating">{{ user.host.rate }}</span>
-              <v-row justify="center">
+              <!-- <v-row justify="center">
               <v-date-picker></v-date-picker>
-                </v-row>
+                </v-row> -->
    <!-- getAStar(idx) {
             console.log(idx + ' ' + this.review.rating);
             if (this.review.rating < idx) return '☆'
