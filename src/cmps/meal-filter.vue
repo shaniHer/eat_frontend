@@ -182,6 +182,12 @@ export default {
 
   destroyed() {
     this.$store.getters.getFilter.cuisine = "";
+    // this.$store.getters.getFilter.cuisine = {
+    //   diet: "all",
+    //   price: 0,
+    //   guests: {},
+    //   cuisine: "",
+    // };
   },
 };
 </script>
