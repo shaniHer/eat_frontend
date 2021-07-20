@@ -56,6 +56,8 @@ import signup from "@/cmps/signup";
 export default {
   data() {
     return {
+      loginCredentials: { username: "", password: "" },
+      signupCredentials: { fullname: "", username: "", password: "" },
       isLogin: false,
       isSignup: false,
       modal: false,
@@ -91,7 +93,6 @@ export default {
     },
     async login(loginCredentials) {
       try {
-        console.log(loginCredentials);
         const user = await this.$store.dispatch({
           type: "login",
           userCred: loginCredentials,

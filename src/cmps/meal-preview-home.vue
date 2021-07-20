@@ -2,7 +2,7 @@
   <section class="meal-preview-home">
     <router-link :to="'/meal/' + meal._id">
       <div class="img card">
-        <img :src="require(`@/assets/img/meat/${imgUrl}.jpg`)" />
+        <img :src="meal.imgUrl" />
         <div class="price">
           <h3>${{ meal.price }}</h3>
         </div>
@@ -36,9 +36,7 @@ export default {
     meal: Object,
   },
   data() {
-    return {
-    
-    };
+    return {};
   },
   computed: {
     imgUrl() {

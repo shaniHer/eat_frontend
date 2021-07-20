@@ -94,9 +94,9 @@
             </div>
             <div>
               Rating <span class="rating">{{ user.host.rate }}</span>
-              <v-row justify="center">
+              <!-- <v-row justify="center">
               <v-date-picker></v-date-picker>
-                </v-row>
+                </v-row> -->
    <!-- getAStar(idx) {
             console.log(idx + ' ' + this.review.rating);
             if (this.review.rating < idx) return '☆'
@@ -181,8 +181,8 @@
 </template>
 
 <script>
-import { mealService } from "../services/meal-service.js";
-import { userService } from "../services/user-service.js";
+import { NEWmealService } from "../services/NEW-meal-service.js";
+import { NEWuserService } from "../services/NEW-user-service.js";
 export default {
   data() {
     return {
@@ -253,10 +253,11 @@ export default {
     async getMealAndUser() {
       try {
         const { mealId } = this.$route.params;
-        const meal = await mealService.getById(mealId);
+        const meal = await NEWmealService.getById(mealId);
         this.meal = JSON.parse(JSON.stringify(meal));
         const userId = this.meal.host._id;
-        const user = await userService.getById(userId);
+        const user = await NEWuserService.getById(userId);
+        console.log(user)
         this.user = JSON.parse(JSON.stringify(user));
         this.createOrder(meal, user);
       } catch (err) {
