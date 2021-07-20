@@ -6,9 +6,13 @@
     color: #353530
 
 }
-.host-avatar {
+.avatar {
     width: 40px;
     border-radius: 50%;
+}
+
+.review-header .details{
+    margin: 0px 16px;
 }
 
 .host-name{
@@ -56,6 +60,18 @@
     display: grid;
     grid-template-columns: 1fr 40px;
 }
+
+.price{
+    box-sizing: border-box;
+    min-width: 0px;
+    min-height: 0px;
+    display: flex;
+    align-items: baseline;
+    h1{
+        margin-right: 4px;
+        // font-weight: 400;
+    }
+}
 .main-container {
     flex-grow: 1;
     display: grid;
@@ -73,6 +89,37 @@
     .title{
         color: #353530
     }
+}
+
+.date-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .next-date{
+        margin-top: 10px;
+    }
+
+}
+.input{
+    padding: 8px;
+border: 1px solid rgb(223, 226, 231);
+border-radius: 2px;
+background-color: rgb(246, 246, 246);
+color: rgb(53, 53, 48);
+}
+
+.btn-book{
+    font-size: 1em;
+    margin-top: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+    background: #3BD57E;
+    color: rgb(255, 255, 255);
+     
+}
+
+.btn-book:hover{
+    background-color: #38B66F;
 }
 
 
@@ -124,14 +171,20 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    border: 1px solid black;
-    border-radius: 1em;
-    padding: 10px;
+    // border: 1px solid black;
+    border-radius: 10px;
+    padding: 15px;
     justify-content: center;
-    width: 500px;
+    width: 300px;
 
     .btn-cancel {
-        background-color: lightgray;
+        // background-color: lightgray;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    h3{
+        margin: 10px 0px;
     }
 }
 
@@ -144,9 +197,6 @@ button {
     padding: 10px;
 }
 
-.btn-book {
-    background-color: lightgreen;
-}
 
 .title {
     font-size: 2rem;
@@ -189,8 +239,10 @@ button {
     margin-top:10px;
 }
 
-.review-item {
-    border-bottom: 1px solid lightgrey;
+.review-card {
+    margin: 16px 0px;
+    border-bottom: 1px solid rgb(223, 226, 231);
+
 }
 
 .price-booking {
