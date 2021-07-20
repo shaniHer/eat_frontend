@@ -1,12 +1,15 @@
 <template>
   <section class="meal-list">
-    <ul> 
-      <li class="card-grid meal-list-card">
-        <meal-preview
+    <ul class="card-grid"> 
+      <li  v-for="meal in getMeals" :key="meal.id" class="meal-list-card">
+        <meal-preview-home :meal="meal">
+
+        </meal-preview-home>
+        <!-- <meal-preview
           v-for="meal in getMeals"
           :key="meal.id"
           :meal="meal"
-        ></meal-preview>
+        ></meal-preview> -->
       </li>
     </ul>
   </section>
@@ -14,6 +17,7 @@
 
 <script>
 import mealPreview from "@/cmps/meal-preview.vue";
+import mealPreviewHome from "@/cmps/meal-preview-home";
 
 export default {
   // ----------------------------
@@ -24,6 +28,7 @@ export default {
 
   components: {
     mealPreview,
+    mealPreviewHome,
   },
   // ----------------------------
 };

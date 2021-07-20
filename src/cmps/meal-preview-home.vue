@@ -21,7 +21,7 @@
             <img src="" alt="" />
           </div>
           <div class="card-fullname">
-            <span>Host by:</span>
+            <span>Hosted by</span>
             <span>{{ meal.host.fullname }}</span>
           </div>
         </div>

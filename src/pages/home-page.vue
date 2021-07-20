@@ -37,9 +37,12 @@
     </div>
       <h2 class="text-home">Where to eat</h2>
       <div class="where-container">
-        <div class="where-farm"><img src="@/assets/img/where/1.jpg" alt=""></div>
-        <div class="where-out"><img src="@/assets/img/where/2.jpg" alt=""></div>
-        <div class="where-home"><img src="@/assets/img/where/3.jpg" alt=""></div>
+        <div class="where where-farm"><img src="@/assets/img/where/1.jpg" alt="">
+        <h2>Farm</h2></div>
+        <div class="where where-out"><img src="@/assets/img/where/2.jpg" alt="">
+        <h2>Nature</h2></div>
+        <div class="where where-home"><img src="@/assets/img/where/3.jpg" alt="">
+        <h2>Home</h2></div>
       </div>
 
     <!-- <router-link to="/meal-app"></router-link> -->

@@ -43,7 +43,7 @@
         // transition:.4s ;
         .flach{
             background:rgba(13, 13, 13, 0.2);
-
+            
         }
         h3{
             // margin-inline-start:20px;
@@ -55,47 +55,16 @@
             // color:rgb(1, 156, 167);
         }
     }
-
+    
 }
 .where-container{
     display:grid;
     // grid-template-columns: 1fr 1fr 1fr;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap:20px;
-}
-
-
-
-
-
-
-//-----old---//
-// .text-home{
-//     padding-inline-start: em(20px);
-// }
-// .cuisine-type-container{
-//     // margin: 0 auto;
-//     display:grid;
-//     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-//     grid-auto-rows: 400px;
-//     gap:20px;
     
-//     .cuisine-type{
-//         text-align: center;
-//         border-radius: em(5px);
-//         font-size: rem(32px);
-//         color:white;
-//         @include aspect-ratio(2,3);
-//         h3{
-//             background:rgba(14, 14, 14, 0.3);
-//         }
-//     }
-//     .cuisine-type:hover{
-//         h3{
-//             background: none;
-//             font-size: rem(40px);
-//             color:rgb(255, 230, 0);
-//             // color:rgb(14, 14, 14);
-//         }
-//     }
-// }
+    // @include aspect-ratio(1,3);
+    .where img{
+        border-radius: 10px;
+    }
+}
