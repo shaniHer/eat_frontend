@@ -36,7 +36,7 @@
         <router-link to="/meal-app">something else</router-link>
       </div>
       <div class="becomehost-burger-container">
-        <a >Become a host</a>
+        <router-link to="/meal-add" >Become a host</router-link>
         <div class="burger-menu">
           <img
             src="@/assets/img/ham.svg"
