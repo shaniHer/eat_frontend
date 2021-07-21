@@ -15,7 +15,7 @@
     <!-- ---------------------------------filter by cuisine: -->
 
     <el-select
-      @change="filteByCuisine"
+      @change="filterByCuisine"
       v-model="cuisineName"
       placeholder="Cuisine"
     >
@@ -31,7 +31,7 @@
 
     <!-- ---------------------------------filter by guests: -->
 
-    <el-select @change="filteByGuests" v-model="idx" placeholder="Guests">
+    <el-select @change="filterByGuests" v-model="idx" placeholder="Guests">
       <el-option
         v-for="item in guestsOptions"
         :key="item.idx"
@@ -43,11 +43,7 @@
 
     <!-- ---------------------------------filter by price: -->
 
-    <el-select
-      multiple
-      placeholder="Price"
-      v-model="price.emptyVal"
-    >
+    <el-select multiple placeholder="Price" v-model="price.emptyVal">
       <el-option value="emptyVal" :key="price.idx" :label="price.label">
         <el-slider
           class="price-filter"
@@ -171,7 +167,7 @@ export default {
       this.emitFilter();
     },
 
-    filteByGuests(idx) {
+    filterByGuests(idx) {
       const guestsStr = this.guestsOptions[idx].label;
       const guests = {
         min: +guestsStr[0],
@@ -181,7 +177,7 @@ export default {
       this.emitFilter();
     },
 
-    filteByCuisine(cuisineIdx) {
+    filterByCuisine(cuisineName) {
       const cuisine = this.cuisineOptions[cuisineName].label;
       this.filter.cuisine = cuisine.toLowerCase();
       if (this.filter.cuisine === "all") this.filter.cuisine = "";

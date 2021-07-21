@@ -75,9 +75,11 @@ export default {
       const meals = this.$store.getters.mealsToShowHomepage;
       return meals;
     },
+
     filterBy() {
       return { ...this.$store.getters.getFilter };
     },
+
     mealsByCuisine() {
       this.$router.push(`/meal-app`);
     },
@@ -100,7 +102,5 @@ export default {
   components: {
     mealListHome,
   },
-
-
 };
 </script>
