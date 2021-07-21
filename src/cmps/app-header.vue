@@ -3,7 +3,7 @@
     <div class="app-header-container">
       <div class="logo">
         <router-link to="/">
-          <h1>Eat it</h1>
+          <h1>Eat<span>|</span>it</h1>
         </router-link>
       </div>
        <div class="search-inputs">
@@ -50,7 +50,7 @@
         </div>
       </div>
       <nav class="main-nav" v-if="isNav">
-        <a @click="onSignup">signup</a>
+        <a @click="onSignup">sign up</a>
         <a @click="onLogin">login</a>
         <router-link to="/user-profile">user</router-link>
       </nav>

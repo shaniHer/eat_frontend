@@ -3,14 +3,12 @@
     margin-block-end:2rem;
 }
 .app-header.other{
-    // background:rgb(233, 14, 14);
     background:white;
-    // position: fixed;
     position: sticky;
-    left: 8.5%;
     top:0;
     z-index: 1;
     height: 100px;
+    
     .app-header-container{
             width: 100%;
             display: flex;
@@ -19,6 +17,7 @@
             .search-inputs{
                 border-radius: 1em;
                 box-shadow: 0 0 5px 0 rgba(13, 13, 13,0.2);
+                // box-shadow: 0 0 5px 0 rgba(13, 13, 13,0.2);
             } 
             .becomehost-burger-container{
                 
@@ -51,15 +50,21 @@
     background-attachment: fixed;
     background-size: 100%;
     background-repeat: no-repeat;
-    height: 420px;
+    // height: 420px;
+    height: 80vh;
     .app-header-container{
         display: grid;
         grid-template-rows: repeat(12,em(35px));
         grid-template-columns: repeat(12,1fr);
         .logo{
+            
             grid-row:2/4;
             grid-column: 1/4;
+            span{
+                color:#FF385C;
+            }
         }
+
         .search-inputs{
             grid-row: 4/6;
             grid-column: 4/10;
@@ -70,9 +75,12 @@
             font-size: rem(24px);
             display: flex;
             justify-content: space-between;
-            align-items: center;
-
+            align-items: center; 
         }
+        .main-real-nav >*:hover{
+            border-bottom: 2px solid #FF385C;
+            // transition: .4s;
+            }
         .main-nav{
             padding-inline-start: 5px;
             grid-row: 4/5;
@@ -84,11 +92,11 @@
                 grid-row: 2/4;
             grid-column: 11/13;
             }
+
     }
 }
 .becomehost-burger-container{
     display: flex; 
-    // justify-content: center;
     justify-content: space-between;
     align-items: center;
     a{
@@ -112,39 +120,13 @@
     margin-inline-end: em(12px);
     margin-block: em(6px);
     text-align: center;
-    color: blue;
+    color: white;
+    font-size: rem(20px);
     width: em(30px);
     height: em(30px);
     border-radius: 50%;
-    background-color: yellow;
-
+    background-color: #FF385C;
 }
-//     .search-guests{
-    //         display: flex;
-//         justify-content: center;
-//         // background-color: greenyellow;
-//         align-items: center;
-//         flex-direction: column;
-//         label{
-    //             text-align: center;
-    //             width: 100%;
-    //             background-color: white;
-    //         }
-    //         input{
-        //         appearance: none;
-        //         text-align: center;
-        //         border:none;
-        //         width: 100%;
-        //         height: 100%;
-        //     }
-        //     input:focus{
-            
-            //         outline: none;
-            //     }
-            //     input:hover{
-                //         cursor: pointer;
-                //     }
-                // }
 .search-inputs{
     display: flex;
     align-items: center;
@@ -325,7 +307,7 @@
         input{
             border:none;
             border-radius: 1em;
-            box-shadow: 1px 1px 5px 1px rgb(199, 199, 199);
+            box-shadow: 0px 1px 1px 0px rgb(199, 199, 199);
             margin:10px 0;
             padding: 10px;
             width: 100%;
@@ -343,7 +325,6 @@
         justify-content: flex-end;
         .btn-login-signup{
             border:1px solid rgb(177, 177, 177);
-            box-shadow: 0px 5px 15px 0px rgba(13, 13, 13,0.2);
             color:rgb(233, 233, 233);
             cursor: pointer;
             font-size:rem(18px);

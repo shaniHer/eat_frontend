@@ -43,7 +43,9 @@
                 font-weight: 600;
                 // background-color: rgb(0, 247, 255);
                 span{
-                    color:rgb(160, 0, 160);
+                    font-weight: 600;
+                    color:#FF385C;
+                    // color:rgb(160, 0, 160);
                 }
             }
             .card-title{
@@ -85,8 +87,12 @@
                     border-radius: 50%;
                     width: 30px;
                     height: 30px;
-                    background-color: hotpink;
-                    text-align: center;
+                    color:white;
+                    background-color: #FF385C;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    // text-align: center;
                 }
                 .card-fullname{
                     display: flex;
