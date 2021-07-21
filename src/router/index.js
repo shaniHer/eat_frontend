@@ -5,6 +5,8 @@ import homePage from '@/pages/home-page.vue'
 import mealApp from '@/pages/meal-app.vue'
 import mealDetails from '@/pages/meal-details.vue'
 import userProfile from '@/pages/user-profile.vue'
+import mealAdd from '@/pages/meal-add.vue'
+
 
 Vue.use(VueRouter)
 
@@ -29,6 +31,12 @@ const routes = [
     path: '/meal/:mealId',
     name: 'mealDetails',
     component: mealDetails
+
+  },
+  {
+    path: '/meal-add',
+    name: 'mealAdd',
+    component: mealAdd
 
   },
 

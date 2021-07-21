@@ -28,6 +28,7 @@
           <!-- <div class="main-nav-flach"> -->
           <router-link to="/meal-app">explore</router-link>
           <router-link to="/user-profile">user</router-link>
+          <router-link to="/meal-add">Become a host</router-link>
           <a @click="onLogin">login</a>
           <a @click="onSignup">signup</a>
           <!-- </div> -->
