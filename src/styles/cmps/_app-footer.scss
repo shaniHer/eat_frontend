@@ -22,23 +22,18 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        h2{
-            border:1px solid yellow;
-        }
-        h4{
-
-            border:1px solid red;
-        }
+        font-size: rem(24px);
     }
     .all-icons :not(:last-child){
         margin-inline-end: 10px;
     }
     .all-icons :nth-child(1){
-        background-color: yellowgreen;
+        // background-color: yellowgreen;
         margin-inline-end: 20px;
     }
     .all-icons :nth-child(2){
-        background-color: rgb(200, 50, 205);
+        width: em(100px);
         margin-inline-end: 20px;
+        // background-color: rgb(200, 50, 205);
     }
 }

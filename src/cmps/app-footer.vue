@@ -3,16 +3,16 @@
     <section class="app-footer-container">
       <div class="coffee-container">
         <div class="logo">
-          <h1>EatWith</h1>
+          <h1>Eat it</h1>
         </div>
         <div class="all-icons">
-          <h2>icon</h2>
-          <h2>icon</h2>
-          <h4>icon</h4>
-          <h4>icon</h4>
-          <h4>icon</h4>
-          <h4>icon</h4>
-        </div>
+          <img src="@/assets/icons/apple.svg" alt="">
+          <img src="@/assets/icons/google.png" alt="">
+          <font-awesome-icon :icon="['fab','facebook-square']"/>
+          <font-awesome-icon :icon="['fab','twitter']"/>
+          <font-awesome-icon :icon="['fab','linkedin']"/>
+          <font-awesome-icon :icon="['fab','instagram']"/>
+         </div>
       </div>
       <div class="coffee-container">
         <h2>coffee rights</h2>

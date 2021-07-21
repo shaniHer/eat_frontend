@@ -1,51 +1,72 @@
 <template>
   <header class="app-header full main-layout" :class="headerClass">
     <div class="app-header-container">
-      <section class="app-header-inside">
-        <div class="logo">
-          <router-link to="/">
-            <h1>EatWith</h1>
-          </router-link>
+      <div class="logo">
+        <router-link to="/">
+          <h1>Eat it</h1>
+        </router-link>
+      </div>
+       <div class="search-inputs">
+        <div class="search-location">
+          <label for="search-location">location </label>
+          <input type="search" id="search-location" />
         </div>
-        <div class="search-inputs">
-          <!-- <form action=""></form> -->
-          <!-- <div class="search-input-container"> -->
-            <!-- <label for="search-location">location</label> -->
-            <input type="search" id="search-location" />
-          <!-- </div> -->
-          <!-- <div class="search-input-container"> -->
-            <!-- <label for="search-guests">guests</label> -->
-            <!-- <select name="" id="search-guests"></select> -->
-            <input type="select" id="search-guests" />
-          <!-- </div> -->
-          <input type="search" />
+        <div class="search-guests">
+          <label for="search-guests-id">guests</label>
+          <select id="search-guests">
+            <option value="Chocolate"></option>
+            <option value="Coconut"></option>
+            <option value="Mint"></option>
+            <option value="Strawberry"></option>
+            <option value="Vanilla"></option>
+          </select>
         </div>
-        <!-- <section v-if="loggedinUser">
+        <div class="search-date">
+          <label for="search-date">date</label>
+          <input type="date" id="search-date" />
+        </div>
+      </div> 
+      <!-- <section v-if="loggedinUser">
         <p>Hello {{ loggedinUser.fullname }}</p>
         <button @click="logout">Logout</button>
       </section> -->
-        <nav class="main-nav">
-          <!-- <div class="main-nav-flach"> -->
-          <router-link to="/meal-app">explore</router-link>
-          <router-link to="/user-profile">user</router-link>
-          <a @click="onLogin">login</a>
-          <a @click="onSignup">signup</a>
-          <!-- </div> -->
-        </nav>
-        <div @click="modalClose" v-if="modal" class="screen-login-signup"></div>
-        <div v-if="modal" class="modal-login-signup">
-          <login
-            @close="modalClose"
-            @login="login"
-            v-if="isLogin && modal"
-          ></login>
-          <signup
-            @close="modalClose"
-            @signup="signup"
-            v-if="isSignup && modal"
-          ></signup>
+      <div class="main-real-nav" v-if="isHome">
+        <router-link to="/meal-app">explore</router-link>
+        <router-link to="/meal-app">something </router-link>
+        <router-link to="/meal-app">something else</router-link>
+      </div>
+      <div class="becomehost-burger-container">
+        <a >Become a host</a>
+        <div class="burger-menu">
+          <img
+            src="@/assets/img/ham.svg"
+            alt=""
+            class="burger"
+            @click="onNav"
+          />
+          <div class="avatar-menu">
+            <font-awesome-icon :icon="['fas', 'user-secret']" />
+          </div>
         </div>
-      </section>
+      </div>
+      <nav class="main-nav" v-if="isNav">
+        <a @click="onSignup">signup</a>
+        <a @click="onLogin">login</a>
+        <router-link to="/user-profile">user</router-link>
+      </nav>
+      <div @click="modalClose" v-if="modal" class="screen-login-signup"></div>
+      <div v-if="modal" class="modal-login-signup">
+        <login
+          @close="modalClose"
+          @login="login"
+          v-if="isLogin && modal"
+        ></login>
+        <signup
+          @close="modalClose"
+          @signup="signup"
+          v-if="isSignup && modal"
+        ></signup>
+      </div>
     </div>
   </header>
 </template>
@@ -61,6 +82,8 @@ export default {
       isLogin: false,
       isSignup: false,
       modal: false,
+      isNav: false,
+      isHome: false,
     };
   },
   computed: {
@@ -69,12 +92,17 @@ export default {
     // },
     headerClass() {
       if (this.$route.name === "homePage") {
+        this.isHome = true;
         return "home";
       }
+      this.isHome = false;
       return "other";
     },
   },
   methods: {
+    onNav() {
+      this.isNav = !this.isNav;
+    },
     onLogin() {
       this.modalOpen();
       this.isSignup = false;

@@ -10,6 +10,17 @@ Vue.use(ElementUI);
 
 import vuetify from '@/plugins/vuetify.js'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faInstagram} from '@fortawesome/free-brands-svg-icons'
+
+library.add(faUserSecret,faFacebookSquare,faTwitter,faLinkedin,faInstagram)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 
 Vue.config.productionTip = false
