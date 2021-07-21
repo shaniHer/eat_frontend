@@ -13,7 +13,10 @@ export default {
 
     getters: {
         // users({ users }) { return users },
-        loggedinUser({ loggedinUser }) { return loggedinUser }
+        // loggedinUser({ loggedinUser }) { return loggedinUser }
+        loggedinUser(state) {
+            return state.loggedinUser
+        }
         // watchedUser({ watchedUser }) { return watchedUser }
     },
     // ---------------------------------
@@ -21,6 +24,7 @@ export default {
     mutations: {
         setLoggedinUser(state, { user }) {
             state.loggedinUser = user;
+            console.log('store', user);
         },
         // setWatchedUser(state, { user }) {
         //     state.watchedUser = user;

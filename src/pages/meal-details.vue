@@ -97,17 +97,16 @@
               <!-- <v-row justify="center">
               <v-date-picker></v-date-picker>
                 </v-row> -->
-   <!-- getAStar(idx) {
+              <!-- getAStar(idx) {
             console.log(idx + ' ' + this.review.rating);
             if (this.review.rating < idx) return '☆'
             return '★';
         }, -->
-        <!-- <span v-for="star in 5"  @click="saveRate(star)"  > {{getAStar(idx)}} </span> -->
- <!-- saveRate(idx) {
+              <!-- <span v-for="star in 5"  @click="saveRate(star)"  > {{getAStar(idx)}} </span> -->
+              <!-- saveRate(idx) {
             console.log(idx);
             this.review.rating = idx;
         } -->
-
 
               <span>&#9733;</span>
               <span>&#9734;</span>
@@ -117,7 +116,20 @@
             <form class="flex flex-column" action="">
               <div class="date-container flex flex-column">
                 <div class="calendar">
-                  <div>
+                  <!-- -----------------------------------------------DATE: -->
+
+                  <article class="inline">
+                    <span class="demonstration"></span>
+                    <el-date-picker
+                      v-model="date"
+                      type="date"
+                      placeholder="Pick a date"
+                      default-value="2021-07-15"
+                    >
+                    </el-date-picker>
+                  </article>
+
+                  <!-- <div>
                     <label class="label-input" for="">Date</label>
                   </div>
                   <div class="input">
@@ -127,7 +139,7 @@
                       v-model="order.eventTime"
                       aria-hidden=""
                     />
-                  </div>
+                  </div> -->
                 </div>
                 <!-- <div class="next-date">
                   <p>Next avilable dates</p>
@@ -138,12 +150,30 @@
                   </div>
                 </div> -->
               </div>
-              <div class="select-guests">
+
+              <!-- ----------------------------------------------- -->
+
+              <!-- --------------------------------------------SELECT -->
+
+              <el-select v-model="order.guestsNum" placeholder="Guests">
+                <el-option
+                  v-for="item in guestOptions"
+                  :key="item.idx"
+                  :label="item.label"
+                  :value="item.idx"
+                >
+                </el-option>
+              </el-select>
+
+              <!-- <div class="select-guests">
                 <label class="">Number of guests</label>
                 <div class="input">
                   <input type="number" v-model="order.guestsNum" />
                 </div>
-              </div>
+              </div> -->
+
+              <!-- ----------------------------------------------- -->
+
               <button class="btn-book" @click="toggleIsBooking">
                 Book my seats
               </button>
@@ -187,17 +217,56 @@ export default {
   data() {
     return {
       meal: null,
-      user: null,
+      user: this.$store.getters.loggedinUser,
       isBooking: false,
       isOrderPlaced: false,
       order: {
         _id: null,
-        guestsNum: 0,
+        guestsNum: "",
         eventTime: null,
         createdAt: Date.now(),
         totalPrice: null,
         status: "pending",
       },
+      // --------------------------------
+      date: "", // @@
+      // --------------------------------
+      guestOptions: [
+        {
+          idx: 1,
+          label: "1 - guest",
+        },
+        {
+          idx: 2,
+          label: "2 - guests",
+        },
+        {
+          idx: 3,
+          label: "3 - guests",
+        },
+        {
+          idx: 4,
+          label: "4 - guests",
+        },
+        {
+          idx: 5,
+          label: "5 - guests",
+        },
+        {
+          idx: 6,
+          label: "6 - guests",
+        },
+        {
+          idx: 7,
+          label: "7 - guests",
+        },
+        {
+          idx: 8,
+          label: "8 - guests",
+        },
+      ],
+      guests: "",
+      // --------------------------------
     };
   },
 
@@ -222,10 +291,11 @@ export default {
     },
 
     createOrder(currMeal, currUser) {
+      console.log("details", this.user);
       const buyer = {
-        _id: "u1001",
-        fullname: "user userson",
-        imgUrl: "",
+        _id: this.user._id,
+        fullname: this.user.fullname,
+        imgUrl: this.user.imgUrl,
       };
       this.order.buyer = buyer;
       const meal = {
@@ -257,9 +327,10 @@ export default {
         this.meal = JSON.parse(JSON.stringify(meal));
         const userId = this.meal.host._id;
         const user = await NEWuserService.getById(userId);
-        console.log(user)
-        this.user = JSON.parse(JSON.stringify(user));
-        this.createOrder(meal, user);
+        this.user = JSON.parse(JSON.stringify(user)); //@@@@@@@@@@@@@
+        const userr = JSON.parse(JSON.stringify(user));
+        console.log('this.userthis.user',this.user); //@@@@@@@@@@@@@@
+        this.createOrder(meal, userr);
       } catch (err) {
         console.log("err in getMealAndUser:", err);
       }
