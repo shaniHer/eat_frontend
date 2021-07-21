@@ -1,7 +1,7 @@
 <template>
   <section class="main-layout">
     <div class="add-meal-container flex">
-    <form class="meal-details"@submit.prevent="saveMeal" v-if="meal">
+    <form class="meal-details" @submit.prevent="saveMeal" v-if="meal">
       <h2 class="page-title">Create new event</h2>
       <div class="flex space-between"><label>Event title</label>
       <input type="text" v-model="meal.title" /></div>
@@ -62,7 +62,7 @@ export default {
     async saveMeal() {
       try {
         await this.$store.dispatch({ type: "saveMeal", meal: this.meal });
-        this.meal = NEWmealService.getEmptyMeal()
+        this.createMeal()
         // this.$router.push('/meal/')
       } catch (err) {
         console.log("cannot save meal", err);

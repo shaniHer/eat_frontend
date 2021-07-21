@@ -6,7 +6,39 @@
           <h1>Eat<span>|</span>it</h1>
         </router-link>
       </div>
-       <div class="search-inputs">
+      <div class="main-real-nav" v-if="isHome">
+        <router-link to="/meal-app">explore</router-link>
+        <router-link to="/meal-app">something </router-link>
+        <router-link to="/meal-app">something else</router-link>
+      </div>
+      <!-- <template v-if="loggedinUser">
+        <p>Hello {{ loggedinUser.fullname }}</p>
+        <button @click="logout">Logout</button>
+      </template> -->
+      <div class="becomehost-burger-container">
+        <div class="becomehost-burger-container-1">
+          <div class="becomehost-burger-container-2">
+            <router-link to="/meal-add">Become a host</router-link>
+            <div class="burger-menu">
+              <img
+                src="@/assets/img/ham.svg"
+                alt=""
+                class="burger"
+                @click="onNav"
+              />
+              <div class="avatar-menu">
+                <font-awesome-icon :icon="['fas', 'user-secret']" />
+              </div>
+            </div>
+          </div>
+          <nav class="main-nav" v-if="isNav">
+            <a @click="onSignup">sign up</a>
+            <a @click="onLogin">login</a>
+            <router-link to="/user-profile">user</router-link>
+          </nav>
+        </div>
+      </div>
+      <!-- <div class="search-inputs">
         <div class="search-location">
           <label for="search-location">location </label>
           <input type="search" id="search-location" />
@@ -25,35 +57,13 @@
           <label for="search-date">date</label>
           <input type="date" id="search-date" />
         </div>
-      </div> 
-      <!-- <section v-if="loggedinUser">
-        <p>Hello {{ loggedinUser.fullname }}</p>
-        <button @click="logout">Logout</button>
-      </section> -->
-      <div class="main-real-nav" v-if="isHome">
-        <router-link to="/meal-app">explore</router-link>
-        <router-link to="/meal-app">something </router-link>
-        <router-link to="/meal-app">something else</router-link>
-      </div>
-      <div class="becomehost-burger-container">
-        <router-link to="/meal-add" >Become a host</router-link>
-        <div class="burger-menu">
-          <img
-            src="@/assets/img/ham.svg"
-            alt=""
-            class="burger"
-            @click="onNav"
-          />
-          <div class="avatar-menu">
-            <font-awesome-icon :icon="['fas', 'user-secret']" />
-          </div>
-        </div>
-      </div>
-      <nav class="main-nav" v-if="isNav">
+      </div>  -->
+
+      <!-- <nav class="main-nav" v-if="isNav">
         <a @click="onSignup">sign up</a>
         <a @click="onLogin">login</a>
         <router-link to="/user-profile">user</router-link>
-      </nav>
+      </nav> -->
       <div @click="modalClose" v-if="modal" class="screen-login-signup"></div>
       <div v-if="modal" class="modal-login-signup">
         <login
@@ -87,9 +97,9 @@ export default {
     };
   },
   computed: {
-    // loggedinUser() {
-    //   return this.$store.getters.loggedinUser;
-    // },
+    loggedinUser() {
+      return this.$store.getters.loggedinUser;
+    },
     headerClass() {
       if (this.$route.name === "homePage") {
         this.isHome = true;

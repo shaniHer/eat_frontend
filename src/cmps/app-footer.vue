@@ -3,7 +3,7 @@
     <section class="app-footer-container">
       <div class="coffee-container">
         <div class="logo">
-          <h1>Eat it</h1>
+          <h1>Eat<span>|</span>it</h1>
         </div>
         <div class="all-icons">
           <img src="@/assets/icons/apple.svg" alt="">
