@@ -11,6 +11,14 @@ export default {
             return state.orders
         },
 
+        ordersToShow(state) {
+            console.log(state.orders);
+            // console.log(this.user);
+            // console.log(this.orders);
+            // const orders = this.$store.getters.orders;
+            // return this.orders.filter((order) => order.buyer._id === this.user._id);
+        },
+
     },
 
     mutations: {

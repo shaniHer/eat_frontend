@@ -2,17 +2,22 @@
   <section>
     <h2>
       <img class="avatar" :src="require('@/assets/img/img1.jpg')" />
-      Hi there! {{ user.username }}
+      <!-- Hi there! {{ user.username }} -->
     </h2>
-    <ul v-for="order in orders" :key="order._id">
-      <div class="order-item">
-        <span>{{ order.meal.title }}</span>
-        <span>{{ order.eventTime }}</span>
-        <span>{{ order.guestsNum }}</span>
-        <span>${{ order.totalPrice }}</span>
-        <span class="accept-order" @click="acceptOrder">Accept</span>
-      </div>
-    </ul>
+
+    <article v-if="orders">
+      <!-- @@ -->
+      <ul v-for="order in ordersToShow" :key="order._id">
+        <div class="order-item">
+          <span>{{ order.createdAt }}</span>
+          <span>{{ order.eventTime }}</span>
+          <span>{{ order.guestsNum }}</span>
+          <span>${{ order.totalPrice }}</span>
+          <span>Accept</span>
+        </div>
+      </ul>
+    </article>
+    <!-- @@ -->
   </section>
 </template>
 
@@ -20,7 +25,8 @@
 export default {
   data() {
     return {
-      user: this.$store.getters.loggedinUser,
+      user: null,
+      orders: [],
     };
   },
 
@@ -28,22 +34,23 @@ export default {
     // loggedInUser() {
     //   return 'Chef'
     // },
-    orders() {
-      const orders = this.$store.getters.orders;
-      // return orders.filter((oreder) => oreder.buyer._id === this.user._id);
 
+
+    ordersToShow() {
+      console.log(this.user);
+      console.log(this.orders);
+      // const orders = this.$store.getters.orders;
+      return this.orders.filter((order) => order.buyer._id === this.user._id);
    },
   },
 
-  methods: {
-    acceptOrder() {},
-  },
+  methods: {},
 
   created() {
     this.$store.dispatch({ type: "loadOrders" });
+    this.user = this.$store.getters.loggedinUser;
+    this.orders = this.$store.getters.orders;
 
-    // -------------------------------------------------------
-    // -------------------------------------------------------
   },
 };
 </script>

@@ -15,11 +15,10 @@ export default {
         },
         mealsToShowHomepage(state) {
             // var meals=[]
-            console.log(state.meals)
             var mealsToShowHomepage = state.meals.sort((a, b) => {
                 return a.host.rate > b.host.rate ? -1 : a.host.rate < b.host.rate ? 1 : 0
             })
-            mealsToShowHomepage = mealsToShowHomepage.slice(0, 8)
+            mealsToShowHomepage = mealsToShowHomepage.slice(0, 24)
             // return state.meals.filter(meal => meal.owner.rate > 4)
             return mealsToShowHomepage
         },
@@ -85,6 +84,7 @@ export default {
             // const type = (meal._id) ? 'updateMeal' : 'addMeal'
             try {
                const savedMeal = await NEWmealService.add(meal)
+               console.log('savedMealsavedMeal',savedMeal);
                commit({ type:'addMeal', savedMeal })
                return savedMeal
             }

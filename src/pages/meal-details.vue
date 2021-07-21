@@ -291,7 +291,6 @@ export default {
     },
 
     createOrder(currMeal, currUser) {
-      console.log("details", this.user);
       const buyer = {
         _id: this.user._id,
         fullname: this.user.fullname,
@@ -320,6 +319,7 @@ export default {
         this.isOrderPlaced = !this.isOrderPlaced;
       }, 3000);
     },
+    
     async getMealAndUser() {
       try {
         const { mealId } = this.$route.params;
@@ -327,10 +327,8 @@ export default {
         this.meal = JSON.parse(JSON.stringify(meal));
         const userId = this.meal.host._id;
         const user = await NEWuserService.getById(userId);
-        this.user = JSON.parse(JSON.stringify(user)); //@@@@@@@@@@@@@
-        const userr = JSON.parse(JSON.stringify(user));
-        console.log('this.userthis.user',this.user); //@@@@@@@@@@@@@@
-        this.createOrder(meal, userr);
+        this.createOrder(meal, user);
+        // this.user = JSON.parse(JSON.stringify(user)); //@@@@@@@@@@@@@
       } catch (err) {
         console.log("err in getMealAndUser:", err);
       }
