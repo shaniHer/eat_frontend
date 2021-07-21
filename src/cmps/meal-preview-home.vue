@@ -18,7 +18,7 @@
         <div class="card-fullname-container">
           <div class="avatar-img">
             a
-            <img src="" alt="" />
+            <!-- <img src="" alt="" /> -->
           </div>
           <div class="card-fullname">
             <span>Hosted by</span>
