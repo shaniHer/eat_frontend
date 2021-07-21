@@ -18,7 +18,7 @@ export default {
             var mealsToShowHomepage = state.meals.sort((a, b) => {
                 return a.host.rate > b.host.rate ? -1 : a.host.rate < b.host.rate ? 1 : 0
             })
-            mealsToShowHomepage = mealsToShowHomepage.slice(0, 24)
+            mealsToShowHomepage = mealsToShowHomepage.slice(0, 8)
             // return state.meals.filter(meal => meal.owner.rate > 4)
             return mealsToShowHomepage
         },
