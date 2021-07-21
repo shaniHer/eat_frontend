@@ -36,31 +36,7 @@ function update(todo) {
     return asyncStorageService.put(STORAGE_KEY, todo)
 }
 
-function getEmptyMeal(){
-    return {
-        title,
-        price: util.getRndInteger(150, 500),
-        capacity: 12,
-        vegeterian: util.randomBuliean(),
-        vegan: util.randomBuliean(),
-        diet: util.randomBuliean(),
-        guests: util.getRndInteger(1, 25),
-        cuisine,
-        mealImgUrl: util.getMealImgUrl(cuisine),
-        host: {
-            _id: id,
-            rate,
-            fullname,
-            imgUrl,
-        },
-        loc: {
-            name: "Paris",
-            lat: 32.9898,
-            lng: 12.28
-        },
 
-    }
-}
 
 function createMeals() {
     const meals = [

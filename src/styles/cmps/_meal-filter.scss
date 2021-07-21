@@ -1,3 +1,17 @@
+// .meal-filter {
+//     text-align: center;
+
+//     .price-filter {
+//         width: 30%;
+//         margin: 0 auto;
+//     }
+
+//     .meal-filter-btn {
+//         margin-left: rem(10px);
+//     }
+//     margin-bottom: rem(40px);
+// }
+
 .meal-filter {
     text-align: center;
 
@@ -6,8 +20,15 @@
         margin: 0 auto;
     }
 
+    .el-select {
+        margin-left: 1rem;
+    }
+
     .meal-filter-btn {
-        margin-left: rem(10px);
+        // margin-left: rem(10px);
+        margin-left: 1rem;
     }
     margin-bottom: rem(40px);
 }
+
+// --------------------------------------------------------

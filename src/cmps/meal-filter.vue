@@ -1,23 +1,10 @@
 <template>
-  <section class="meal-filter">
-    <!-- ---------------------------------filter by price: -->
-    <article>
-      Filter by price:
-      <el-slider
-        class="price-filter"
-        v-model="filter.price"
-        range
-        show-stops
-        :max="2500"
-        @change="emitFilter"
-      >
-      </el-slider>
-    </article>
+  <section class="meal-filter full">
     <!-- ---------------------------------filter by date:: -->
     <article class="inline">
       <span class="demonstration"></span>
       <el-date-picker
-        v-model="value1"
+        v-model="date"
         type="date"
         placeholder="Pick a date"
         default-value="2021-07-15"
@@ -54,15 +41,48 @@
       </el-option>
     </el-select>
 
-    <!-- ---------------------------------filter by diet -->
+    <!-- ---------------------------------filter by price: -->
+
+    <el-select
+      multiple
+      placeholder="Price"
+      v-model="price.emptyVal"
+    >
+      <el-option value="emptyVal" :key="price.idx" :label="price.label">
+        <el-slider
+          class="price-filter"
+          v-model="filter.price"
+          range
+          show-stops
+          :max="2500"
+          @change="emitFilter"
+        >
+        </el-slider>
+      </el-option>
+    </el-select>
+
+    <!-- @@@@@@@@@@@@@@@@@@@@@@ -->
+
+    <!-- <article>
+      Filter by price:
+      <el-slider
+        class="price-filter"
+        v-model="filter.price"
+        range
+        show-stops
+        :max="2500"
+        @change="emitFilter"
+      >
+      </el-slider>
+    </article> -->
 
     <article class="meal-filter-btn inline">
+      <!-- ---------------------------------filter by diet -->
       <el-button @click="filterBy('vegan')">Vegan</el-button>
       <el-button @click="filterBy('vegeterian')">Vegeterian</el-button>
+      <!-- ----------------------------------->
+      <el-button @click="clearFilter">Clear filter</el-button>
     </article>
-
-    <!-- ---------------------------------clear filter -->
-    <el-button @click="clearFilter">Clear filter</el-button>
   </section>
 </template>
 
@@ -130,9 +150,10 @@ export default {
       cuisineName: "",
 
       // ----------------------------date:
-      value1: "",
+      date: "",
       // ----------------------------
       price: {
+        idx: "",
         label: "price",
       },
     };
@@ -181,7 +202,12 @@ export default {
   },
 
   destroyed() {
+    // ------------------------------------------------- @@@
     this.$store.getters.getFilter.cuisine = "";
+    this.$store.getters.getFilter.price = "";
+    this.$store.getters.getFilter.guests = {};
+    this.$store.getters.getFilter.diet = "all";
+    // -------------------------------------------------
   },
 };
 </script>

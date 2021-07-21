@@ -15,6 +15,7 @@ export default {
         },
         mealsToShowHomepage(state) {
             // var meals=[]
+            console.log(state.meals)
             var mealsToShowHomepage = state.meals.sort((a, b) => {
                 return a.host.rate > b.host.rate ? -1 : a.host.rate < b.host.rate ? 1 : 0
             })
@@ -62,6 +63,9 @@ export default {
         setFilter(state, { filter }) {
             state.filterBy = filter
         },
+        addMeal(state, { savedMeal }) {
+            state.meals.push(savedMeal);
+         },
     },
 
     // ---------------------------------
@@ -77,5 +81,17 @@ export default {
                 throw err
             }
         },
+        async saveMeal({ commit }, { meal }) {
+            // const type = (meal._id) ? 'updateMeal' : 'addMeal'
+            try {
+               const savedMeal = await NEWmealService.add(meal)
+               commit({ type:'addMeal', savedMeal })
+               return savedMeal
+            }
+            catch (err){
+               console.log('Cannot save meal ', meal, ',', err);
+               throw err;
+            }
+         },
     },
 }
