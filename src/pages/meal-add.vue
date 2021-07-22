@@ -62,7 +62,7 @@ export default {
     async saveMeal() {
       try {
         await this.$store.dispatch({ type: "saveMeal", meal: this.meal });
-        this.meal = NEWmealService.getEmptyMeal()
+        this.createMeal()
         // this.$router.push('/meal/')
       } catch (err) {
         console.log("cannot save meal", err);
