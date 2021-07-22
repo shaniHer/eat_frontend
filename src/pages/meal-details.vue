@@ -69,6 +69,7 @@ export default {
     mealImg() {
       return this.meal.mealImgUrl;
     },
+
     totalPrice() {
       const totalPrice = this.order.guestsNum * this.meal.price;
       this.order.totalPrice = totalPrice;
@@ -86,7 +87,7 @@ export default {
         this.isOrderPlaced = !this.isOrderPlaced;
       }, 3000);
     },
-    
+
     async getMealAndUser() {
       try {
         const { mealId } = this.$route.params;

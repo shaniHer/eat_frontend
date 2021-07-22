@@ -17,8 +17,8 @@
         </h4>
         <div class="card-fullname-container">
           <div class="avatar-img">
-            a
-            <!-- <img src="" alt="" /> -->
+            <!-- <user-avatar class="avatar-img"></user-avatar> -->
+            <img :src="meal.host.imgUrl" alt="" />
           </div>
           <div class="card-fullname">
             <span>Hosted by</span>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+  import userAvatar from "@/cmps/user-avatar.cmp"
 export default {
   props: {
     meal: Object,
@@ -43,6 +44,9 @@ export default {
       return this.meal.host.imgUrl;
     },
   },
+  components:{
+    userAvatar
+  }
 };
 </script>
 

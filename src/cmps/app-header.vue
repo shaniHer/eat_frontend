@@ -1,12 +1,82 @@
 <template>
   <header class="app-header full main-layout" :class="headerClass">
+    <!-- <div class="screen-main-nav" v-if="isNav" @click="onNav"></div> -->
+
+
+
+  <!-- <header class="app-header full main-layout" :class="headerClass"> -->  <!-- @@ -->
+  <header class="app-header" :class="headerClass">                       <!-- ** -->
+  <div class="navnav full"><!-- ** -->
     <div class="app-header-container">
       <div class="logo">
         <router-link to="/">
-          <h1>Eat<span>|</span>it</h1>
+          <h1>Eat<span >|</span>it</h1>
         </router-link>
       </div>
-       <div class="search-inputs">
+
+
+
+      <div class="main-real-nav" v-if="isHome">
+        <router-link to="/meal-app">explore</router-link>
+        <router-link to="/meal-app">something </router-link>
+        <router-link to="/meal-app">something else</router-link>
+      </div> 
+
+
+<!-- -------------------------------------****-----------------------NAV -->
+  <!-- <div class="search-box">
+    <button class="search-btn">🔍</button>
+   <input class="sb-input">
+   <input class="sb-input"> 
+
+   <input class="sb-input">
+  </div> -->
+
+<!-- ------------------------------------------------------------NAV -->
+
+
+
+
+
+
+
+
+      <!-- <template v-if="loggedinUser">
+        <p>Hello {{ loggedinUser.fullname }}</p>
+        <button @click="logout">Logout</button>
+      </template> -->
+      <div class="becomehost-burger-container">
+        <div class="becomehost-burger-container-1">
+          <div class="becomehost-burger-container-2">
+            <router-link to="/meal-add">Become a host</router-link>
+            <div class="burger-menu">
+              <img
+                src="@/assets/img/ham.svg"
+                alt=""
+                class="burger"
+                @click="onNav"
+              />
+              <!-- <div class="avatar-menu"> -->
+              <user-avatar class="avatar-menu"></user-avatar>
+              <!-- <font-awesome-icon :icon="['fas', 'user-secret']" /> -->
+              <!-- </div> -->
+            </div>
+          </div>
+          <div class="screen-main-nav" v-if="isNav" @click="onNav"></div>
+          <nav class="main-nav" v-if="isNav">
+            <div class="login-signup-border">
+            <a @click="onSignup">Sign up</a>
+            <a @click="onLogin">Login</a>
+            </div>
+            <div class="user-routes">
+            <router-link to="/user-profile">User profile</router-link>
+            <router-link to="/meal-add">Become a host</router-link>
+            </div>
+          </nav>
+        </div>
+      </div>
+</div><!-- ** -->
+      <!-- <div class="search-inputs">
         <div class="search-location">
           <label for="search-location">location </label>
           <input type="search" id="search-location" />
@@ -25,35 +95,13 @@
           <label for="search-date">date</label>
           <input type="date" id="search-date" />
         </div>
-      </div> 
-      <!-- <section v-if="loggedinUser">
-        <p>Hello {{ loggedinUser.fullname }}</p>
-        <button @click="logout">Logout</button>
-      </section> -->
-      <div class="main-real-nav" v-if="isHome">
-        <router-link to="/meal-app">explore</router-link>
-        <router-link to="/meal-app">something </router-link>
-        <router-link to="/meal-app">something else</router-link>
-      </div>
-      <div class="becomehost-burger-container">
-        <router-link to="/meal-add" >Become a host</router-link>
-        <div class="burger-menu">
-          <img
-            src="@/assets/img/ham.svg"
-            alt=""
-            class="burger"
-            @click="onNav"
-          />
-          <div class="avatar-menu">
-            <font-awesome-icon :icon="['fas', 'user-secret']" />
-          </div>
-        </div>
-      </div>
-      <nav class="main-nav" v-if="isNav">
+      </div>  -->
+
+      <!-- <nav class="main-nav" v-if="isNav">
         <a @click="onSignup">sign up</a>
         <a @click="onLogin">login</a>
         <router-link to="/user-profile">user</router-link>
-      </nav>
+      </nav> -->
       <div @click="modalClose" v-if="modal" class="screen-login-signup"></div>
       <div v-if="modal" class="modal-login-signup">
         <login
@@ -68,12 +116,23 @@
         ></signup>
       </div>
     </div>
+    <div class="checkflex" v-if="isHome">
+      <div class="checking">
+        <h2>Host a meal</h2>
+        <h2>Enjoy and get paid</h2>
+      </div>
+      <div class="checking">
+        <h2>Host a meal</h2>
+        <h2>Enjoy and get paid</h2>
+      </div>
+    </div>
   </header>
 </template>
 
 <script>
 import login from "@/cmps/login";
 import signup from "@/cmps/signup";
+import userAvatar from "@/cmps/user-avatar.cmp";
 export default {
   data() {
     return {
@@ -87,9 +146,9 @@ export default {
     };
   },
   computed: {
-    // loggedinUser() {
-    //   return this.$store.getters.loggedinUser;
-    // },
+    loggedinUser() {
+      return this.$store.getters.loggedinUser;
+    },
     headerClass() {
       if (this.$route.name === "homePage") {
         this.isHome = true;
@@ -102,6 +161,7 @@ export default {
   methods: {
     onNav() {
       this.isNav = !this.isNav;
+      console.log(this.isNav);
     },
     onLogin() {
       this.modalOpen();
@@ -179,6 +239,7 @@ export default {
   components: {
     login,
     signup,
+    userAvatar,
   },
 };
 </script>

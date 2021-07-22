@@ -96,11 +96,11 @@
             if (this.review.rating < idx) return '☆'
             return '★';
         }, -->
-              <span v-for="star in 5"  @click="saveRate(star)"  > {{getAStar(idx)}} </span>
+              <!-- <span v-for="star in 5"  @click="saveRate(star)"  > {{getAStar(idx)}} </span>
               saveRate(idx) {
             console.log(idx);
-            this.review.rating = idx;
-        }
+            this.review.rating = idx; -->
+        <!-- } -->
 
               <span>&#9733;</span>
               <span>&#9734;</span>

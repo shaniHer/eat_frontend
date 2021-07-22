@@ -1,18 +1,24 @@
 .user-msg{
     position: fixed;
+    z-index: 99;
     left:50%;
     top:0;
+    transform: translateX(-50%);
     width:300px;
-    border-radius: 10px;
-    border:2px solid black;
+    // border-radius: em(3px);
+    // border:1px solid rgba(13,13,13,1);
     text-align: center;
     .success{
-        background-color: lime;
-        border-radius: 10px;
+        background-color:  $clr4;
+        color:$clr5;
+        border:1px solid rgba(13,13,13,1);
+        border-radius: em(3px);
     }
     .danger{
-        background-color: red;
-        border-radius: 10px;
+        background-color:  $clr4;;
+        color:$clr1;
+        border:1px solid rgba(13,13,13,1);
+        border-radius: em(3px);
 
     }
 }
