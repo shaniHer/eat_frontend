@@ -8,7 +8,7 @@
         td {
             text-align: center;
         }
-        td{
+        td {
             padding: 0.5rem;
         }
         th {
@@ -29,5 +29,20 @@
             background-color: #f54f6d;
             color: white;
         }
+    }
+
+    .user-profile-options {
+        text-align: center;
+        
+        h3 {
+            display: inline;
+            cursor: pointer;
+        }
+
+        > * {
+            margin: 0 rem(10px);
+          
+        }
+ 
     }
 }

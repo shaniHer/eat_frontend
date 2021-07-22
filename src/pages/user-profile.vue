@@ -5,14 +5,20 @@
       Hi there! {{ user.username }}
     </h2>
 
-    <h3 class="centerTxt" @click="userOrders">Your orders:</h3>
-    <user-orders :orders="orders" :logdinUser="user"></user-orders>
+    <article class="user-profile-options">
+      <h3 @click="userOrders">Your orders</h3>
+      <h3 @click="userHost">Your host</h3>
 
 
-    <h3 class="centerTxt"  @click="userHost">Your host:</h3>
-    <user-host :logdinUser="user"></user-host>
-    <!-- -=------------------------------------------ -->
+      <user-orders
+        v-if="show.orders"
+        :orders="orders"
+        :logdinUser="user"
+      ></user-orders>
 
+      <user-host v-if="show.host" :logdinUser="user"></user-host>
+      <!-- -=------------------------------------------ -->
+    </article>
     <!-- <ul v-for="order in ordersToShow" :key="order._id"> -->
     <!-- <div class="order-item">
           <span>{{ order.createdAt }}</span>
@@ -28,14 +34,15 @@
 
 <script>
 import userOrders from "../cmps/user-orders.vue";
-import userHost from "../cmps/user-host.vue"
+import userHost from "../cmps/user-host.vue";
 
 export default {
   data() {
     return {
       user: null,
       orders: [],
-      meals:[]
+      meals: [],
+      show: { orders: true, host: false },
     };
   },
 
@@ -48,12 +55,14 @@ export default {
   // --------------------------------------
 
   methods: {
-    userOrders(){
-      console.log('aa');
+    userOrders() {
+      this.show.orders = !this.show.orders;
+      if(this.show.host) this.show.host = false
     },
-    userHost(){
-      console.log('bbb');
-    }
+    userHost() {
+      this.show.host = !this.show.host;
+        if(this.show.orders) this.show.orders = false
+    },
   },
 
   // --------------------------------------
@@ -68,7 +77,7 @@ export default {
 
   components: {
     userOrders,
-    userHost
+    userHost,
   },
 };
 </script>
