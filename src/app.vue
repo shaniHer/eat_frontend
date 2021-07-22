@@ -1,6 +1,7 @@
 
 <template>
-  <div id="app" class="app-main"  :class="`${topClass}`" >
+  <div id="app" class="app-main"   >
+    <!-- :class="`${topClass}`" -->
     <user-msg />
     <app-header/>
     <router-view />
@@ -15,17 +16,17 @@ import userMsg from "@/cmps/user-msg";
 export default {
   data() {
     return {
-      userLogged: false,
-      topClass: "top",
+      // userLogged: false,
+      // topClass: "top",
     };
   },
   // -----------------------------------@@@@@@@@@@@@@
-  created() {
-    window.onscroll = () => {
-      if (window.scrollY !== 0) this.topClass = "";
-      else this.topClass = "top";
-    };
-  },
+  // created() {
+  //   window.onscroll = () => {
+  //     if (window.scrollY !== 0) this.topClass = "";
+  //     else this.topClass = "top";
+  //   };
+  // },
   // -----------------------------------@@@@@@@@@@
   components: {
     appHeader,

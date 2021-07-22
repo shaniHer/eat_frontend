@@ -1,16 +1,16 @@
 <template>
   <header class="app-header full main-layout" :class="headerClass">
-    <!-- <div class="screen-main-nav" v-if="isNav" @click="onNav"></div> -->
+              <!-- <div class="screen-main-nav" v-if="isNav" @click="onNav"></div> -->
 
 
 
-  <!-- <header class="app-header full main-layout" :class="headerClass"> -->  <!-- @@ -->
-  <header class="app-header" :class="headerClass">                       <!-- ** -->
-  <div class="navnav full"><!-- ** -->
+              <!-- <header class="app-header full main-layout" :class="headerClass"> -->  <!-- @@ -->
+              <!-- <header class="app-header" :class="headerClass">                       ** -->
+             <!-- <div class="navnav full">** -->
     <div class="app-header-container">
       <div class="logo">
         <router-link to="/">
-          <h1>Eat<span >|</span>it</h1>
+          <h1>Eat<span>|</span>it</h1>
         </router-link>
       </div>
 
@@ -23,16 +23,16 @@
       </div> 
 
 
-<!-- -------------------------------------****-----------------------NAV -->
-  <!-- <div class="search-box">
-    <button class="search-btn">🔍</button>
-   <input class="sb-input">
-   <input class="sb-input"> 
+                 <!-- -------------------------------------****-----------------------NAV -->
+                  <!-- <div class="search-box">
+                    <button class="search-btn">🔍</button>
+                   <input class="sb-input">
+                   <input class="sb-input"> 
 
-   <input class="sb-input">
-  </div> -->
+                   <input class="sb-input">
+                  </div> -->
 
-<!-- ------------------------------------------------------------NAV -->
+                   <!-- ------------------------------------------------------------NAV -->
 
 
 
@@ -75,7 +75,8 @@
           </nav>
         </div>
       </div>
-</div><!-- ** -->
+                      <!-- </div> -->
+                      <!-- ** -->
       <!-- <div class="search-inputs">
         <div class="search-location">
           <label for="search-location">location </label>
