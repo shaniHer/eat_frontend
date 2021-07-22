@@ -1,5 +1,6 @@
 <template>
   <header class="app-header full main-layout" :class="headerClass">
+    <!-- <div class="screen-main-nav" v-if="isNav" @click="onNav"></div> -->
     <div class="app-header-container">
       <div class="logo">
         <router-link to="/">
@@ -26,15 +27,22 @@
                 class="burger"
                 @click="onNav"
               />
-              <div class="avatar-menu">
-                <font-awesome-icon :icon="['fas', 'user-secret']" />
-              </div>
+              <!-- <div class="avatar-menu"> -->
+              <user-avatar class="avatar-menu"></user-avatar>
+              <!-- <font-awesome-icon :icon="['fas', 'user-secret']" /> -->
+              <!-- </div> -->
             </div>
           </div>
+          <div class="screen-main-nav" v-if="isNav" @click="onNav"></div>
           <nav class="main-nav" v-if="isNav">
-            <a @click="onSignup">sign up</a>
-            <a @click="onLogin">login</a>
-            <router-link to="/user-profile">user</router-link>
+            <div class="login-signup-border">
+            <a @click="onSignup">Sign up</a>
+            <a @click="onLogin">Login</a>
+            </div>
+            <div class="user-routes">
+            <router-link to="/user-profile">User profile</router-link>
+            <router-link to="/meal-add">Become a host</router-link>
+            </div>
           </nav>
         </div>
       </div>
@@ -78,12 +86,23 @@
         ></signup>
       </div>
     </div>
+    <div class="checkflex" v-if="isHome">
+      <div class="checking">
+        <h2>Host a meal</h2>
+        <h2>Enjoy and get paid</h2>
+      </div>
+      <div class="checking">
+        <h2>Host a meal</h2>
+        <h2>Enjoy and get paid</h2>
+      </div>
+    </div>
   </header>
 </template>
 
 <script>
 import login from "@/cmps/login";
 import signup from "@/cmps/signup";
+import userAvatar from "@/cmps/user-avatar.cmp";
 export default {
   data() {
     return {
@@ -189,6 +208,7 @@ export default {
   components: {
     login,
     signup,
+    userAvatar,
   },
 };
 </script>
