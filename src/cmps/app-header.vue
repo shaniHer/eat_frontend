@@ -1,17 +1,49 @@
 <template>
+<<<<<<< HEAD
   <header class="app-header full main-layout" :class="headerClass">
     <!-- <div class="screen-main-nav" v-if="isNav" @click="onNav"></div> -->
+=======
+
+
+
+  <!-- <header class="app-header full main-layout" :class="headerClass"> -->  <!-- @@ -->
+  <header class="app-header" :class="headerClass">                       <!-- ** -->
+  <div class="navnav full"><!-- ** -->
+>>>>>>> d167ecd25eb4da1649758ba1521479efed42aee9
     <div class="app-header-container">
       <div class="logo">
         <router-link to="/">
-          <h1>Eat<span>|</span>it</h1>
+          <h1>Eat<span >|</span>it</h1>
         </router-link>
       </div>
+
+
+
       <div class="main-real-nav" v-if="isHome">
         <router-link to="/meal-app">explore</router-link>
         <router-link to="/meal-app">something </router-link>
         <router-link to="/meal-app">something else</router-link>
-      </div>
+      </div> 
+
+
+<!-- -------------------------------------****-----------------------NAV -->
+  <!-- <div class="search-box">
+    <button class="search-btn">🔍</button>
+   <input class="sb-input">
+   <input class="sb-input"> 
+
+   <input class="sb-input">
+  </div> -->
+
+<!-- ------------------------------------------------------------NAV -->
+
+
+
+
+
+
+
+
       <!-- <template v-if="loggedinUser">
         <p>Hello {{ loggedinUser.fullname }}</p>
         <button @click="logout">Logout</button>
@@ -46,6 +78,7 @@
           </nav>
         </div>
       </div>
+</div><!-- ** -->
       <!-- <div class="search-inputs">
         <div class="search-location">
           <label for="search-location">location </label>
@@ -131,6 +164,7 @@ export default {
   methods: {
     onNav() {
       this.isNav = !this.isNav;
+      console.log(this.isNav);
     },
     onLogin() {
       this.modalOpen();

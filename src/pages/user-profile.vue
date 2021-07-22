@@ -5,11 +5,11 @@
       Hi there! {{ user.username }}
     </h2>
 
-    <h3 class="centerTxt">Your orders:</h3>
+    <h3 class="centerTxt" @click="userOrders">Your orders:</h3>
     <user-orders :orders="orders" :logdinUser="user"></user-orders>
 
 
-    <h3 class="centerTxt">Your host:</h3>
+    <h3 class="centerTxt"  @click="userHost">Your host:</h3>
     <user-host :logdinUser="user"></user-host>
     <!-- -=------------------------------------------ -->
 
@@ -35,6 +35,7 @@ export default {
     return {
       user: null,
       orders: [],
+      meals:[]
     };
   },
 
@@ -46,7 +47,14 @@ export default {
 
   // --------------------------------------
 
-  methods: {},
+  methods: {
+    userOrders(){
+      console.log('aa');
+    },
+    userHost(){
+      console.log('bbb');
+    }
+  },
 
   // --------------------------------------
 
