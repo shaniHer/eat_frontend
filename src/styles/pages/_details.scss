@@ -8,8 +8,10 @@
 }
 .avatar {
     width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
+
 
 .review-header .details{
     margin: 0px 16px;
@@ -45,6 +47,17 @@
     display: flex;
 }
 
+.menu-section {
+padding: 20px;
+border-right: 1px solid rgb(223, 226, 231);
+
+}
+.menu-section :nth-child(1){
+    font-weight:bold;
+}
+.subtitle{
+    font-size: 1.25rem;
+}
 .grid{
     display: grid;
 }
@@ -126,11 +139,18 @@ color: rgb(53, 53, 48);
 .booking-container {
     // flex-grow: 1;
     grid-column: span 1;
-    height: 500px;
+    height: fit-content;
     position: sticky;
     top: 80px;
     color: #353530;
-    box-shadow: 0px 6px 9px 0px rgba(0,0,0,0.1);}
+    box-shadow: 0px 6px 9px 0px rgba(0,0,0,0.1);
+}
+
+
+.booking-price{
+    margin-top: 20px;
+    font-weight: bold;
+}
 
 .img-gallery {
     // background-color:lightpink;
@@ -192,6 +212,16 @@ color: rgb(53, 53, 48);
     color: #998F89;
 }
 
+.rating-details{
+    color: #998F89;
+    font-size: 0.75rem;
+}
+
+.rating-stars{
+    color: #FF385C;
+    font-weight: bolder;
+}
+
 button {
     border: none;
     padding: 10px;
@@ -233,11 +263,15 @@ button {
     font-weight: bold;
 }
 
-.subtitle {
+.details-section {
     font-size: 1rem;
-    margin-bottom: 8px;
-    margin-top:10px;
+    margin-top: 20px;
 }
+
+// .review-list{
+//     flex-wrap: wrap;
+//     gap: 30px;
+// }
 
 .review-card {
     margin: 16px 0px;
