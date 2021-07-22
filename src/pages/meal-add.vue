@@ -199,11 +199,7 @@ export default {
     async saveMeal() {
       try {
         await this.$store.dispatch({ type: "saveMeal", meal: this.meal });
-<<<<<<< HEAD
-        this.createMeal()
-=======
         this.createMeal();
->>>>>>> add070286ee70327a3a4e8b81d449db8c1d8bf75
         // this.$router.push('/meal/')
       } catch (err) {
         console.log("cannot save meal", err);
@@ -232,7 +228,7 @@ export default {
     userAvatar,
     imgList,
     imgUpload,
-  },
+  }
 };
 </script>
 
