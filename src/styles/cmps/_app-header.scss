@@ -34,41 +34,32 @@
     background-repeat: no-repeat;
     height: 75vh;
     align-items: start;
-<<<<<<< HEAD
     .app-header-container{
         margin-block-start: em(24px);
-=======
     .app-header-container {
         margin-block-start: 50px;
->>>>>>> d167ecd25eb4da1649758ba1521479efed42aee9
         display: flex;
         justify-content: space-between;
         align-items: center;
         .logo span {
             color: #ff385c;
         }
-<<<<<<< HEAD
         .main-real-nav{
             // width: 400px;
-=======
         .main-real-nav {
             width: 400px;
->>>>>>> d167ecd25eb4da1649758ba1521479efed42aee9
             font-size: rem(24px);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-<<<<<<< HEAD
         .main-real-nav >*:not(:last-child){
             margin-inline-end: em(10px);
         }
         .main-real-nav >*:hover{
             border-bottom: 2px solid #FF385C;
-=======
         .main-real-nav > *:hover {
             border-bottom: 2px solid #ff385c;
->>>>>>> d167ecd25eb4da1649758ba1521479efed42aee9
         }
     }
         .checkflex{
@@ -92,7 +83,6 @@
     width: 100%;
     height: 100%;
 }
-<<<<<<< HEAD
 .main-nav{
     position: relative;
     display:flex;
@@ -101,19 +91,16 @@
     font-size: rem(16px);
     color:rgb(139, 139, 139);
     box-shadow: 0 0 5px 0 rgba(199, 199, 199,0.5);
-=======
 .main-nav {
     display: flex;
     flex-direction: column;
     font-size: rem(18px);
     color: rgb(139, 139, 139);
     box-shadow: 0 0 5px 0 rgba(199, 199, 199, 0.5);
->>>>>>> d167ecd25eb4da1649758ba1521479efed42aee9
     width: 100%;
     // padding-inline-start: 20px;
     // padding-block-end: em(10px);
     border-radius: 10px;
-<<<<<<< HEAD
     background:white;
     .login-signup-border{
         padding-inline-start: 20px;
@@ -142,27 +129,22 @@
 }
 
 
-=======
     background: white;
 }
 .main-nav :first-child {
     color: rgb(13, 13, 13);
 }
->>>>>>> d167ecd25eb4da1649758ba1521479efed42aee9
 // .logo{
 //     color:white;
 //     h1{
 //         font-family: Fugaz, serif;
 //     }
 // }
-<<<<<<< HEAD
 .becomehost-burger-container{
     a{
-=======
 .becomehost-burger-container {
     display: flex;
     a {
->>>>>>> d167ecd25eb4da1649758ba1521479efed42aee9
         margin-inline-end: em(10px);
     }
 }
@@ -176,13 +158,10 @@
     margin-block-end: em(10px);
     // background-color: yellow;
 }
-<<<<<<< HEAD
 .burger-menu{
     border-radius: em(20px);
-=======
 .burger-menu {
     border-radius: em(30px);
->>>>>>> d167ecd25eb4da1649758ba1521479efed42aee9
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 5px 0 rgba(199, 199, 199, 0.5);
     display: flex;
@@ -190,7 +169,6 @@
 }
 .burger {
     cursor: pointer;
-<<<<<<< HEAD
     width:em(15px);
     margin-inline: em(10px);
     color: white;
@@ -198,7 +176,6 @@
 .avatar-menu{
     margin-inline-end: em(10px);
     margin-block: em(4px);
-=======
     width: em(20px);
     margin-inline-start: em(12px);
     margin-inline-end: em(12px);
@@ -208,13 +185,11 @@
     margin-inline-end: em(12px);
     margin-block: em(6px);
     text-align: center;
->>>>>>> d167ecd25eb4da1649758ba1521479efed42aee9
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: rem(20px);
-<<<<<<< HEAD
     width: em(25px);
     height: em(25px);
     // border-radius: 50%;
@@ -229,14 +204,12 @@
   }
 
 .search-inputs{
-=======
     width: em(30px);
     height: em(30px);
     border-radius: 50%;
     background-color: #ff385c;
 }
 .search-inputs {
->>>>>>> d167ecd25eb4da1649758ba1521479efed42aee9
     display: flex;
     align-items: center;
     // background-color: green;
