@@ -8,11 +8,11 @@ export default {
 
     getters: {
         orders(state) {
+            // console.log('state.orders',state.orders);
             return state.orders
         },
 
         ordersToShow(state) {
-            console.log(state.orders);
             // console.log(this.user);
             // console.log(this.orders);
             // const orders = this.$store.getters.orders;
@@ -34,10 +34,10 @@ export default {
             state.orders = orders
         },
 
-        setUserOrders(state, { user }) {
-            console.log('useruser', user);
-            console.log('state.orders', state.orders);
-        }
+        // setUserOrders(state, { user }) {
+        //     console.log('useruser', user);
+        //     console.log('state.orders', state.orders);
+        // }
 
     },
 
@@ -66,6 +66,11 @@ export default {
                 throw err
             }
         },
+
+
+
+
+
 
 
     }

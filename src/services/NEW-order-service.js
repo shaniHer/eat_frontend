@@ -12,6 +12,7 @@ export const NEWorderService = {
     getById,
     remove,
     add,
+    
 }
 
 // var KEY = 'meals'
@@ -34,10 +35,6 @@ function remove(id) {
 
 function add(order) {
     return httpService.post('order', order)
-}
-
-function update(order) {
-    return asyncService.put(KEY, order)
 }
 
 

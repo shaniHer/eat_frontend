@@ -210,7 +210,6 @@ export default {
     },
     onNav() {
       this.isNav = !this.isNav;
-      console.log(this.isNav);
     },
     onLogin() {
       this.modalOpen();
@@ -236,7 +235,6 @@ export default {
           userCred: loginCredentials,
         });
         this.modalClose();
-        console.log(user);
         const userMsg = {};
         userMsg.txt = `hi dear ${user.fullname}`;
         userMsg.type = "success";

@@ -5,62 +5,64 @@
       Hi there! {{ user.username }}
     </h2>
 
-    <h3 class="centerTxt" @click="userOrders">Your orders:</h3>
-    <user-orders :orders="orders" :logdinUser="user"></user-orders>
+    <article class="user-profile-options">
+      <h3 @click="userOrders">User orders</h3>
+      <h3 @click="userHost">Statistic</h3>
 
+      <user-orders
+        v-if="show.orders"
+        :orders="orders"
+        :logdinUser="user"
+      ></user-orders>
 
-    <h3 class="centerTxt"  @click="userHost">Your host:</h3>
-    <user-host :logdinUser="user"></user-host>
-    <!-- -=------------------------------------------ -->
-
-    <!-- <ul v-for="order in ordersToShow" :key="order._id"> -->
-    <!-- <div class="order-item">
-          <span>{{ order.createdAt }}</span>
-          <span>{{ order.eventTime }}</span>
-          <span>{{ order.guestsNum }}</span>
-          <span>${{ order.totalPrice }}</span>
-          <span>Accept</span>
-        </div> -->
-    <!-- </ul> -->
-    <!-- </article> -->
+      <user-host
+        v-if="show.host"
+        :orders="orders"
+        :meals="meals"
+        :logdinUser="user"
+      ></user-host>
+    </article>
   </section>
 </template>
 
 <script>
 import userOrders from "../cmps/user-orders.vue";
-import userHost from "../cmps/user-host.vue"
+import userHost from "../cmps/user-host.vue";
 
 export default {
   data() {
     return {
       user: null,
       orders: [],
-      meals:[]
+      meals: [],
+      show: { orders: true, host: false },
     };
   },
 
-  computed: {
-    // ordersToShow() {
-    //   return this.orders.filter((order) => order.buyer._id === this.user._id);
-    // },
-  },
+  computed: {},
 
   // --------------------------------------
 
   methods: {
-    userOrders(){
-      console.log('aa');
+    userOrders() {
+      this.show.orders = !this.show.orders;
+      if (this.show.host) this.show.host = false;
+      if (!this.show.orders && !this.show.host) this.show.orders = true;
     },
-    userHost(){
-      console.log('bbb');
-    }
+    userHost() {
+      this.show.host = !this.show.host;
+      if (this.show.orders) this.show.orders = false;
+      if (!this.show.host && !this.show.orders) this.show.host = true;
+    },
   },
 
   // --------------------------------------
 
   created() {
     this.$store.dispatch({ type: "loadOrders" });
+
     this.user = this.$store.getters.loggedinUser;
+    this.meals = this.$store.getters.getMeals;
     this.orders = this.$store.getters.orders;
   },
 
@@ -68,7 +70,7 @@ export default {
 
   components: {
     userOrders,
-    userHost
+    userHost,
   },
 };
 </script>

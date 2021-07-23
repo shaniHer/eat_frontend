@@ -13,7 +13,8 @@ export const NEWmealService = {
     getById,
     remove,
     add,
-    getEmptyMeal
+    getEmptyMeal,
+    update
 }
 
 // var KEY = 'meals'
@@ -38,12 +39,13 @@ function add(meal) {
     return httpService.post('meal', meal)
 }
 
-function update(meal) {
-    return asyncService.put(KEY, meal)
+
+function update(updateGuests) {
+    return httpService.put('meal', updateGuests)
 }
 
+
 function getEmptyMeal(){
-    console.log('empty')
     return {
         title:'',
         price: 0,

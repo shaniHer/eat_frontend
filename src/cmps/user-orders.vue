@@ -3,16 +3,18 @@
     <article v-if="orders">
       <table class="user-orders">
         <tr>
-          <th>Host</th>
-          <th>Title</th>
-          <th>guestsNum</th>
-          <th>totalPrice</th>
+          <th>img</th>
+          <th>Fullname</th>
+          <th>Phone number</th>
+          <th>id</th>
         </tr>
-        <tr v-for="order in ordersToShow" :key="order._id">
-          <td>{{ order.host.fullname }}</td>
-          <td>{{ order.meal.title }}</td>
-          <td>{{ order.guestsNum }}</td>
-          <td>${{ order.totalPrice }}</td>
+        <tr v-for="user in ordersToShow" :key="user._id">
+          <td>
+            <img src="require(user.buyer.imgUrl)" />
+          </td>
+          <td>{{ user.buyer.fullname }}</td>
+          <td>{{ phoneNum }}</td>
+          <td>{{ user.buyer._id }}</td>
         </tr>
       </table>
     </article>
@@ -20,6 +22,7 @@
 </template>
 
 <script>
+import { util } from "../services/util.js";
 export default {
   props: { orders: { type: Array }, logdinUser: { type: Object } },
 
@@ -27,12 +30,15 @@ export default {
   computed: {
     ordersToShow() {
       return this.orders.filter(
-        (order) => order.buyer._id === this.logdinUser._id
+        (order) => order.host._id === this.logdinUser._id
       );
     },
+
+    phoneNum() {
+      return util.reandomPhoneNum();
+    },
   },
+  //   ---------------------------------
 };
 </script>
 
-<style>
-</style>
