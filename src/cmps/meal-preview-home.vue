@@ -1,6 +1,6 @@
 <template>
   <section class="meal-preview-home">
-    <router-link :to="'/meal/' + meal._id">
+    <router-link :to="'/meal/' + meal._id" >
       <div class="img card">
         <img :src="meal.imgUrl" />
         <div class="price">
@@ -10,14 +10,11 @@
       <div class="card-text">
         <h3 class="card-desc"><span>Dinner</span> in Tel Aviv-Yafo</h3>
         <h3 class="card-title">{{ meal.title }}</h3>
-        <!-- <h4 class="card-rate"><span>rate:{{ meal.host.rate }}</span><span>price:${{ meal.price }}</span></h4> -->
-        <!-- <h4 class="card-price">${{ meal.price }}</h4> -->
         <h4 class="card-rate">
-          rate:{{ meal.host.rate }}/5 <span>&#9733;</span>(32)
+          rate: {{ meal.host.rate }}<img src="@/assets/icons/star.svg" alt=""/><span class="reviews">({{reviews}})</span>
         </h4>
         <div class="card-fullname-container">
           <div class="avatar-img">
-            <!-- <user-avatar class="avatar-img"></user-avatar> -->
             <img :src="meal.host.imgUrl" alt="" />
           </div>
           <div class="card-fullname">
@@ -31,7 +28,7 @@
 </template>
 
 <script>
-  import userAvatar from "@/cmps/user-avatar.cmp"
+import {util} from "@/services/util.js"
 export default {
   props: {
     meal: Object,
@@ -43,12 +40,15 @@ export default {
     imgUrl() {
       return this.meal.host.imgUrl;
     },
+    reviews(){
+     return util.getRndInteger(20,50)
+    },
+    clearfilter(){
+      console.log('hi')
+    }
   },
   components:{
-    userAvatar
+    
   }
 };
 </script>
-
-<style>
-</style>

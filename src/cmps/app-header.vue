@@ -1,53 +1,116 @@
 <template>
   <header class="app-header full main-layout" :class="headerClass">
-              <!-- <div class="screen-main-nav" v-if="isNav" @click="onNav"></div> -->
-
-
-
-              <!-- <header class="app-header full main-layout" :class="headerClass"> -->  <!-- @@ -->
-              <!-- <header class="app-header" :class="headerClass">                       ** -->
-             <!-- <div class="navnav full">** -->
     <div class="app-header-container">
       <div class="logo">
         <router-link to="/">
           <h1>Eat<span>|</span>it</h1>
         </router-link>
       </div>
-
-
-
-      <div class="main-real-nav" v-if="isHome">
-        <router-link to="/meal-app">explore</router-link>
-        <router-link to="/meal-app">something </router-link>
-        <router-link to="/meal-app">something else</router-link>
-      </div> 
-
-
-                 <!-- -------------------------------------****-----------------------NAV -->
-                  <!-- <div class="search-box">
+      <!-- -------------------------------------****-----------------------NAV -->
+      <!-- <div class="search-box"> 
                     <button class="search-btn">🔍</button>
                    <input class="sb-input">
                    <input class="sb-input"> 
 
                    <input class="sb-input">
-                  </div> -->
+                  </div>  -->
 
-                   <!-- ------------------------------------------------------------NAV -->
-
-
-
-
-
-
-
-
+      <!-- ------------------------------------------------------------NAV -->
+      <!-- <div class="main-search-container">
+        <form @submit.prevent="submitSearch">
+          <div class="main-search"> -->
+      <!-- <el-input
+              class="search-location"
+              v-model="location"
+              placeholder="By location"
+            >
+            </el-input> -->
+      <!-- <div class="block"> -->
+      <!-- <span class="demonstration">Default</span> -->
+      <!-- <el-date-picker
+                v-model="value1"
+                type="daterange"
+                range-separator="To"
+                start-placeholder="Start date"
+                end-placeholder="End date"
+              >
+              </el-date-picker> -->
+      <!-- </div> -->
+      <!-- <el-date-picker
+              class="search-date"
+              v-model="date"
+              type="date"
+              placeholder="Pick a date"
+              default-value="2021-07-15"
+            >
+            </el-date-picker> -->
+      <!-- <el-select
+              class="search-guests"
+              @change="filterByGuests"
+              v-model="idx"
+              placeholder="Guests"
+            >
+              <el-option
+                v-for="item in guestsOptions"
+                :key="item.idx"
+                :label="item.label"
+                :value="item.idx"
+              >
+              </el-option>
+            </el-select> -->
+      <!-- <button class="btn-search">
+              <font-awesome-icon
+                :icon="['fas', 'search']"
+                class="search-icon"
+              />
+            </button>
+          </div>
+        </form> -->
+      <!-- </div> -->
+      <!-- ----------------------------------------------------------- -->
+      <div class="main-search-container">
+        <form @submit.prevent="setFilter">
+          <div class="main-search">
+            <div class="search-location">
+              <label for="main-location">Location</label>
+              <input
+                type="text"
+                id="main-location"
+                v-model="location.name"
+                autocomplete="off"
+              />
+            </div>
+            <!-- <div class="search-date">
+              <label for="main-date">Date</label>
+              <input type="date" id="main-date" />
+            </div>
+            <div class="search-guests">
+              <label for="main-guests">Guests</label>
+              <select name="guests" id="main-guests">
+                <option value="1">one</option>
+                <option value="2">two</option>
+                <option value="3">three</option>
+              </select>
+            </div> -->
+            <div class="btn-search-container">
+              <button class="btn-search">
+                <font-awesome-icon
+                  :icon="['fas', 'search']"
+                  class="search-icon"
+                />
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
       <!-- <template v-if="loggedinUser">
         <p>Hello {{ loggedinUser.fullname }}</p>
         <button @click="logout">Logout</button>
       </template> -->
-      <div class="becomehost-burger-container">
-        <div class="becomehost-burger-container-1">
-          <div class="becomehost-burger-container-2">
+      <div class="becomehost-burger-login-container">
+        <div class="becomehost-burger-login">
+          <div class="becomehost-burger">
+            <router-link to="/meal-app">Explore</router-link>
             <router-link to="/meal-add">Become a host</router-link>
             <div class="burger-menu">
               <img
@@ -56,53 +119,29 @@
                 class="burger"
                 @click="onNav"
               />
-              <!-- <div class="avatar-menu"> -->
-              <user-avatar class="avatar-menu"></user-avatar>
-              <!-- <font-awesome-icon :icon="['fas', 'user-secret']" /> -->
-              <!-- </div> -->
+              <div class="avatar-menu">
+                <img v-if="loggedinUser" :src="loggedinUser.imgUrl" alt="" />
+                <img
+                  v-else
+                  src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
           <div class="screen-main-nav" v-if="isNav" @click="onNav"></div>
           <nav class="main-nav" v-if="isNav">
             <div class="login-signup-border">
-            <a @click="onSignup">Sign up</a>
-            <a @click="onLogin">Login</a>
+              <a @click="onSignup">Sign up</a>
+              <a @click="onLogin">Login</a>
             </div>
             <div class="user-routes">
-            <router-link to="/user-profile">User profile</router-link>
-            <router-link to="/meal-add">Become a host</router-link>
+              <router-link to="/user-profile">User profile</router-link>
+              <router-link to="/meal-add">Become a host</router-link>
             </div>
           </nav>
         </div>
       </div>
-                      <!-- </div> -->
-                      <!-- ** -->
-      <!-- <div class="search-inputs">
-        <div class="search-location">
-          <label for="search-location">location </label>
-          <input type="search" id="search-location" />
-        </div>
-        <div class="search-guests">
-          <label for="search-guests-id">guests</label>
-          <select id="search-guests">
-            <option value="Chocolate"></option>
-            <option value="Coconut"></option>
-            <option value="Mint"></option>
-            <option value="Strawberry"></option>
-            <option value="Vanilla"></option>
-          </select>
-        </div>
-        <div class="search-date">
-          <label for="search-date">date</label>
-          <input type="date" id="search-date" />
-        </div>
-      </div>  -->
-
-      <!-- <nav class="main-nav" v-if="isNav">
-        <a @click="onSignup">sign up</a>
-        <a @click="onLogin">login</a>
-        <router-link to="/user-profile">user</router-link>
-      </nav> -->
       <div @click="modalClose" v-if="modal" class="screen-login-signup"></div>
       <div v-if="modal" class="modal-login-signup">
         <login
@@ -117,23 +156,18 @@
         ></signup>
       </div>
     </div>
-    <div class="checkflex" v-if="isHome">
-      <div class="checking">
+    <!-- <div class="main-title" v-if="isHome">
+      <div class="text-title">
         <h2>Host a meal</h2>
         <h2>Enjoy and get paid</h2>
-      </div>
-      <div class="checking">
-        <h2>Host a meal</h2>
-        <h2>Enjoy and get paid</h2>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
   </header>
 </template>
 
 <script>
 import login from "@/cmps/login";
 import signup from "@/cmps/signup";
-import userAvatar from "@/cmps/user-avatar.cmp";
 export default {
   data() {
     return {
@@ -144,6 +178,9 @@ export default {
       modal: false,
       isNav: false,
       isHome: false,
+      location: {
+        name: "",
+      },
     };
   },
   computed: {
@@ -158,8 +195,19 @@ export default {
       this.isHome = false;
       return "other";
     },
+    filterBy() {
+      return JSON.parse(JSON.stringify(this.$store.getters.getFilter));
+    },
   },
   methods: {
+    setFilter() {
+      this.filterBy.loc.name = this.location.name;
+      console.log(this.filterBy);
+      this.$store.commit({ type: "setFilter", filter: this.filterBy });
+      this.$router.push(`/meal-app`);
+      this.location.name=''
+      
+    },
     onNav() {
       this.isNav = !this.isNav;
       console.log(this.isNav);
@@ -180,6 +228,7 @@ export default {
     modalOpen() {
       this.modal = true;
     },
+
     async login(loginCredentials) {
       try {
         const user = await this.$store.dispatch({
@@ -240,7 +289,6 @@ export default {
   components: {
     login,
     signup,
-    userAvatar,
   },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <section class="meal-add main-layout">
-    <div class="add-meal-container flex">
+    <div class="add-meal-container flex space-between">
       <form class="meal-details" @submit.prevent="saveMeal" v-if="meal">
         <h2 class="page-title">Create new event</h2>
         <div class="flex space-between">
@@ -35,14 +35,9 @@
             <option value="Czechoslovak">Czechoslovak</option>
           </select>
         </div>
-        <div class="flex space-between"><label>Upload Images</label></div>
+        <!-- <div class="flex space-between"><label>Upload Images</label></div> -->
         <button class="btn-save">Save</button>
       </form>
-      <!-- <div class="img-gallery-add">
-        <div class="add-img large-img">Add image</div>
-        <div class="add-img medium-img">Add image</div>
-        <div class="add-img small-img">Add image</div>
-        <div class="add-img small-img">Add image</div> -->
       <div class="img-gallery-add">
         <div class="add-img large-img">
           <img-upload
@@ -100,52 +95,15 @@
             x
           </button>
         </div>
-        <!-- <div class="add-img small-img">
-          <template v-if="!isLoading">
-            <label
-              for="img-uploader"
-              @drop.prevent="handleFile"
-              @dragover.prevent="isDragOver = true"
-              @dragleave="isDragOver = false"
-              :class="{ drag: isDragOver }"
-            >
-              <h3 v-if="!isDragOver">Add image</h3>
-              <h3 v-else>Drop image here</h3>
-            </label>
-            <input
-              type="file"
-              name="img-uploader"
-              id="img-uploader"
-              @change="handleFile"
-            />
-          </template>
-          <img
-            class="loader"
-            v-else
-            src="https://i.pinimg.com/originals/65/ba/48/65ba488626025cff82f091336fbf94bb.gif"
-            alt=""
-          />
-        </div>
-        <div class="add-img small-img">Add image</div> -->
-        <!-- <img
-          :src="require('@/assets/img/chef-details.jpg')"
-          class="large-img"
-        />
-        <img :src="require('@/assets/img/meal.jpg')" class="medium-img" />
-        <img :src="require('@/assets/img/pizza.jpg')" class="small-img" />
-        <img :src="require('@/assets/img/plates.jpg')" class="small-img" /> -->
       </div>
     </div>
-    <div></div>
   </section>
 </template>
 
 <script>
 import { uploadImg } from "@/services/img-upload.service.js";
 import { NEWmealService } from "@/services/NEW-meal-service.js";
-import imgList from "@/cmps/img-list.cmp";
 import imgUpload from "@/cmps/img-upload.cmp";
-import userAvatar from "@/cmps/user-avatar.cmp";
 export default {
   data() {
     return {
@@ -159,8 +117,7 @@ export default {
       meal: {},
       isDetails: true,
       isGallery: true,
-      //   isLoading: false,
-      // isDragOver: false,
+     
     };
   },
 
@@ -168,21 +125,6 @@ export default {
     this.createMeal();
   },
   methods: {
-    //   handleFile(ev) {
-    //   let file;
-    //   if (ev.type === "change") file = ev.target.files[0];
-    //   else if (ev.type === "drop") file = ev.dataTransfer.files[0];
-    //   this.onUploadImg(file);
-    // },
-
-    // async onUploadImg(file) {
-    //   this.isLoading = true;
-    //   this.isDragOver = false;
-    //   const res = await uploadImg(file);
-    //   // this.$emit("save", res.url);
-    //   this.saveImg(res.url, 'small1')
-    //   this.isLoading = false;
-    // },
     changeImg(size) {
       this.imgUrls[size] = "";
     },
@@ -225,8 +167,6 @@ export default {
     },
   },
   components: {
-    userAvatar,
-    imgList,
     imgUpload,
   }
 };
