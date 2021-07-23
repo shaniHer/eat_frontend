@@ -62,9 +62,17 @@ export default {
         setFilter(state, { filter }) {
             state.filterBy = filter
         },
+
         addMeal(state, { savedMeal }) {
             state.meals.push(savedMeal);
         },
+
+        addGuests(state, { meal }) {
+            const updateMeal = state.meals.find(m => m._id === meal._id)
+            updateMeal.guests = meal.guests
+        }
+
+
     },
 
     // ---------------------------------
@@ -80,6 +88,7 @@ export default {
                 throw err
             }
         },
+
         async saveMeal({ commit }, { meal }) {
             // const type = (meal._id) ? 'updateMeal' : 'addMeal'
             try {
@@ -92,5 +101,19 @@ export default {
                 throw err;
             }
         },
+
+        async addGuests({ commit }, { updateGuests }) {
+            // const type = (meal._id) ? 'updateMeal' : 'addMeal'
+            try {
+                const meal = await NEWmealService.update(updateGuests)
+                commit({ type: 'addGuests', meal })
+            }
+            catch (err) {
+                // console.log('Cannot save meal ', meal, ',', err);
+                throw err;
+            }
+        },
     },
+
+
 }

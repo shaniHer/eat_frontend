@@ -63,6 +63,7 @@ export default {
   },
   created() {
     this.loadMeals();
+       
     // try {
     //   const meals = await this.$store.dispatch({ type: "loadMeals" });
     //   console.log("all cards", meals);

@@ -187,9 +187,7 @@ export default {
       this.imgUrls[size] = "";
     },
     saveImg(imgUrl, size) {
-      console.log(imgUrl);
       this.imgUrls[size] = imgUrl;
-      console.log(this.imgUrls);
       this.imgUrl = imgUrl;
     },
 
@@ -218,7 +216,6 @@ export default {
           fullname: fullname,
           imgUrl: imgUrl,
         };
-        console.log("this.meal.host", this.meal.host);
       } catch (err) {
         console.log("err  in createMeal", err);
       }
