@@ -13,14 +13,11 @@ Vue.use(ElementUI, { locale })
 // import vuetify from '@/plugins/vuetify.js'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
-import { faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faInstagram} from '@fortawesome/free-brands-svg-icons'
+import { faTwitter, faLinkedin, faInstagram, faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
 
-library.add(faUserSecret,faFacebookSquare,faTwitter,faLinkedin,faInstagram)
+library.add(faUserSecret, faFacebookSquare, faTwitter, faLinkedin, faInstagram, faSearch)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

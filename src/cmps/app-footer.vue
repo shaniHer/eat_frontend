@@ -14,11 +14,6 @@
           <font-awesome-icon :icon="['fab', 'instagram']" />
         </div>
       </div>
-      <!-- <div class="coffee-rights-title">
-        <h2>coffee rights</h2>
-        <h2>coffee rights</h2>
-        <h2>coffee rights</h2>
-      </div> -->
       <div class="coffee-container-2">
         <ul>
           <li class="list">
@@ -62,47 +57,15 @@
           </li>
         </ul>
       </div>
-        <div class="rights">
-          <h2>&copy; 2021 Eat it</h2>
-        </div>
-      <!-- <div class="coffee-container">
-        <h2>coffee rights2</h2>
+      <div class="rights">
+        <h2>&copy; 2021 Eat it</h2>
       </div>
-      <div class="coffee-container">
-        <h2>coffee rights3</h2>
-      </div> -->
-      <!-- <el-button type="text" @click="open">Click to open Message Box</el-button> -->
     </section>
   </footer>
 </template>
 
 <script>
 export default {
-  methods: {
-    // open() {
-    //   this.$prompt("Please input your e-mail", "Tip", {
-    //     confirmButtonText: "OK",
-    //     cancelButtonText: "Cancel",
-    //     inputPattern:
-    //       /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
-    //     inputErrorMessage: "Invalid Email",
-    //   })
-    //     .then(({ value }) => {
-    //       this.$message({
-    //         type: "success",
-    //         message: "Your email is:" + value,
-    //       });
-    //     })
-    //     .catch(() => {
-    //       this.$message({
-    //         type: "info",
-    //         message: "Input canceled",
-    //       });
-    //     });
-    // },
-  },
+  methods: {},
 };
 </script>
-
-<style>
-</style>

@@ -21,8 +21,12 @@
       <div> Hosted by <span class="host-name bold">{{ host.fullname }}</span></div>
       <div class="main-container">
         <details-content :meal="meal" :host="host"></details-content>
-        <details-booking :meal="meal" :host="host" :user="user" 
-        @approveBooking="approveBooking"></details-booking>
+        <details-booking
+          :meal="meal"
+          :host="host"
+          :user="user"
+          @approveBooking="approveBooking"
+        ></details-booking>
       </div>
       <div @click="closeModal" v-if="isBooking" class="dark-screen">
         <div class="booking-modal flex flex-column" v-if="isBooking">
@@ -55,8 +59,8 @@
 <script>
 import { NEWmealService } from "../services/NEW-meal-service.js";
 import { NEWuserService } from "../services/NEW-user-service.js";
-import detailsContent from '../cmps/details-content.vue'
-import detailsBooking from '../cmps/details-booking.vue'
+import detailsContent from "../cmps/details-content.vue";
+import detailsBooking from "../cmps/details-booking.vue";
 export default {
   data() {
     return {
@@ -65,8 +69,7 @@ export default {
       user: this.$store.getters.loggedinUser,
       isBooking: false,
       isOrderPlaced: false,
-      order:{}
-      
+      order: {},
     };
   },
 
@@ -87,7 +90,6 @@ export default {
   },
 
   methods: {
-
     saveOrder() {
       this.$store.dispatch({ type: "saveOrder", order: this.order });
       this.isBooking = !this.isBooking;
@@ -95,7 +97,20 @@ export default {
       setTimeout(() => {
         this.isOrderPlaced = !this.isOrderPlaced;
       }, 3000);
+
+      this.updateGuests();
     },
+
+    // --------------------------------
+    updateGuests() {
+      // console.log(this.order);
+      const updateGuests = {
+        mealId: this.order.meal._id,
+        guests: this.order.guestsNum,
+      };
+      this.$store.dispatch({ type: "addGuests", updateGuests });
+    },
+    // --------------------------------
 
     async getMealAndUser() {
       try {
@@ -105,18 +120,17 @@ export default {
         const userId = this.meal.host._id;
         const user = await NEWuserService.getById(userId);
         this.host = JSON.parse(JSON.stringify(user));
-        console.log(this.host.reviews)
       } catch (err) {
         console.log("err in getMealAndUser:", err);
       }
     },
 
-    closeModal(){
+    closeModal() {
       this.isBooking = !this.isBooking;
     },
 
     approveBooking(order) {
-      this.order = order
+      this.order = order;
       this.isBooking = !this.isBooking;
     },
   },
@@ -125,9 +139,9 @@ export default {
     this.getMealAndUser();
   },
 
-  components:{
+  components: {
     detailsContent,
-    detailsBooking
-  }
+    detailsBooking,
+  },
 };
 </script>

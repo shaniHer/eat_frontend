@@ -1,6 +1,6 @@
 
 <template>
-  <div id="app" class="app-main"   >
+  <div id="app" class="app-main" :class="`${topClass}`">
     <!-- :class="`${topClass}`" -->
     <user-msg />
     <app-header/>
@@ -17,16 +17,16 @@ export default {
   data() {
     return {
       // userLogged: false,
-      // topClass: "top",
+      topClass: "top",
     };
   },
   // -----------------------------------@@@@@@@@@@@@@
-  // created() {
-  //   window.onscroll = () => {
-  //     if (window.scrollY !== 0) this.topClass = "";
-  //     else this.topClass = "top";
-  //   };
-  // },
+  created() {
+    window.onscroll = () => {
+      if (window.scrollY !== 0) this.topClass = "top";
+      else this.topClass = "";
+    };
+  },
   // -----------------------------------@@@@@@@@@@
   components: {
     appHeader,

@@ -6,9 +6,8 @@
     </h2>
 
     <article class="user-profile-options">
-      <h3 @click="userOrders">Your orders</h3>
-      <h3 @click="userHost">Your host</h3>
-
+      <h3 @click="userOrders">User orders</h3>
+      <h3 @click="userHost">Statistic</h3>
 
       <user-orders
         v-if="show.orders"
@@ -16,19 +15,13 @@
         :logdinUser="user"
       ></user-orders>
 
-      <user-host v-if="show.host" :logdinUser="user"></user-host>
-      <!-- -=------------------------------------------ -->
+      <user-host
+        v-if="show.host"
+        :orders="orders"
+        :meals="meals"
+        :logdinUser="user"
+      ></user-host>
     </article>
-    <!-- <ul v-for="order in ordersToShow" :key="order._id"> -->
-    <!-- <div class="order-item">
-          <span>{{ order.createdAt }}</span>
-          <span>{{ order.eventTime }}</span>
-          <span>{{ order.guestsNum }}</span>
-          <span>${{ order.totalPrice }}</span>
-          <span>Accept</span>
-        </div> -->
-    <!-- </ul> -->
-    <!-- </article> -->
   </section>
 </template>
 
@@ -46,11 +39,7 @@ export default {
     };
   },
 
-  computed: {
-    // ordersToShow() {
-    //   return this.orders.filter((order) => order.buyer._id === this.user._id);
-    // },
-  },
+  computed: {},
 
   // --------------------------------------
 
@@ -71,7 +60,9 @@ export default {
 
   created() {
     this.$store.dispatch({ type: "loadOrders" });
+
     this.user = this.$store.getters.loggedinUser;
+    this.meals = this.$store.getters.getMeals;
     this.orders = this.$store.getters.orders;
   },
 

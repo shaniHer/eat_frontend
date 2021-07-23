@@ -1,5 +1,5 @@
 <template>
-  <section class="meal-filter full">
+  <section class="meal-filter main-layout">
     <!-- ---------------------------------filter by date:: -->
     <article class="inline">
       <span class="demonstration"></span>

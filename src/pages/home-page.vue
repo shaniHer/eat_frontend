@@ -63,12 +63,6 @@ export default {
   },
   created() {
     this.loadMeals();
-    // try {
-    //   const meals = await this.$store.dispatch({ type: "loadMeals" });
-    //   console.log("all cards", meals);
-    // } catch (err) {
-    //   console.log("some problem", err);
-    // }
   },
   computed: {
     meals() {

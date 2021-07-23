@@ -4,7 +4,7 @@ import { NEWmealService } from '../../services/NEW-meal-service.js'
 export default {
     state: {
         meals: [],
-        filterBy: { diet: 'all', price: null, guests: {}, cuisine: '' },
+        filterBy: { diet: 'all', price: null, guests: {}, cuisine: '',loc: { name: '' }  },
     },
 
     // ---------------------------------
@@ -16,9 +16,10 @@ export default {
         mealsToShowHomepage(state) {
             // var meals=[]
             var mealsToShowHomepage = state.meals.sort((a, b) => {
-                return a.host.rate > b.host.rate ? -1 : a.host.rate < b.host.rate ? 1 : 0
+                return b.host.rate-a.host.rate
+                // return a.host.rate > b.host.rate ? -1 : a.host.rate < b.host.rate ? 1 : 0
             })
-            mealsToShowHomepage = mealsToShowHomepage.slice(0, 24)
+            mealsToShowHomepage = mealsToShowHomepage.slice(0, 8)
             // return state.meals.filter(meal => meal.owner.rate > 4)
             return mealsToShowHomepage
         },
@@ -47,6 +48,8 @@ export default {
             } else if (state.filterBy.cuisine === 'all') {
                 state.filterBy.cuisine = ''
             }
+            const regex = new RegExp(state.filterBy.loc.name, 'i')
+            meals = meals.filter(meal => regex.test(meal.loc.name))
 
             return meals
         }
@@ -62,9 +65,17 @@ export default {
         setFilter(state, { filter }) {
             state.filterBy = filter
         },
+
         addMeal(state, { savedMeal }) {
             state.meals.push(savedMeal);
         },
+
+        addGuests(state, { meal }) {
+            const updateMeal = state.meals.find(m => m._id === meal._id)
+            updateMeal.guests = meal.guests
+        }
+
+
     },
 
     // ---------------------------------
@@ -80,6 +91,7 @@ export default {
                 throw err
             }
         },
+
         async saveMeal({ commit }, { meal }) {
             // const type = (meal._id) ? 'updateMeal' : 'addMeal'
             try {
@@ -92,5 +104,19 @@ export default {
                 throw err;
             }
         },
+
+        async addGuests({ commit }, { updateGuests }) {
+            // const type = (meal._id) ? 'updateMeal' : 'addMeal'
+            try {
+                const meal = await NEWmealService.update(updateGuests)
+                commit({ type: 'addGuests', meal })
+            }
+            catch (err) {
+                // console.log('Cannot save meal ', meal, ',', err);
+                throw err;
+            }
+        },
     },
+
+
 }
