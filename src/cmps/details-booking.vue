@@ -1,18 +1,13 @@
 <template>
   <div class="booking-container">
-    <div class="flex flex-column booking-top">
-      <div class="price-avatar grid">
+    <div class="flex booking-top">
         <div class="price flex">
           <h1 class="bold price-booking">${{ meal.price }}</h1>
-          <span class="price-detail"> Price per guest </span>
+          <span class="price-detail">/person </span>
         </div>
-        <div>
-          <img class="avatar" :src="require('@/assets/img/img1.jpg')" />
-        </div>
-      </div>
       <div class="rating">
-        <span class="rating-stars" v-for="star in host.host.rate" :key="star"> &#9733; </span>
-        <span class="rating-details">{{ host.host.rate }}/5 <span>(68)</span></span>
+      <img class="star" src="@/assets/icons/star.svg">
+        <span class="rating-details"> {{ host.host.rate }}/5 <span>(68 reviews)</span></span>
       </div>
     </div>
     <div class="booking-bottom">
@@ -32,19 +27,15 @@
               </el-date-picker>
             </article>
           </div>
-        
         </div>
 
-        <!-- ----------------------------------------------- -->
-
-        <!-- --------------------------------------------SELECT -->
-
-        <el-select v-model="order.guestsNum" placeholder="Guests">
+        <el-select v-model="order.guestsNum" placeholder="Guests" default-first-option >
           <el-option
             v-for="item in guestOptions"
             :key="item.idx"
             :label="item.label"
             :value="item.idx"
+            
           >
           </el-option>
         </el-select>

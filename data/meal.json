@@ -1,26 +1,43 @@
   {
-      "_id": "v140",
-      "eventTime": "none",
-      "title": "Batata Ksbia",
-      "price": 12,
-      "guests":8,//* number of guests?
-      "cuisine": "Asian",//**
-      "host": {
-        "_id": "u103",
-        "rate":4,
-        "fullname": "Dudu Da",
-        "imgUrl": "url"
-      },
-      "loc": {
-          "name": "Paris",
-          "lat": 32.9898,
-          "lng": 12.28
-        },
-      "description": "Big batata, soft at edges, can be used for a great veg soup",
-      "imgUrl": "",
-      "tags": [
-        "organic",
-        "veg",
-        "root"
+    "_id": "v140",
+    "eventTime": "none",
+    "title": "Batata Ksbia",
+    "price": 12,
+    "guests": 8, //* number of guests?
+    "cuisine": "Asian", //**
+    "menu": {
+      "starter": [
+        {"name":"salad meal","desc":"the most amazing salad in the whole world OMG"},
+        {"name":"Tiny chips", "desc":"the most amazing chips in the whole world OMG"},
+        {"name":"Onion meal", "desc":"the most amazing onion in the whole world OMG"}
+      ],
+      "main": [
+        {"name":"Fish meal","desc":"the most amazing fish in the whole world OMG"},
+        {"name":"MacNCheese", "desc":"the most amazing macN in the whole world OMG"},
+        {"name":"Hamburger", "desc":"the most amazing onion in the whole world OMG"}
+      ],
+      "desert": [
+        {"name":"Cheesecake","desc":"the most amazing cheese in the whole world OMG"},
+        {"name":"Choco", "desc":"the most amazing choco in the whole world OMG"},
+        {"name":"Fruits", "desc":"the most amazing fruits in the whole world OMG"}
       ]
-   }
+    },
+    "host": {
+      "_id": "u103",
+      "rate": 4,
+      "fullname": "Dudu Da",
+      "imgUrl": "url"
+    },
+    "loc": {
+      "name": "Paris",
+      "lat": 32.9898,
+      "lng": 12.28
+    },
+    "description": "Big batata, soft at edges, can be used for a great veg soup",
+    "imgUrl": "",
+    "tags": [
+      "organic",
+      "veg",
+      "root"
+    ]
+  }

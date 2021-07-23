@@ -1,14 +1,10 @@
 <template>
   <div class="details-container">
-    <div class="title bold">{{ meal.title }}</div>
-    <div >
-      Hosted by <span class="host-name bold">{{ host.fullname }}</span>
-    </div>
-    <div class="meal-desc details-section">
-      <p class="bold subtitle">A word about the experience</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      <p>Saepe provident in ducimus odio obcaecati.</p>
-      <p>Ducimus, itaque dolore debitis incidunt animi quo,</p>
+    <div class="meal-desc">
+      <p class="bold subtitle">A word about the experience ducimus odio obcaecati</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.ducimus odio obcaecati</p>
+      <p>Saepe provident in ducimus odio obcaecati.ducimus odio obcaecati</p>
+      <p>Ducimus, itaque dolore debitis incidunt animi quo,ducimus odio obcaecati</p>
       <p>dolor dolorum ut quaerat est officiis ea architecto unde?</p>
     </div>
     
@@ -16,28 +12,44 @@
     <h3 class="menu-title bold subtitle">Menu</h3>
     <div class="menu-sections flex">
         <div class="menu-section starter">
-            <p>Starters</p>
-            <p>Tiny salad</p>
-            <p>Veg wrap</p>
-            <p>Fried shrimps</p>
+            <p class="section-title">Starters</p>
+            <ul>
+              <li v-for="starter in meal.menu.starter"
+              :key="starter.name">
+              <p>{{starter.name}}</p>
+             <p>{{starter.desc}}</p>
+              </li>
+            </ul>
         </div>
         <div class="menu-section main">
-            <p>Main</p>
-            <p>Fish and chips</p>
-            <p>Sea food sald</p>
-            <p>Roasted vegetables</p>
+            <p class="section-title">Main</p>
+            <ul>
+              <li v-for="main in meal.menu.main"
+              :key="main.name">
+              <p>{{main.name}}</p>
+             <p>{{main.desc}}</p>
+              </li>
+            </ul>
         </div>
         <div class="menu-section desert">
-            <p>Desert</p>
-            <p>Cheescake</p>
-            <p>Cream</p>
-            <p>Fruits on fire</p>
+            <p class="section-title">Desert</p>
+            <ul>
+              <li v-for="desert in meal.menu.desert"
+              :key="desert.name">
+              <p>{{desert.name}}</p>
+             <p>{{desert.desc}}</p>
+              </li>
+            </ul>
         </div>
     </div>
     </div>
     <div class="reviews-container details-section">
-      <p class="bold subtitle">Some of our guests reviews</p>
-      <ul class="review-list">
+    <div >
+      <img class="star" src="@/assets/icons/star.svg">
+        <span class="reviews-title"> {{ host.host.rate }}<span> | 68 reviews</span></span>
+      </div>
+      <!-- <p class="bold subtitle">Some of our guests reviews</p> -->
+      <ul class="review-list flex">
         <li
           v-for="review in host.reviews"
           :key="review._id"
@@ -52,7 +64,8 @@
             <div class="details">
               <span>{{review.by.fullname}}</span>
               <div>
-                  <span class="rating-stars" v-for="star in review.rate" :key="star"> &#9733; </span>
+                  <span class="rating-stars" v-for="star in review.rate" :key="star"> 
+                   <img class="star" src="@/assets/icons/star.svg"> </span>
                     <span class="rating-details">{{ review.rate }}/5</span>
               </div>
             </div>

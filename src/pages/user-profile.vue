@@ -57,11 +57,13 @@ export default {
   methods: {
     userOrders() {
       this.show.orders = !this.show.orders;
-      if(this.show.host) this.show.host = false
+      if (this.show.host) this.show.host = false;
+      if (!this.show.orders && !this.show.host) this.show.orders = true;
     },
     userHost() {
       this.show.host = !this.show.host;
-        if(this.show.orders) this.show.orders = false
+      if (this.show.orders) this.show.orders = false;
+      if (!this.show.host && !this.show.orders) this.show.host = true;
     },
   },
 
