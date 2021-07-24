@@ -4,11 +4,7 @@ import { NEWmealService } from '../../services/NEW-meal-service.js'
 export default {
     state: {
         meals: [],
-<<<<<<< HEAD
         filterBy: { diet: 'all', price: null, guests: {}, cuisine: '', txt: '' },
-=======
-        filterBy: { diet: 'all', price: null, guests: {}, cuisine: '', loc: { name: '' } },
->>>>>>> 985cad6689038a0c78fd696ca878f92f070a7aa8
     },
 
     // ---------------------------------
@@ -19,11 +15,8 @@ export default {
         },
         mealsToShowHomepage(state) {
             var mealsToShowHomepage = state.meals.sort((a, b) => {
-                return b.host.rate - a.host.rate
-<<<<<<< HEAD
-=======
-                // return a.host.rate > b.host.rate ? -1 : a.host.rate < b.host.rate ? 1 : 0
->>>>>>> 985cad6689038a0c78fd696ca878f92f070a7aa8
+                // return b.host.rate - a.host.rate
+                return a.host.rate > b.host.rate ? -1 : a.host.rate < b.host.rate ? 1 : 0
             })
             mealsToShowHomepage = mealsToShowHomepage.slice(0, 4)
             return mealsToShowHomepage
