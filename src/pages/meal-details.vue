@@ -1,11 +1,14 @@
 <template>
   <section class="details-wrapper main-layout">
     <section class="flex flex-column" v-if="meal && host">
+
       <div class="title bold">{{ meal.title }}</div>
-    <div >
-      <img class="star" src="@/assets/icons/star.svg">
-        <span class="rating-details"> {{ host.host.rate }}/5 <span>(68 reviews)</span></span>
-    </div>
+      <div>
+        <img class="star" src="@/assets/icons/star.svg" />
+        <span class="rating-details">
+          {{ host.host.rate }}/5 <span>(68 reviews)</span></span
+        >
+      </div>
       <div class="img-gallery">
         <img
           :src="require('@/assets/img/chef-details.jpg')"
@@ -16,9 +19,11 @@
         <img :src="require('@/assets/img/plates.jpg')" class="small-img" />
       </div>
       <div>
-          <img class="avatar" :src="require('@/assets/img/img1.jpg')" />
-        </div>
-      <div> Hosted by <span class="host-name bold">{{ host.fullname }}</span></div>
+        <img class="avatar" :src="require('@/assets/img/img1.jpg')" />
+      </div>
+      <div>
+        Hosted by <span class="host-name bold">{{ host.fullname }}</span>
+      </div>
       <div class="main-container">
         <details-content :meal="meal" :host="host"></details-content>
         <details-booking
@@ -61,7 +66,11 @@ import { NEWmealService } from "../services/NEW-meal-service.js";
 import { NEWuserService } from "../services/NEW-user-service.js";
 import detailsContent from "../cmps/details-content.vue";
 import detailsBooking from "../cmps/details-booking.vue";
+<<<<<<< HEAD
 import {socketService} from '@/services/socket.service.js';
+=======
+
+>>>>>>> 4b544d44f504ed5ec4dc6ed0f6632c2d3f64e72c
 
 export default {
   data() {
@@ -93,6 +102,7 @@ export default {
   },
 
   methods: {
+
     saveOrder() {
       this.$store.dispatch({ type: "saveOrder", order: this.order });
       this.isBooking = !this.isBooking;
@@ -146,7 +156,7 @@ export default {
 
   components: {
     detailsContent,
-    detailsBooking,
+    detailsBooking
   },
 };
 </script>

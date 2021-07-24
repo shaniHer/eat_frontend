@@ -14,8 +14,11 @@ export const NEWmealService = {
     remove,
     add,
     getEmptyMeal,
-    update
+    update,
+   
 }
+
+
 
 // var KEY = 'meals'
 
@@ -45,14 +48,14 @@ function update(updateGuests) {
 }
 
 
-function getEmptyMeal(){
+function getEmptyMeal() {
     return {
-        title:'',
+        title: '',
         price: 0,
         capacity: 0,
         vegeterian: false,
         vegan: false,
-        desc:'',
+        desc: '',
         guests: 0,
         cuisine: null,
         imgUrl: "https://static.wixstatic.com/media/2ef66c_fe6f63c8d05543dba5f6d385e06f9fec~mv2.jpg/v1/fill/w_730,h_410,al_c,q_90/2ef66c_fe6f63c8d05543dba5f6d385e06f9fec~mv2.jpg",

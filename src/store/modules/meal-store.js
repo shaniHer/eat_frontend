@@ -4,7 +4,7 @@ import { NEWmealService } from '../../services/NEW-meal-service.js'
 export default {
     state: {
         meals: [],
-        filterBy: { diet: 'all', price: null, guests: {}, cuisine: '',loc: { name: '' }  },
+        filterBy: { diet: 'all', price: null, guests: {}, cuisine: '', loc: { name: '' } },
     },
 
     // ---------------------------------
@@ -16,7 +16,7 @@ export default {
         mealsToShowHomepage(state) {
             // var meals=[]
             var mealsToShowHomepage = state.meals.sort((a, b) => {
-                return b.host.rate-a.host.rate
+                return b.host.rate - a.host.rate
                 // return a.host.rate > b.host.rate ? -1 : a.host.rate < b.host.rate ? 1 : 0
             })
             mealsToShowHomepage = mealsToShowHomepage.slice(0, 8)
@@ -73,7 +73,8 @@ export default {
         addGuests(state, { meal }) {
             const updateMeal = state.meals.find(m => m._id === meal._id)
             updateMeal.guests = meal.guests
-        }
+        },
+
 
 
     },
@@ -116,6 +117,7 @@ export default {
                 throw err;
             }
         },
+
     },
 
 

@@ -6,10 +6,12 @@ export const mealService = {
     remove,
     add,
     update,
-    getById
+    getById,
 }
 
 const STORAGE_KEY = 'meal'
+
+
 
 
 function query() {
