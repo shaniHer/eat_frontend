@@ -1,5 +1,5 @@
 <template>
-  <section class="meal-filter main-layout">
+  <section class="meal-filter-container main-layout">
     <!-- ---------------------------------filter by date:: -->
     <article class="inline">
       <span class="demonstration"></span>
@@ -74,10 +74,12 @@
 
     <article class="meal-filter-btn inline">
       <!-- ---------------------------------filter by diet -->
-      <el-button @click="filterBy('vegan')">Vegan</el-button>
-      <el-button @click="filterBy('vegeterian')">Vegeterian</el-button>
+      <!-- <el-button @click="filterBy('vegan')">Vegan</el-button> -->
+      <!-- <el-button @click="filterBy('vegeterian')">Vegeterian</el-button> -->
       <!-- ----------------------------------->
-      <el-button @click="clearFilter">Clear filter</el-button>
+      <el-button @click="clearFilter" class="filter-btn"
+        >Clear filter</el-button
+      >
     </article>
   </section>
 </template>
@@ -186,6 +188,8 @@ export default {
 
     clearFilter() {
       this.filter = { diet: "all", price: 0, guests: {}, cuisine: "" };
+      this.cuisineName=""
+      this.idx=''
       this.emitFilter();
     },
   },
@@ -203,6 +207,9 @@ export default {
     this.$store.getters.getFilter.price = "";
     this.$store.getters.getFilter.guests = {};
     this.$store.getters.getFilter.diet = "all";
+
+    // this.filter = { diet: "all", price: 0, guests: {}, cuisine: "", txt: "" };
+    // this.emitFilter();
     // -------------------------------------------------
   },
 };

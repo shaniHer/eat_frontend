@@ -6,107 +6,26 @@
           <h1>Eat<span>|</span>it</h1>
         </router-link>
       </div>
-      <!-- -------------------------------------****-----------------------NAV -->
-      <!-- <div class="search-box"> 
-                    <button class="search-btn">🔍</button>
-                   <input class="sb-input">
-                   <input class="sb-input"> 
-
-                   <input class="sb-input">
-                  </div>  -->
-
-      <!-- ------------------------------------------------------------NAV -->
-      <!-- <div class="main-search-container">
-        <form @submit.prevent="submitSearch">
-          <div class="main-search"> -->
-      <!-- <el-input
-              class="search-location"
-              v-model="location"
-              placeholder="By location"
-            >
-            </el-input> -->
-      <!-- <div class="block"> -->
-      <!-- <span class="demonstration">Default</span> -->
-      <!-- <el-date-picker
-                v-model="value1"
-                type="daterange"
-                range-separator="To"
-                start-placeholder="Start date"
-                end-placeholder="End date"
-              >
-              </el-date-picker> -->
-      <!-- </div> -->
-      <!-- <el-date-picker
-              class="search-date"
-              v-model="date"
-              type="date"
-              placeholder="Pick a date"
-              default-value="2021-07-15"
-            >
-            </el-date-picker> -->
-      <!-- <el-select
-              class="search-guests"
-              @change="filterByGuests"
-              v-model="idx"
-              placeholder="Guests"
-            >
-              <el-option
-                v-for="item in guestsOptions"
-                :key="item.idx"
-                :label="item.label"
-                :value="item.idx"
-              >
-              </el-option>
-            </el-select> -->
-      <!-- <button class="btn-search">
-              <font-awesome-icon
-                :icon="['fas', 'search']"
-                class="search-icon"
-              />
-            </button>
-          </div>
-        </form> -->
-      <!-- </div> -->
-      <!-- ----------------------------------------------------------- -->
       <div class="main-search-container">
         <form @submit.prevent="setFilter">
           <div class="main-search">
-            <div class="search-location">
-              <label for="main-location">Location</label>
-              <input
-                type="text"
-                id="main-location"
-                v-model="location.name"
-                autocomplete="off"
-              />
-            </div>
-            <!-- <div class="search-date">
-              <label for="main-date">Date</label>
-              <input type="date" id="main-date" />
-            </div>
-            <div class="search-guests">
-              <label for="main-guests">Guests</label>
-              <select name="guests" id="main-guests">
-                <option value="1">one</option>
-                <option value="2">two</option>
-                <option value="3">three</option>
-              </select>
-            </div> -->
-            <div class="btn-search-container">
-              <button class="btn-search">
+            <!-- <div class="search-location"> -->
                 <font-awesome-icon
                   :icon="['fas', 'search']"
                   class="search-icon"
                 />
-              </button>
-            </div>
+              <input
+                type="search"
+                id="main-location"
+                v-model="txt"
+                autocomplete="off"
+                placeholder="search"
+              />
+            <!-- </div> -->
+              <button class="btn-search">search</button>
           </div>
         </form>
       </div>
-      <!-- <template v-if="loggedinUser">
-        <p>Hello {{ loggedinUser.fullname }}</p>
-        <button @click="logout">Logout</button>
-      </template> -->
       <div class="becomehost-burger-login-container">
         <div class="becomehost-burger-login">
           <div class="becomehost-burger">
@@ -156,12 +75,18 @@
         ></signup>
       </div>
     </div>
-    <!-- <div class="main-title" v-if="isHome">
-      <div class="text-title">
-        <h2>Host a meal</h2>
-        <h2>Enjoy and get paid</h2>
-      </div> -->
-    <!-- </div> -->
+    <div class="main-title-container" v-if="isHome">
+      <div class="main-title">
+        <h2 class=text-main-title>Unforgettable</h2>
+        <!-- <h2 class=text-main-title>Culinary<span>experiences</span></h2> -->
+        <h2 class=text-main-title><span>Culinary</span></h2>
+        <h2 class=text-main-title>experiences</h2>
+        <!-- <h2>Hosts and chefs</h2> -->
+        <!-- <h2>you will be amazed...</h2> -->
+      </div>
+      <!-- <div class="sub-title"> -->
+      <!-- </div> -->
+    </div>
   </header>
 </template>
 
@@ -178,9 +103,7 @@ export default {
       modal: false,
       isNav: false,
       isHome: false,
-      location: {
-        name: "",
-      },
+      txt: "",
     };
   },
   computed: {
@@ -201,12 +124,11 @@ export default {
   },
   methods: {
     setFilter() {
-      this.filterBy.loc.name = this.location.name;
+      this.filterBy.txt = this.txt;
       console.log(this.filterBy);
       this.$store.commit({ type: "setFilter", filter: this.filterBy });
       this.$router.push(`/meal-app`);
-      this.location.name=''
-      
+      this.txt = "";
     },
     onNav() {
       this.isNav = !this.isNav;
