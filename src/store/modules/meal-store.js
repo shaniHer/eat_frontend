@@ -19,7 +19,7 @@ export default {
                 return b.host.rate-a.host.rate
                 // return a.host.rate > b.host.rate ? -1 : a.host.rate < b.host.rate ? 1 : 0
             })
-            mealsToShowHomepage = mealsToShowHomepage.slice(0, 8)
+            mealsToShowHomepage = mealsToShowHomepage.slice(0, 4)
             // return state.meals.filter(meal => meal.owner.rate > 4)
             return mealsToShowHomepage
         },
