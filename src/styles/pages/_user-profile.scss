@@ -1,18 +1,18 @@
 .user-profile {
-
+    .welcome-msg {
+        text-align: center;
+        margin-bottom: rem(30px);
+        font-family: lato;
+    }
 
     .user-profile-options {
         text-align: center;
-        
         h3 {
             display: inline;
             cursor: pointer;
         }
-
         > * {
             margin: 0 rem(10px);
-          
         }
- 
     }
 }

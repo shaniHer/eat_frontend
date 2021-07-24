@@ -1,13 +1,22 @@
 <template>
-  <section class="user-profile">
-    <h2>
+  <section class="main-layout user-profile">
+
+
+    <!-- -------------------------------------CHAT -->
+    <!-- <chat-room :user="user"></chat-room> -->
+    <!-- ------------------------------------- -->
+
+
+
+
+    <h2 class="welcome-msg">
       <img class="avatar" :src="require('@/assets/img/img1.jpg')" />
       Hi there! {{ user.username }}
     </h2>
 
     <article class="user-profile-options">
-      <h3 @click="userOrders">User orders</h3>
-      <h3 @click="userHost">Statistic</h3>
+      <el-button @click="userOrders">User orders</el-button>
+      <el-button @click="userHost">Statistic</el-button>
 
       <user-orders
         v-if="show.orders"
@@ -28,6 +37,8 @@
 <script>
 import userOrders from "../cmps/user-orders.vue";
 import userHost from "../cmps/user-host.vue";
+
+// import chatRoom from "../cmps/chat-room.vue"
 
 export default {
   data() {
@@ -71,6 +82,7 @@ export default {
   components: {
     userOrders,
     userHost,
+    // chatRoom
   },
 };
 </script>

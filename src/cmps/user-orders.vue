@@ -1,20 +1,29 @@
 <template>
-  <section>
+  <section class="main-layout user-orders">
     <article v-if="orders">
-      <table class="user-orders">
+      <table>
         <tr>
-          <th>img</th>
-          <th>Fullname</th>
-          <th>Phone number</th>
-          <th>id</th>
+          <th><!-- img --></th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Meal</th>
+          <th>Email</th>
+
+          <th>Chat</th>
         </tr>
         <tr v-for="user in ordersToShow" :key="user._id">
           <td>
-            <img src="require(user.buyer.imgUrl)" />
+            <!-- <img src="require(user.buyer.imgUrl)" /> -->
+            <img
+              class="avatar"
+              :src="require('@/assets/img/usersImg/user4.jpg')"
+            />
           </td>
           <td>{{ user.buyer.fullname }}</td>
           <td>{{ phoneNum }}</td>
-          <td>{{ user.buyer._id }}</td>
+          <td>{{ user.meal.title }}</td>
+          <td>{{ randomEmail }}</td>
+          <td><button class="msg">Msg</button></td>
         </tr>
       </table>
     </article>
@@ -29,6 +38,7 @@ export default {
   //   ---------------------------------
   computed: {
     ordersToShow() {
+      console.log(this.orders);
       return this.orders.filter(
         (order) => order.host._id === this.logdinUser._id
       );
@@ -37,6 +47,10 @@ export default {
     phoneNum() {
       return util.reandomPhoneNum();
     },
+
+    randomEmail(){
+      return util.randomEmail()
+    }
   },
   //   ---------------------------------
 };

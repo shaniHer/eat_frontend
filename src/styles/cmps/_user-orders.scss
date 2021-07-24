@@ -1,0 +1,56 @@
+.user-orders table {
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    // width: 80%;
+
+    tr,
+    td {
+        text-align: left;
+    }
+    td {
+        padding: 1rem 4rem 1rem 0px;
+        font-family: revert;
+        // font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    th {
+        border-bottom: 3px solid rgba(110, 110, 110, 0.452);
+        color: rgba(110, 110, 110, 0.452);
+        padding: 1rem 3rem 1rem 0px;
+        font-family: lato;
+    }
+    th:last-child{
+        padding-right: 0px;
+    }
+    tr {
+        border-bottom: 0.5px solid rgba(0, 0, 0, 0.178);
+    }
+
+    td:last-child{
+        padding-right: 0px;
+    }
+
+    tr:hover :not(th){
+        background-color: rgb(238, 238, 238);
+        transition: 0.2s;
+
+        .msg{
+            background-color: rgb(71, 216, 71);
+        }
+    }
+    .msg {//btn
+        // background-color: indianred;
+        background-color: rgb(71, 216, 71);
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+}
+
+// #bar-chart {
+//     height: rem(550px) !important;
+//     width:  rem(850px) !important;
+//     margin: 0 auto;
+// }

@@ -1,40 +1,69 @@
-.user-orders {
-    margin: 0 auto;
+.user-host{
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    gap: 110px;
+    padding: 50px 0px
+}
+
+
+#bar-chart {
+    height: 22.375rem !important;
+    width: 33.125rem !important;
+    margin-top: rem(55px);
+}
+
+.user-host table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 80%;
-    tr th,
+
+
+    tr,
     td {
-        text-align: center;
-    }
-    td {
-        padding: 0.5rem;
-    }
-    th {
-        text-align: center;
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
-    // tr:nth-child(even) {
-    //     background-color: #f2f2f2;
-    // }
-    tr {
-        border-bottom: 0.5px solid rgba(0, 0, 0, 0.274);
-    }
-    tr:hover {
-        background-color: #ddd;
-    }
-    th {
-        padding-top: 12px;
-        padding-bottom: 12px;
         text-align: left;
-        background-color: #0000008f;
-        color: white;
+    }
+    td {
+        padding: 1rem 8rem 1rem 0px;
+        font-family: revert;
+        font-size: 0.9rem;
+    }
+
+    th {
+        border-bottom: 3px solid rgba(110, 110, 110, 0.452);
+        color: rgba(110, 110, 110, 0.452);
+        padding: 1rem 3rem 0px 0px;
+        font-family: lato;
+    }
+    th:last-child{
+        padding-right: 0px;
+    }
+    tr {
+        border-bottom: 0.5px solid rgba(0, 0, 0, 0.178);
+    }
+
+    td:last-child{
+        padding-right: 0px;
+    }
+
+    tr:hover :not(th){
+        background-color: rgb(238, 238, 238);
+        transition: 0.2s;
+
     }
 }
 
-#bar-chart {
-    height: rem(550px) !important;
-    width:  rem(850px) !important;
-    margin: 0 auto;
+.expected-revenue{
+    // background-color: blue;
+    // border: 1px solid blue;
+    // font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(75, 75, 255, 0.082);
 }
+
+
+
+
+

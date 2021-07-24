@@ -1,11 +1,14 @@
 <template>
   <section class="details-wrapper main-layout">
     <section class="flex flex-column" v-if="meal && host">
+
       <div class="title bold">{{ meal.title }}</div>
-    <div >
-      <img class="star" src="@/assets/icons/star.svg">
-        <span class="rating-details"> {{ host.host.rate }}/5 <span>(68 reviews)</span></span>
-    </div>
+      <div>
+        <img class="star" src="@/assets/icons/star.svg" />
+        <span class="rating-details">
+          {{ host.host.rate }}/5 <span>(68 reviews)</span></span
+        >
+      </div>
       <div class="img-gallery">
         <img
           :src="require('@/assets/img/chef-details.jpg')"
@@ -16,9 +19,11 @@
         <img :src="require('@/assets/img/plates.jpg')" class="small-img" />
       </div>
       <div>
-          <img class="avatar" :src="require('@/assets/img/img1.jpg')" />
-        </div>
-      <div> Hosted by <span class="host-name bold">{{ host.fullname }}</span></div>
+        <img class="avatar" :src="require('@/assets/img/img1.jpg')" />
+      </div>
+      <div>
+        Hosted by <span class="host-name bold">{{ host.fullname }}</span>
+      </div>
       <div class="main-container">
         <details-content :meal="meal" :host="host"></details-content>
         <details-booking
@@ -26,7 +31,7 @@
           :host="host"
           :user="user"
           @approveBooking="approveBooking"
-        ></details-booking>
+        ></details-booking >
       </div>
       <div @click="closeModal" v-if="isBooking" class="dark-screen">
         <div class="booking-modal flex flex-column" v-if="isBooking">
@@ -61,10 +66,13 @@ import { NEWmealService } from "../services/NEW-meal-service.js";
 import { NEWuserService } from "../services/NEW-user-service.js";
 import detailsContent from "../cmps/details-content.vue";
 import detailsBooking from "../cmps/details-booking.vue";
+// import {socketService} from '@/services/socket.service.js';
+
 export default {
   data() {
     return {
       meal: null,
+
       host: null,
       user: this.$store.getters.loggedinUser,
       isBooking: false,
@@ -90,10 +98,12 @@ export default {
   },
 
   methods: {
+
     saveOrder() {
       this.$store.dispatch({ type: "saveOrder", order: this.order });
       this.isBooking = !this.isBooking;
       this.isOrderPlaced = !this.isOrderPlaced;
+      socketService.emit('details-add-order', this.order)
       setTimeout(() => {
         this.isOrderPlaced = !this.isOrderPlaced;
       }, 3000);
@@ -137,11 +147,12 @@ export default {
 
   created() {
     this.getMealAndUser();
+    socketService.emit('details-host', this.host._id)
   },
 
   components: {
     detailsContent,
-    detailsBooking,
+    detailsBooking
   },
 };
 </script>

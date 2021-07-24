@@ -1,8 +1,8 @@
 <template>
-  <section class="main-layout">
-    <table class="user-orders">
+  <section class="main-layout user-host">
+    <table>
       <tr>
-        <th>Meal name</th>
+        <th>Meal</th>
         <th>Guests</th>
         <th>capacity</th>
         <th>Price</th>
@@ -15,12 +15,16 @@
         <td>${{ details.price }}</td>
         <td>${{ details.price * details.guests }}</td>
       </tr>
+      <tr class="expected-revenue">
+        <h4>Expected revenue</h4>
+        <h4>${{ totalPrice }}</h4>
+      </tr>
     </table>
-    <td>${{ totalPrice }}</td>
+    <!-- <td>${{ totalPrice }}</td> -->
 
-    <article class="chart">
-      <chart :mealsHost="mealsHost"  id="myChart"></chart>
-    </article>
+    <!-- <article class="chart"> -->
+    <chart :mealsHost="mealsHost" id="myChart"></chart>
+    <!-- </article> -->
   </section>
 </template>
 
