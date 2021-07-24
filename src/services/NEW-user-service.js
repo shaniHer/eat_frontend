@@ -1,6 +1,6 @@
 // import { storageService } from './async-storage.service'
 import { httpService } from './http.service'
-// import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service'
+import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service'
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 // const SCORE_FOR_REVIEW = 10
 // var gWatchedUser = null;
@@ -32,7 +32,7 @@ async function signup(userCred) {
     // userCred.score = 100;
     // const user = await storageService.post('user', userCred)
     const user = await httpService.post('auth/signup', userCred)
-    // socketService.emit('set-user-socket', user._id);
+    socketService.emit('set-user-socket', user._id);
     return _saveLocalUser(user)
 }
 
@@ -42,7 +42,7 @@ async function login(userCred) {
     // return _saveLocalUser(user)
 
     const user = await httpService.post('auth/login', userCred)
-    // socketService.emit('login', user._id);
+    socketService.emit('login', user._id);
     if (user) return _saveLocalUser(user)
 }
 
@@ -68,7 +68,7 @@ async function update(user) {
 
 async function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-    // socketService.emit('unset-user-socket');
+    socketService.emit('unset-user-socket');
     return await httpService.post('auth/logout')
 }
 
@@ -106,7 +106,7 @@ function getLoggedinUser() {
 
 //socketService:
 
-// (async () => {
-//     var user = getLoggedinUser()
-//     if (user) socketService.emit('set-user-socket', user._id)
-// })();
+(async () => {
+    var user = getLoggedinUser()
+    if (user) socketService.emit('set-user-socket', user._id)
+})();

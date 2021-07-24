@@ -26,7 +26,7 @@
           :host="host"
           :user="user"
           @approveBooking="approveBooking"
-        ></details-booking>
+        ></details-booking >
       </div>
       <div @click="closeModal" v-if="isBooking" class="dark-screen">
         <div class="booking-modal flex flex-column" v-if="isBooking">
@@ -61,10 +61,13 @@ import { NEWmealService } from "../services/NEW-meal-service.js";
 import { NEWuserService } from "../services/NEW-user-service.js";
 import detailsContent from "../cmps/details-content.vue";
 import detailsBooking from "../cmps/details-booking.vue";
+import {socketService} from '@/services/socket.service.js';
+
 export default {
   data() {
     return {
       meal: null,
+
       host: null,
       user: this.$store.getters.loggedinUser,
       isBooking: false,
@@ -94,6 +97,7 @@ export default {
       this.$store.dispatch({ type: "saveOrder", order: this.order });
       this.isBooking = !this.isBooking;
       this.isOrderPlaced = !this.isOrderPlaced;
+      socketService.emit('details-add-order', this.order)
       setTimeout(() => {
         this.isOrderPlaced = !this.isOrderPlaced;
       }, 3000);
@@ -137,6 +141,7 @@ export default {
 
   created() {
     this.getMealAndUser();
+    socketService.emit('details-host', this.host._id)
   },
 
   components: {
