@@ -8,7 +8,8 @@ export const util = {
     saveToStorage,
     getMealImgUrl,
     reandomPhoneNum,
-    randomColor
+    randomColor,
+    randomEmail
 }
 
 function getDate() {
@@ -85,4 +86,18 @@ function reandomPhoneNum() {
         num += getRndInteger(0, 9)
     }
     return num
+}
+
+
+function randomEmail() {
+    let result = '';
+    const characters = 'abcdefghijklmnoprstuvwxyz';
+    const length = getRndInteger(4, 6)
+    let charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() *
+            charactersLength));
+    }
+    result +='@gmail.com'
+    return result;
 }
