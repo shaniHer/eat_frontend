@@ -66,11 +66,7 @@ import { NEWmealService } from "../services/NEW-meal-service.js";
 import { NEWuserService } from "../services/NEW-user-service.js";
 import detailsContent from "../cmps/details-content.vue";
 import detailsBooking from "../cmps/details-booking.vue";
-<<<<<<< HEAD
-import {socketService} from '@/services/socket.service.js';
-=======
-
->>>>>>> 4b544d44f504ed5ec4dc6ed0f6632c2d3f64e72c
+// import {socketService} from '@/services/socket.service.js';
 
 export default {
   data() {
