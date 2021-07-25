@@ -2,48 +2,75 @@
     color:white;
     margin-block-end:2rem;
 }
-// .app-header.other{
-//     // background:white;
-//     // position: sticky;
-//     // top:0;
-//     // z-index: 1;
-//     // width: 100%;
-//     // height: 100px;
-//     .app-header-container{
-//         transition: .3s;
-//         margin-block-start:0;
-//         display: flex;
-//         justify-content: space-between;
-//         align-items: center;
-//         background:white;
-//         // height: 100px;
-//         width: 100%;
-//         // width: 1200px;
-//         position: fixed;
-//         top:0;
-//         z-index:1;
-//         padding:0 2rem;
-//             // margin-block-start: 20px;
-//             // display: flex;
-//             // align-items: center;
-//             // justify-content: space-between;
-//             .becomehost-burger-login-container{
-//                 position: relative;
-//                 color:rgb(13,13,13);
-//             }      
-//             .main-nav{
-//                 position: absolute;
-//                 width: 200px;
-//                 right:0;
-//             } 
-//             .logo{
-//                 color:$clr1
-//             }
-//             .logo span{
-//                 color:rgb(37,37,37)
-//             }
-//     }
-// }
+.app-header.other{
+    background:white;
+    position: sticky;
+    top:0;
+    z-index: 1;
+    width: 100%;
+    height: 100px;
+    transition: .3s;
+    .app-header-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+            .becomehost-burger-login-container{
+                position: relative;
+                color:rgb(13,13,13);
+            }      
+            .main-nav{
+                position: absolute;
+                width: 200px;
+                right:0;
+            } 
+            .logo{
+                color:$clr1
+            }
+            .logo span{
+                color:rgb(37,37,37)
+            }
+    }
+}
+.app-header.other{
+    .app-header-container{
+        transition: .3s;
+        margin-block-start:0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background:white;
+        height: 100px;
+        width: 100%;
+        position: sticky;
+        // position: fixed;
+        top:0;
+        z-index: 1;
+        // padding: 0 2rem;
+            .becomehost-burger-login-container{
+                .main-nav{
+                    position:absolute;
+                    width: 260px;
+                }
+
+                color:rgb(13,13,13);
+                position: relative;
+                .main-nav{
+                    position:absolute;
+                    width: 200px;
+                    right:0;
+                }
+            }      
+             
+            .logo{
+                // margin-inline-start: em(40px);
+                color:$clr1
+            }
+            .logo span{
+                color:rgb(37,37,37)
+            } 
+        }        
+}
+
 .app-header.home{
     background-image:url(~@/assets/img/back4.jpg);
     background-position-y: 45%;
@@ -62,7 +89,7 @@
         }
     }
 }
-.top .app-header.home, .app-header.other{
+.top .app-header.home{
     .app-header-container{
         transition: .3s;
         margin-block-start:0;
@@ -72,10 +99,11 @@
         background:white;
         height: 100px;
         width: 100%;
+        // position: sticky;
         position: fixed;
         top:0;
         z-index: 1;
-        padding: 0 3.5rem;
+        padding: 0 3.7rem;
             .becomehost-burger-login-container{
                 .main-nav{
                     position:absolute;
