@@ -107,25 +107,33 @@ export default {
   },
 
   methods: {
-    saveOrder() {
-      this.$store.dispatch({ type: "saveOrder", order: this.order });
-      this.isBooking = !this.isBooking;
-      this.isOrderPlaced = !this.isOrderPlaced;
-      socketService.emit("details-add-order", this.order);
-      setTimeout(() => {
+    async saveOrder() {
+      try {
+        await this.$store.dispatch({ type: "saveOrder", order: this.order });
+        this.isBooking = !this.isBooking;
         this.isOrderPlaced = !this.isOrderPlaced;
-      }, 3000);
+        setTimeout(() => {
+          this.isOrderPlaced = !this.isOrderPlaced;
+        }, 3000);
 
-      this.updateGuests();
+        this.updateGuests();
+      } catch (err) {
+        console.log("err in saveOrder", err);
+      }
     },
 
     // --------------------------------
-    updateGuests() {
+    async updateGuests() {
+      // console.log(this.order);
       const updateGuests = {
         mealId: this.order.meal._id,
         guests: this.order.guestsNum,
       };
-      this.$store.dispatch({ type: "addGuests", updateGuests });
+      try {
+        await this.$store.dispatch({ type: "addGuests", updateGuests });
+      } catch (err) {
+        console.log("err in updateGuests", err);
+      }
     },
     // --------------------------------
 

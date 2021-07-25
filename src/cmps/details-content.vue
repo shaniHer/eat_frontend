@@ -1,18 +1,11 @@
 <template>
   <div class="details-container">
     <div class="meal-desc">
-      <p class="bold subtitle">
-        A word about the experience ducimus odio obcaecati
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.ducimus odio
-        obcaecati
-      </p>
-      <p>Saepe provident in ducimus odio obcaecati.ducimus odio obcaecati</p>
-      <p>
-        Ducimus, itaque dolore debitis incidunt animi quo,ducimus odio obcaecati
-      </p>
-      <p>dolor dolorum ut quaerat est officiis ea architecto unde?</p>
+      <p class="bold subtitle">A word about the experience</p>
+      <p>Experience a truly memorable meal, 3-course traditional Thai Bistro dinner</p>
+      <p>Aperitif, wine, beer, dessert wine, coffee and tea are included</p>
+      <p>Enjoying your evening while swapping stories and listening to music. </p>
+      <p>You'll leave this event feeling like a member of Songmeal family!</p>
     </div>
 
     <div class="menu details-section">

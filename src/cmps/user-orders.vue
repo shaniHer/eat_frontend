@@ -27,7 +27,8 @@
           <td>{{ phoneNum }}</td>
           <td>{{ user.meal.title }}</td>
           <td>{{ randomEmail }}</td>
-          <td><button class="msg">Msg</button></td>
+          <!-- <td><button class="msg" @click="openChat(user._id)">Msg</button></td>
+          <td><button class="msg" @click="openChat(user._id)">Msg</button></td> -->
         </tr>
       </table>
     </article>

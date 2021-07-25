@@ -3,7 +3,6 @@
     <router-link :to="'/meal/' + meal._id">
       <div class="img card">
         <img :src="require(`@/assets/img/previews/${meal.imgUrl}.jpg`)" />
-        <!-- <img :src="meal.imgUrl" /> -->
         <div class="price">
           <h3>${{ meal.price }}</h3>
         </div>

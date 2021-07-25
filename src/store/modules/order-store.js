@@ -8,7 +8,6 @@ export default {
 
     getters: {
         orders(state) {
-            // console.log('state.orders',state.orders);
             return state.orders
         },
 
