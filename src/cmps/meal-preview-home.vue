@@ -2,7 +2,8 @@
   <section class="meal-preview-home">
     <router-link :to="'/meal/' + meal._id" >
       <div class="img card">
-        <img :src="meal.imgUrl" />
+        <img :src="require(`@/assets/img/previews/${meal.imgUrl}.jpg`)" />
+        <!-- <img :src="meal.imgUrl" /> -->
         <div class="price">
           <h3>${{ meal.price }}</h3>
         </div>
@@ -15,7 +16,7 @@
         </h4>
         <div class="card-fullname-container">
           <div class="avatar-img">
-            <img :src="meal.host.imgUrl" alt="" />
+            <img :src="require(`@/assets/img/chefs/${meal.host.imgUrl}.jpg`)" alt="" />
           </div>
           <div class="card-fullname">
             <span>Hosted by</span>

@@ -65,16 +65,16 @@ export default {
             }
         },
 
-        // async logout({ commit }) {
-        //     try {
-        //         const logout=await userService.logout()
-        //         commit({ type: 'setLoggedinUser', user: null })
-        //        return logout.msg
-        //     } catch (err) {
-        //         console.log('userStore: Error in logout', err)
-        //         throw err
-        //     }
-        // },
+        async logout({ commit }) {
+            try {
+                const logout=await userService.logout()
+                commit({ type: 'setLoggedinUser', user: null })
+               return logout.msg
+            } catch (err) {
+                console.log('userStore: Error in logout', err)
+                throw err
+            }
+        },
         // async loadUsers({ commit }) {
         //     try {
         //         const users = await userService.getUsers();

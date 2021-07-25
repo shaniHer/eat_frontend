@@ -58,7 +58,7 @@
           <div class="review-header flex">
             <img
               class="avatar"
-              :src="require('@/assets/img/img1.jpg')"
+              :src="require(`@/assets/img/usersImg/${review.by.imgUrl}.jpg`)"
               alt=""
             />
             <div class="details">
