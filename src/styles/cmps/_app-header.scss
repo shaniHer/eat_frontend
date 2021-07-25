@@ -55,7 +55,8 @@
         margin-block-start: em(24px);
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        // align-items: flex-start;
+        align-items: center;
         .logo span{
             color:$clr1;
         }
@@ -76,6 +77,11 @@
         z-index: 1;
         padding: 0 4rem;
             .becomehost-burger-login-container{
+                .main-nav{
+                    position:absolute;
+                    width: 260px;
+                }
+
                 color:rgb(13,13,13);
                 position: relative;
                 .main-nav{
@@ -208,6 +214,7 @@
 .becomehost-burger-login{
     position: relative;
     flex-direction: column;
+    position: relative;
 }
 .becomehost-burger{
     display: flex; 

@@ -39,8 +39,7 @@
                 @click="onNav"
               />
               <div class="avatar-menu">
-                <img v-if="loggedinUser" :src="require('@/assets/img/chefs/1.jpg')" alt="" />
-                <!-- <img v-if="loggedinUser" :src="loggedinUser.imgUrl" alt="" /> -->
+               <img v-if="loggedinUser" :src="require('@/assets/img/chefs/10.jpg')" alt="" /> 
                 <img
                   v-else
                   src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"

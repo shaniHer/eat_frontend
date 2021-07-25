@@ -88,7 +88,6 @@ function reandomPhoneNum() {
     return num
 }
 
-
 function randomEmail() {
     let result = '';
     const characters = 'abcdefghijklmnoprstuvwxyz';

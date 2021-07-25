@@ -1,7 +1,6 @@
 <template>
   <div class="img-upload-container">
     <template v-if="!isLoading">
-
       <!-- UPLOAD IMG -->
       <label
         for="img-uploader"
@@ -10,25 +9,19 @@
         @dragleave="isDragOver = false"
         :class="{ drag: isDragOver }"
       >
-      <h3 v-if="!isDragOver">Add image</h3>
-        <!-- <img
-          v-if="!isDragOver"
-          src="https://www.lifewire.com/thmb/P856-0hi4lmA2xinYWyaEpRIckw=/1920x1326/filters:no_upscale():max_bytes(150000):strip_icc()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg"
-          alt=""
-        /> -->
+        <h3 v-if="!isDragOver">Add image</h3>
 
         <h3 v-else>Drop image here</h3>
       </label>
-      
+
       <!-- HIDDEN INPUT -->
-      <input 
+      <input
         type="file"
         name="img-uploader"
         id="img-uploader"
         @change="handleFile"
       />
     </template>
-
 
     <!-- LOADER -->
     <img
@@ -50,9 +43,6 @@ export default {
     };
   },
   methods: {
-    // dragOver(ev) {
-    //   this.isDragOver = true;
-    // },
     handleFile(ev) {
       let file;
       if (ev.type === "change") file = ev.target.files[0];
@@ -76,16 +66,10 @@ export default {
   height: 150px;
 }
 
-/* label img {
-  height: 100px;
-  cursor: pointer;
-  transition: height 0.6s;
-} */
- 
- #img-uploader { 
+#img-uploader {
   width: 0;
   height: 0;
-} 
+}
 .drag {
   color: grey;
   display: inline-block;

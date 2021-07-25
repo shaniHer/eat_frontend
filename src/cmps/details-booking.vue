@@ -1,13 +1,15 @@
 <template>
   <div class="booking-container">
     <div class="flex booking-top">
-        <div class="price flex">
-          <h1 class="bold price-booking">${{ meal.price }}</h1>
-          <span class="price-detail">/person </span>
-        </div>
+      <div class="price flex">
+        <h1 class="bold price-booking">${{ meal.price }}</h1>
+        <span class="price-detail">/person </span>
+      </div>
       <div class="rating">
-      <img class="star" src="@/assets/icons/star.svg">
-        <span class="rating-details"> {{ host.host.rate }}/5 <span>(68 reviews)</span></span>
+        <img class="star" src="@/assets/icons/star.svg" />
+        <span class="rating-details">
+          {{ host.host.rate }}/5 <span>(68 reviews)</span></span
+        >
       </div>
     </div>
     <div class="booking-bottom">
@@ -29,19 +31,22 @@
           </div>
         </div>
 
-        <el-select v-model="order.guestsNum" placeholder="Guests" default-first-option >
+        <el-select
+          v-model="order.guestsNum"
+          placeholder="Guests"
+          default-first-option
+        >
           <el-option
             v-for="item in guestOptions"
             :key="item.idx"
             :label="item.label"
             :value="item.idx"
-            
           >
           </el-option>
         </el-select>
         <div class="booking-price">
-            <span>Total: </span>
-            <span>${{totalPrice}}</span>
+          <span>Total: </span>
+          <span>${{ totalPrice }}</span>
         </div>
         <button class="btn-book" @click="approveBooking">Book my seats</button>
       </form>
@@ -55,7 +60,7 @@ export default {
   props: {
     meal: Object,
     host: Object,
-    user: Object
+    user: Object,
   },
 
   data() {
@@ -130,12 +135,12 @@ export default {
       };
     },
     approveBooking() {
-      this.$emit('approveBooking', this.order)
+      this.$emit("approveBooking", this.order);
     },
   },
 
-  computed:{
-      totalPrice() {
+  computed: {
+    totalPrice() {
       const totalPrice = this.order.guestsNum * this.meal.price;
       this.order.totalPrice = totalPrice;
       return totalPrice;

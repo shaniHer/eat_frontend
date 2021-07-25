@@ -29,7 +29,6 @@ export default {
       const time = util.getTime();
       return date + " " + time;
     },
-
   },
 
   methods: {},

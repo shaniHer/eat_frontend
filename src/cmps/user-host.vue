@@ -6,7 +6,7 @@
         <th>Guests</th>
         <th>capacity</th>
         <th>Price</th>
-        <th>Total price</th>
+        <th>Total</th>
       </tr>
       <tr v-for="details in mealsHost" :key="details._id">
         <td>{{ details.title }}</td>
@@ -20,11 +20,7 @@
         <h4>${{ totalPrice }}</h4>
       </tr>
     </table>
-    <!-- <td>${{ totalPrice }}</td> -->
-
-    <!-- <article class="chart"> -->
-    <chart :mealsHost="mealsHost" id="myChart"></chart>
-    <!-- </article> -->
+    <chart :mealsTitle="mealsTitle" :mealsHost="mealsHost" id="myChart"></chart>
   </section>
 </template>
 
@@ -41,7 +37,6 @@ export default {
 
   data() {
     return {
-      // meals: this.$store.getters.getMeals,
     };
   },
 
@@ -49,6 +44,7 @@ export default {
 
   computed: {
     mealsHost() {
+      console.log(this.meals);
       return this.meals.filter((meal) => meal.host._id === this.logdinUser._id);
     },
 
@@ -58,6 +54,13 @@ export default {
         sumMeals += this.meals[i].guests * this.meals[i].price;
       }
       return sumMeals;
+    },
+    mealsTitle() {
+      let mealTitle = [];
+      this.mealsHost.forEach((meal) => {
+        mealTitle.push(meal.title);
+      });
+      return mealTitle;
     },
   },
 

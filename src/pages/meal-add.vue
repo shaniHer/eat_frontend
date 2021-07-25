@@ -159,7 +159,6 @@ export default {
         this.meal.imgUrl=this.imgUrls.large
         await this.$store.dispatch({ type: "saveMeal", meal: this.meal });
         this.createMeal();
-        // this.$router.push('/meal/')
       } catch (err) {
         console.log("cannot save meal", err);
       }
