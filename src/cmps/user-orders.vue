@@ -5,6 +5,8 @@
         <tr>
           <th><!-- img --></th>
           <th>Name</th>
+          <!-- <th>Time</th> -->
+          <th>Guest</th>
           <th>Phone</th>
           <th>Meal</th>
           <th>Email</th>
@@ -20,6 +22,8 @@
             />
           </td>
           <td>{{ user.buyer.fullname }}</td>
+          <!-- <td>{{ user.createdAt }}</td> -->
+          <td>{{ user.guestsNum }}</td>
           <td>{{ phoneNum }}</td>
           <td>{{ user.meal.title }}</td>
           <td>{{ randomEmail }}</td>
@@ -51,12 +55,6 @@ export default {
     randomEmail() {
       return util.randomEmail();
     },
-  },
-
-  methods: {
-    // openChat(userId){
-    //   this.$emit('open-chat',userId)
-    // }
   },
   //   ---------------------------------
 };

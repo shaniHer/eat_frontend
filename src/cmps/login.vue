@@ -31,14 +31,14 @@ export default {
       loginCredentials: { username: "", password: "" },
     };
   },
-  methods:{
-      login(){
-          this.$emit('login',this.loginCredentials)
-          this.loginCredentials={ username: "", password: "" }
-      },
-      modalClose(){
-          this.$emit('close')
-      }
-  }
+  methods: {
+    login() {
+      this.$emit("login", this.loginCredentials);
+      this.loginCredentials = { username: "", password: "" };
+    },
+    modalClose() {
+      this.$emit("close");
+    },
+  },
 };
 </script>

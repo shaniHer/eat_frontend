@@ -1,4 +1,4 @@
-import { mealService } from '../../services/meal-service.js'
+// import { mealService } from '../../services/meal-service.js'
 import { NEWmealService } from '../../services/NEW-meal-service.js'
 
 export default {
@@ -15,8 +15,7 @@ export default {
         },
         mealsToShowHomepage(state) {
             var mealsToShowHomepage = state.meals.sort((a, b) => {
-                // return b.host.rate - a.host.rate
-                return a.host.rate > b.host.rate ? -1 : a.host.rate < b.host.rate ? 1 : 0
+                return b.host.rate - a.host.rate
             })
             mealsToShowHomepage = mealsToShowHomepage.slice(0, 4)
             return mealsToShowHomepage
@@ -48,7 +47,9 @@ export default {
             }
             const regex = new RegExp(state.filterBy.txt, 'i')
             // meals = meals.filter(meal => regex.test(meal.title))
-            meals = meals.filter(meal => regex.test(meal.loc.name)||regex.test(meal.title))
+            meals = meals.filter(meal => {
+                console.log(meal.loc, meal._id);
+                return regex.test(meal.loc.name)||regex.test(meal.title)})
             return meals
         }
     },

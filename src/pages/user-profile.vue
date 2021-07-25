@@ -1,7 +1,5 @@
 <template>
   <section class="main-layout user-profile">
-    <!-- <chat-room :user="user"></chat-room> -->
-
     <h2 class="welcome-msg">
       <img class="avatar" :src="require('@/assets/img/img1.jpg')" />
       Hi there! {{ user.username }}
@@ -31,19 +29,29 @@
 import userOrders from "../cmps/user-orders.vue";
 import userHost from "../cmps/user-host.vue";
 
-import chatRoom from "../cmps/chat-room.vue";
-
 export default {
   data() {
     return {
-      user: null,
-      orders: [],
-      meals: [],
+      // user: null,
+      // orders: [],
+      // meals: [],
       show: { orders: true, host: false },
     };
   },
 
-  computed: {},
+  computed: {
+    user() {
+      return this.$store.getters.loggedinUser;
+    },
+
+    meals() {
+      return this.$store.getters.getMeals;
+    },
+
+    orders() {
+      return this.$store.getters.orders;
+    },
+  },
 
   // --------------------------------------
 
@@ -64,12 +72,11 @@ export default {
 
   created() {
     this.$store.dispatch({ type: "loadOrders" });
+    this.$store.dispatch({ type: "loadMeals" });
 
-    this.user = this.$store.getters.loggedinUser;
-    this.meals = this.$store.getters.getMeals;
-    this.orders = this.$store.getters.orders;
-    console.log("this.ordersthis.orders", this.orders);
-    console.log("this.mealsthis.meals", this.meals);
+    // this.user = this.$store.getters.loggedinUser;
+    // this.meals = this.$store.getters.getMeals;
+    // this.orders = this.$store.getters.orders;
   },
 
   // --------------------------------------
@@ -77,7 +84,6 @@ export default {
   components: {
     userOrders,
     userHost,
-    chatRoom,
   },
 };
 </script>

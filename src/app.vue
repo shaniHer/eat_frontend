@@ -1,8 +1,8 @@
 
 <template>
-  <div id="app" class="app-main" :class="`${topClass}`" >
+  <div id="app" class="app-main" :class="`${topClass}`">
     <user-msg />
-    <app-header/>
+    <app-header />
     <router-view />
     <app-footer />
   </div>
@@ -20,8 +20,9 @@ export default {
   },
   // -----------------------------------@@@@@@@@@@@@@
   created() {
+      // await this.$store.dispatch({ type: "loadMeals" });
     window.onscroll = () => {
-      if (window.scrollY !==0) this.topClass = "top";
+      if (window.scrollY !== 0) this.topClass = "top";
       else this.topClass = "";
     };
   },

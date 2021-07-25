@@ -1,6 +1,6 @@
 <template>
   <section class="meal-preview-home">
-    <router-link :to="'/meal/' + meal._id" >
+    <router-link :to="'/meal/' + meal._id">
       <div class="img card">
         <img :src="require(`@/assets/img/previews/${meal.imgUrl}.jpg`)" />
         <div class="price">
@@ -11,7 +11,10 @@
         <h3 class="card-desc"><span>Dinner</span> in Tel Aviv-Yafo</h3>
         <h3 class="card-title">{{ meal.title }}</h3>
         <h4 class="card-rate">
-         {{ meal.host.rate }}<img src="@/assets/icons/star.svg" alt=""/><span class="reviews">({{reviews}})</span>
+          {{ meal.host.rate }}<img src="@/assets/icons/star.svg" /><span
+            class="reviews"
+            >({{ reviews }})
+            </span>
         </h4>
         <div class="card-fullname-container">
           <div class="avatar-img">
@@ -28,7 +31,7 @@
 </template>
 
 <script>
-import {util} from "@/services/util.js"
+import { util } from "@/services/util.js";
 export default {
   props: {
     meal: Object,
@@ -40,15 +43,10 @@ export default {
     imgUrl() {
       return this.meal.host.imgUrl;
     },
-    reviews(){
-     return util.getRndInteger(20,50)
+    reviews() {
+      return util.getRndInteger(20, 50);
     },
-    clearfilter(){
-      console.log('hi')
-    }
   },
-  components:{
-    
-  }
+  components: {},
 };
 </script>

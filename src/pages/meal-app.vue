@@ -30,9 +30,6 @@ export default {
       return this.$store.getters.getMeals;
     },
 
-    // mealsToShow() {
-    //     return this.$store.dispatch({ type: "loadMeals" });
-    // },
   },
 
   // --------------------------

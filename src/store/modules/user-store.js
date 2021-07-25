@@ -1,4 +1,4 @@
-import { userService } from '../../services/user-service.js'
+// import { userService } from '../../services/user-service.js'
 import { NEWuserService } from "../../services/NEW-user-service.js"
 
 export default {
@@ -65,16 +65,16 @@ export default {
             }
         },
 
-        // async logout({ commit }) {
-        //     try {
-        //         const logout=await userService.logout()
-        //         commit({ type: 'setLoggedinUser', user: null })
-        //        return logout.msg
-        //     } catch (err) {
-        //         console.log('userStore: Error in logout', err)
-        //         throw err
-        //     }
-        // },
+        async logout({ commit }) {
+            try {
+                const logout=await userService.logout()
+                commit({ type: 'setLoggedinUser', user: null })
+               return logout.msg
+            } catch (err) {
+                console.log('userStore: Error in logout', err)
+                throw err
+            }
+        },
         // async loadUsers({ commit }) {
         //     try {
         //         const users = await userService.getUsers();

@@ -57,26 +57,7 @@
       </el-option>
     </el-select>
 
-    <!-- @@@@@@@@@@@@@@@@@@@@@@ -->
-
-    <!-- <article>
-      Filter by price:
-      <el-slider
-        class="price-filter"
-        v-model="filter.price"
-        range
-        show-stops
-        :max="2500"
-        @change="emitFilter"
-      >
-      </el-slider>
-    </article> -->
-
     <article class="meal-filter-btn inline">
-      <!-- ---------------------------------filter by diet -->
-      <!-- <el-button @click="filterBy('vegan')">Vegan</el-button> -->
-      <!-- <el-button @click="filterBy('vegeterian')">Vegeterian</el-button> -->
-      <!-- ----------------------------------->
       <el-button @click="clearFilter" class="filter-btn"
         >Clear filter</el-button
       >
@@ -188,16 +169,14 @@ export default {
 
     clearFilter() {
       this.filter = { diet: "all", price: 0, guests: {}, cuisine: "" };
-      this.cuisineName=""
-      this.idx=''
+      this.cuisineName = "";
+      this.idx = "";
       this.emitFilter();
     },
   },
 
   // ------------------------------------
   created() {
-    // this.clearFilter();
-    // console.log(this.$store.getters.getFilter);
     this.cuisineName = this.$store.getters.getFilter.cuisine;
   },
 
@@ -208,8 +187,6 @@ export default {
     this.$store.getters.getFilter.guests = {};
     this.$store.getters.getFilter.diet = "all";
 
-    // this.filter = { diet: "all", price: 0, guests: {}, cuisine: "", txt: "" };
-    // this.emitFilter();
     // -------------------------------------------------
   },
 };
