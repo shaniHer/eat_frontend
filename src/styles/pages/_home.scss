@@ -4,6 +4,10 @@
 .text-home{
     margin-block-end:em(10px);
 }
+.meal-list-home-container{
+    margin-block-end:em(10px);
+}
+
 .cuisine-type-container{
     display:grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

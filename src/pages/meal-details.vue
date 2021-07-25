@@ -1,7 +1,6 @@
 <template>
   <section class="details-wrapper main-layout">
     <section class="flex flex-column" v-if="meal && host">
-
       <div class="title bold">{{ meal.title }}</div>
       <div>
         <img class="star" src="@/assets/icons/star.svg" />
@@ -11,12 +10,21 @@
       </div>
       <div class="img-gallery">
         <img
-          :src="require('@/assets/img/chef-details.jpg')"
+          :src="require('@/assets/img/details/chef-details.jpg')"
           class="large-img"
         />
-        <img :src="require('@/assets/img/meal.jpg')" class="medium-img" />
-        <img :src="require('@/assets/img/pizza.jpg')" class="small-img" />
-        <img :src="require('@/assets/img/plates.jpg')" class="small-img" />
+        <img
+          :src="require('@/assets/img/details/thai3.jpg')"
+          class="medium-img"
+        />
+        <img
+          :src="require('@/assets/img/details/thai2.jpg')"
+          class="small-img"
+        />
+        <img
+          :src="require('@/assets/img/details/thai1.jpg')"
+          class="small-img"
+        />
       </div>
       <div>
         <img class="avatar" :src="require('@/assets/img/img1.jpg')" />
@@ -31,13 +39,13 @@
           :host="host"
           :user="user"
           @approveBooking="approveBooking"
-        ></details-booking >
+        ></details-booking>
       </div>
       <div @click="closeModal" v-if="isBooking" class="dark-screen">
         <div class="booking-modal flex flex-column" v-if="isBooking">
           <div class="booking-content">
             <div class="img">
-              <img :src="require('@/assets/img/seafood/louis-hansel.jpg')" />
+              <img :src="require(`@/assets/img/previews/${meal.imgUrl}.jpg`)" />
             </div>
             <div class="content">
               <h4>You're almost there!</h4>
@@ -58,6 +66,8 @@
         <h3>Your order has been placed!</h3>
       </div>
     </section>
+
+    <div v-else v-loading="loading"></div>
   </section>
 </template>
 
@@ -66,13 +76,12 @@ import { NEWmealService } from "../services/NEW-meal-service.js";
 import { NEWuserService } from "../services/NEW-user-service.js";
 import detailsContent from "../cmps/details-content.vue";
 import detailsBooking from "../cmps/details-booking.vue";
-// import {socketService} from '@/services/socket.service.js';
 
 export default {
   data() {
     return {
+      loading: true,
       meal: null,
-
       host: null,
       user: this.$store.getters.loggedinUser,
       isBooking: false,
@@ -98,12 +107,11 @@ export default {
   },
 
   methods: {
-
     saveOrder() {
       this.$store.dispatch({ type: "saveOrder", order: this.order });
       this.isBooking = !this.isBooking;
       this.isOrderPlaced = !this.isOrderPlaced;
-      socketService.emit('details-add-order', this.order)
+      socketService.emit("details-add-order", this.order);
       setTimeout(() => {
         this.isOrderPlaced = !this.isOrderPlaced;
       }, 3000);
@@ -113,7 +121,6 @@ export default {
 
     // --------------------------------
     updateGuests() {
-      // console.log(this.order);
       const updateGuests = {
         mealId: this.order.meal._id,
         guests: this.order.guestsNum,
@@ -130,6 +137,7 @@ export default {
         const userId = this.meal.host._id;
         const user = await NEWuserService.getById(userId);
         this.host = JSON.parse(JSON.stringify(user));
+        return;
       } catch (err) {
         console.log("err in getMealAndUser:", err);
       }
@@ -146,13 +154,15 @@ export default {
   },
 
   created() {
-    this.getMealAndUser();
-    socketService.emit('details-host', this.host._id)
+    setTimeout(async () => {
+      await this.getMealAndUser();
+      socketService.emit("details-host", this.host._id);
+    }, 1000);
   },
 
   components: {
     detailsContent,
-    detailsBooking
+    detailsBooking,
   },
 };
 </script>

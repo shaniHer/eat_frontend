@@ -35,7 +35,6 @@
             <option value="Czechoslovak">Czechoslovak</option>
           </select>
         </div>
-        <!-- <div class="flex space-between"><label>Upload Images</label></div> -->
         <button class="btn-save">Save</button>
       </form>
       <div class="img-gallery-add">
@@ -68,7 +67,7 @@
           </button>
         </div>
         <div class="add-img small-img">
-           <img-upload
+          <img-upload
             v-if="!imgUrls.small1"
             @save="saveImg($event, 'small1')"
           ></img-upload>
@@ -82,7 +81,7 @@
           </button>
         </div>
         <div class="add-img small-img">
-           <img-upload
+          <img-upload
             v-if="!imgUrls.small2"
             @save="saveImg($event, 'small2')"
           ></img-upload>
@@ -117,7 +116,6 @@ export default {
       meal: {},
       isDetails: true,
       isGallery: true,
-     
     };
   },
 
@@ -140,7 +138,6 @@ export default {
       try {
         await this.$store.dispatch({ type: "saveMeal", meal: this.meal });
         this.createMeal();
-        // this.$router.push('/meal/')
       } catch (err) {
         console.log("cannot save meal", err);
       }
@@ -165,7 +162,7 @@ export default {
   },
   components: {
     imgUpload,
-  }
+  },
 };
 </script>
 

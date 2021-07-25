@@ -1,4 +1,4 @@
-import { asyncService } from "./async-storage-service.js";
+// import { asyncService } from "./async-storage-service.js";
 // import { mealService } from "./order-service.js";
 
 // import axios from "axios";
@@ -15,17 +15,13 @@ export const NEWorderService = {
     
 }
 
-// var KEY = 'meals'
 
 function query() {
     return httpService.get('order')
-    // .then(res => res.data)
 }
 
 function getById(id) {
     return httpService.get(`order/${id}`)
-
-    // return asyncService.get(KEY, +id)
 }
 
 function remove(id) {

@@ -4,9 +4,14 @@ import { Bar } from "vue-chartjs";
 
 export default {
   extends: Bar,
-  props: { mealsHost: { type: Array } },
+  props: { mealsHost: { type: Array }, mealsTitle: Array },
   mounted() {
+    console.log(this.mealsTitle);
     this.renderChart({
+      // xAxis: {
+      //   data: this.mealsTitle,
+      //   // axisLabel: { rotate: 45 },
+      // },
       labels: this.mealsTitle,
       datasets: [
         {
@@ -20,11 +25,27 @@ export default {
             "rgba(54, 162, 235, 0.2)",
             "rgba(153, 102, 255, 0.2)",
             "rgba(201, 203, 207, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(201, 203, 207, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(201, 203, 207, 0.2)",
           ],
           borderColor: [
             "rgb(255, 99, 132)",
             "rgb(255, 159, 64)",
             "rgb(255, 205, 86)",
+            "rgb(75, 192, 192)",
+            "rgb(54, 162, 235)",
+            "rgb(153, 102, 255)",
+            "rgb(201, 203, 207)",
+            "rgb(75, 192, 192)",
+            "rgb(54, 162, 235)",
+            "rgb(153, 102, 255)",
+            "rgb(201, 203, 207)",
             "rgb(75, 192, 192)",
             "rgb(54, 162, 235)",
             "rgb(153, 102, 255)",
@@ -42,9 +63,8 @@ export default {
     mealsTitle() {
       let mealTitle = [];
       this.mealsHost.forEach((meal) => {
-        mealTitle.push(meal.title);
+        mealTitle.push(meal.title.substring(0, 9));
       });
-      console.log(mealTitle);
       return mealTitle;
     },
 

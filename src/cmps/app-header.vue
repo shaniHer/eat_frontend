@@ -9,20 +9,15 @@
       <div class="main-search-container">
         <form @submit.prevent="setFilter">
           <div class="main-search">
-            <!-- <div class="search-location"> -->
-                <font-awesome-icon
-                  :icon="['fas', 'search']"
-                  class="search-icon"
-                />
-              <input
-                type="search"
-                id="main-location"
-                v-model="txt"
-                autocomplete="off"
-                placeholder="search"
-              />
-            <!-- </div> -->
-              <button class="btn-search">search</button>
+            <font-awesome-icon :icon="['fas', 'search']" class="search-icon" />
+            <input
+              type="search"
+              id="main-location"
+              v-model="txt"
+              autocomplete="off"
+              placeholder="search"
+            />
+            <button class="btn-search">search</button>
           </div>
         </form>
       </div>
@@ -39,7 +34,7 @@
                 @click="onNav"
               />
               <div class="avatar-menu">
-                <img v-if="loggedinUser" :src="loggedinUser.imgUrl" alt="" />
+               <img v-if="loggedinUser" :src="require('@/assets/img/chefs/10.jpg')" alt="" /> 
                 <img
                   v-else
                   src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
@@ -77,15 +72,10 @@
     </div>
     <div class="main-title-container" v-if="isHome">
       <div class="main-title">
-        <h2 class=text-main-title>Unforgettable</h2>
-        <!-- <h2 class=text-main-title>Culinary<span>experiences</span></h2> -->
-        <h2 class=text-main-title><span>Culinary</span></h2>
-        <h2 class=text-main-title>experiences</h2>
-        <!-- <h2>Hosts and chefs</h2> -->
-        <!-- <h2>you will be amazed...</h2> -->
+        <h2 class="text-main-title">Unforgettable</h2>
+        <h2 class="text-main-title"><span>Culinary</span></h2>
+        <h2 class="text-main-title">experiences</h2>
       </div>
-      <!-- <div class="sub-title"> -->
-      <!-- </div> -->
     </div>
   </header>
 </template>

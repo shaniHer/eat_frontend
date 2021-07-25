@@ -5,6 +5,8 @@
         <tr>
           <th><!-- img --></th>
           <th>Name</th>
+          <!-- <th>Time</th> -->
+          <th>Guest</th>
           <th>Phone</th>
           <th>Meal</th>
           <th>Email</th>
@@ -20,6 +22,8 @@
             />
           </td>
           <td>{{ user.buyer.fullname }}</td>
+          <!-- <td>{{ user.createdAt }}</td> -->
+          <td>{{ user.guestsNum }}</td>
           <td>{{ phoneNum }}</td>
           <td>{{ user.meal.title }}</td>
           <td>{{ randomEmail }}</td>
@@ -38,7 +42,6 @@ export default {
   //   ---------------------------------
   computed: {
     ordersToShow() {
-      console.log(this.orders);
       return this.orders.filter(
         (order) => order.host._id === this.logdinUser._id
       );
@@ -48,9 +51,9 @@ export default {
       return util.reandomPhoneNum();
     },
 
-    randomEmail(){
-      return util.randomEmail()
-    }
+    randomEmail() {
+      return util.randomEmail();
+    },
   },
   //   ---------------------------------
 };
