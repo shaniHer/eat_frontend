@@ -1,7 +1,6 @@
 <template>
   <section class="details-wrapper main-layout">
     <section class="flex flex-column" v-if="meal && host">
-
       <div class="title bold">{{ meal.title }}</div>
       <div>
         <img class="star" src="@/assets/icons/star.svg" />
@@ -31,13 +30,13 @@
           :host="host"
           :user="user"
           @approveBooking="approveBooking"
-        ></details-booking >
+        ></details-booking>
       </div>
       <div @click="closeModal" v-if="isBooking" class="dark-screen">
         <div class="booking-modal flex flex-column" v-if="isBooking">
           <div class="booking-content">
-            <div class="img">
-              <img :src="require('@/assets/img/seafood/louis-hansel.jpg')" />
+            <div class="booking-img">
+              <img :src="require(`@/assets/img/previews/${meal.imgUrl}.jpg`)" />
             </div>
             <div class="content">
               <h4>You're almost there!</h4>
@@ -98,27 +97,33 @@ export default {
   },
 
   methods: {
-
-    saveOrder() {
-      this.$store.dispatch({ type: "saveOrder", order: this.order });
-      this.isBooking = !this.isBooking;
-      this.isOrderPlaced = !this.isOrderPlaced;
-      socketService.emit('details-add-order', this.order)
-      setTimeout(() => {
+    async saveOrder() {
+      try {
+        await this.$store.dispatch({ type: "saveOrder", order: this.order });
+        this.isBooking = !this.isBooking;
         this.isOrderPlaced = !this.isOrderPlaced;
-      }, 3000);
+        setTimeout(() => {
+          this.isOrderPlaced = !this.isOrderPlaced;
+        }, 3000);
 
-      this.updateGuests();
+        this.updateGuests();
+      } catch (err) {
+        console.log("err in saveOrder", err);
+      }
     },
 
     // --------------------------------
-    updateGuests() {
+    async updateGuests() {
       // console.log(this.order);
       const updateGuests = {
         mealId: this.order.meal._id,
         guests: this.order.guestsNum,
       };
-      this.$store.dispatch({ type: "addGuests", updateGuests });
+      try {
+        await this.$store.dispatch({ type: "addGuests", updateGuests });
+      } catch (err) {
+        console.log("err in updateGuests", err);
+      }
     },
     // --------------------------------
 
@@ -147,12 +152,12 @@ export default {
 
   created() {
     this.getMealAndUser();
-    socketService.emit('details-host', this.host._id)
+    // socketService.emit('details-host', this.host._id)
   },
 
   components: {
     detailsContent,
-    detailsBooking
+    detailsBooking,
   },
 };
 </script>

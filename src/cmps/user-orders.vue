@@ -23,7 +23,8 @@
           <td>{{ phoneNum }}</td>
           <td>{{ user.meal.title }}</td>
           <td>{{ randomEmail }}</td>
-          <td><button class="msg">Msg</button></td>
+          <!-- <td><button class="msg" @click="openChat(user._id)">Msg</button></td>
+          <td><button class="msg" @click="openChat(user._id)">Msg</button></td> -->
         </tr>
       </table>
     </article>
@@ -38,7 +39,6 @@ export default {
   //   ---------------------------------
   computed: {
     ordersToShow() {
-      console.log(this.orders);
       return this.orders.filter(
         (order) => order.host._id === this.logdinUser._id
       );
@@ -48,9 +48,15 @@ export default {
       return util.reandomPhoneNum();
     },
 
-    randomEmail(){
-      return util.randomEmail()
-    }
+    randomEmail() {
+      return util.randomEmail();
+    },
+  },
+
+  methods: {
+    // openChat(userId){
+    //   this.$emit('open-chat',userId)
+    // }
   },
   //   ---------------------------------
 };

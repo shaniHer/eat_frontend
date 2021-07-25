@@ -324,8 +324,8 @@ button {
 
 .review-card {
     // flex-grow: 1;
-    min-width: 400px;
-    margin: 16px 0px;
+    max-width: 400px;
+    padding: 16px 16px;
 }
 
 .review-card:not(:nth-child(2n)){

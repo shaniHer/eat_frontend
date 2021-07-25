@@ -1,13 +1,6 @@
 <template>
   <section class="main-layout user-profile">
-
-
-    <!-- -------------------------------------CHAT -->
     <!-- <chat-room :user="user"></chat-room> -->
-    <!-- ------------------------------------- -->
-
-
-
 
     <h2 class="welcome-msg">
       <img class="avatar" :src="require('@/assets/img/img1.jpg')" />
@@ -38,7 +31,7 @@
 import userOrders from "../cmps/user-orders.vue";
 import userHost from "../cmps/user-host.vue";
 
-// import chatRoom from "../cmps/chat-room.vue"
+import chatRoom from "../cmps/chat-room.vue";
 
 export default {
   data() {
@@ -75,6 +68,8 @@ export default {
     this.user = this.$store.getters.loggedinUser;
     this.meals = this.$store.getters.getMeals;
     this.orders = this.$store.getters.orders;
+    console.log("this.ordersthis.orders", this.orders);
+    console.log("this.mealsthis.meals", this.meals);
   },
 
   // --------------------------------------
@@ -82,7 +77,7 @@ export default {
   components: {
     userOrders,
     userHost,
-    // chatRoom
+    chatRoom,
   },
 };
 </script>
