@@ -41,12 +41,37 @@
         }
     }
     .msg {
-        //btn
-        // background-color: indianred;
         background-color: rgb(71, 216, 71);
         color: white;
         border-radius: 10px;
         cursor: pointer;
+        :hover {
+            background-color: rgba(71, 216, 71, 0.63);
+        }
+    }
+}
+
+svg.svg-inline--fa.fa-phone-square.fa-w-14 {
+    width: rem(30px);
+    height: rem(30px);
+    cursor: pointer;
+    color: rgb(82, 82, 83);
+    :hover {
+        transition: 0.2s;
+        color: rgba(31, 31, 32, 0.514);
+        height: 40px;
+        width: 40px;
+    }
+}
+
+svg.svg-inline--fa.fa-envelope.fa-w-16 {
+    width: rem(30px);
+    height: rem(30px);
+    color: rgb(82, 82, 83);
+    cursor: pointer;
+    :hover {
+        transition: 0.2s;
+        color: rgba(31, 31, 32, 0.514);
     }
 }
 

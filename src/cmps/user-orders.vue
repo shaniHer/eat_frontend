@@ -1,11 +1,17 @@
 <template>
   <section class="main-layout user-orders">
+    <!-- <td><button @click="openChat" class="msg">Msg</button></td> -->
     <article v-if="orders">
+      <!-- --------------------------------------- -->
+      <article v-if="chetIsOpen">
+        <chat-room class="chat" :loggdinUser="logdinUser"></chat-room>
+      </article>
+      <!-- --------------------------------------- -->
+
       <table>
         <tr>
           <th><!-- img --></th>
           <th>Name</th>
-          <!-- <th>Time</th> -->
           <th>Guest</th>
           <th>Phone</th>
           <th>Meal</th>
@@ -15,17 +21,25 @@
         </tr>
         <tr v-for="user in ordersToShow" :key="user._id">
           <td>
-            <!-- <img src="require(user.buyer.imgUrl)" /> -->
-             <img class="avatar" :src="require(`@/${user.buyer.imgUrl}.jpg`)" />
+            <img class="avatar" :src="require(`@/${user.buyer.imgUrl}.jpg`)" />
           </td>
           <td>{{ user.buyer.fullname }}</td>
-          <!-- <td>{{ user.createdAt }}</td> -->
           <td>{{ user.guestsNum }}</td>
-          <td>{{ phoneNum }}</td>
+          <td>
+            <font-awesome-icon
+              class="user-orders-icon"
+              :icon="['fa', 'phone-square']"
+            />
+          </td>
           <td>{{ user.meal.title }}</td>
-          <td>{{ randomEmail }}</td>
-          <!-- <td><button class="msg" @click="openChat(user._id)">Msg</button></td>
-          <td><button class="msg" @click="openChat(user._id)">Msg</button></td> -->
+          <td>
+            <font-awesome-icon
+              class="user-orders-icon"
+              :icon="['fas', 'envelope']"
+            />
+          </td>
+
+          <td><button @click="openChat" class="msg">Msg</button></td>
         </tr>
       </table>
     </article>
@@ -34,9 +48,24 @@
 
 <script>
 import { util } from "../services/util.js";
+// import chatRoom from "../cmps/chat-room.vue";
+
 export default {
   props: { orders: { type: Array }, logdinUser: { type: Object } },
 
+  //   ---------------------------------
+  data() {
+    return {
+      chetIsOpen: false,
+    };
+  },
+  //   ---------------------------------
+  methods: {
+    openChat() {
+      this.chetIsOpen = !this.chetIsOpen;
+      console.log("aaa");
+    },
+  },
   //   ---------------------------------
   computed: {
     ordersToShow() {
@@ -54,6 +83,9 @@ export default {
     },
   },
   //   ---------------------------------
+  components: {
+    // chatRoom,
+  },
 };
 </script>
 
