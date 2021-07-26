@@ -1,8 +1,8 @@
 <template>
-  <section class="meal-filter-container main-layout">
+  <section class="meal-filter-container ">
     <!-- ---------------------------------filter by date:: -->
-    <article class="inline">
-      <span class="demonstration"></span>
+    <!-- <article class="inline"> -->
+      <!-- <span class="demonstration"></span> -->
       <el-date-picker
         v-model="date"
         type="date"
@@ -10,7 +10,7 @@
         default-value="2021-07-15"
       >
       </el-date-picker>
-    </article>
+    <!-- </article> -->
 
     <!-- ---------------------------------filter by cuisine: -->
 

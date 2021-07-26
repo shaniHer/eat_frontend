@@ -6,12 +6,16 @@
           <h1>Eat<span>|</span>it</h1>
         </div>
         <div class="all-icons">
+          <div class="apple-google-container">
           <img src="@/assets/icons/apple.svg" alt="" />
           <img src="@/assets/icons/google.png" alt="" />
+          </div>
+          <div class="other-icons">
           <font-awesome-icon :icon="['fab', 'facebook-square']" />
           <font-awesome-icon :icon="['fab', 'twitter']" />
           <font-awesome-icon :icon="['fab', 'linkedin']" />
           <font-awesome-icon :icon="['fab', 'instagram']" />
+          </div>
         </div>
       </div>
       <div class="coffee-container-2">
@@ -50,7 +54,7 @@
           </li>
         </ul>
         <ul>
-          <li class="list">
+          <li class="list border-li">
             <h2>IMPORTANT</h2>
             <h4>Privacy</h4>
             <h4>Terms</h4>

@@ -9,7 +9,7 @@
     z-index: 1;
     width: 100%;
     height: 100px;
-    transition: .3s;
+    // transition: .3s;
     .app-header-container{
         display: flex;
         justify-content: space-between;
@@ -42,7 +42,6 @@
         margin-block-start: em(24px);
         display: flex;
         justify-content: space-between;
-        // align-items: flex-start;
         align-items: center;
         .logo span{
             color:$clr1;
@@ -53,7 +52,7 @@
     }
 }
 .top .app-header.home .app-header-container{
-    transition: .3s;
+    // transition: .3s;
     margin-block-start:0;
     display: flex;
     justify-content: space-around;
@@ -78,7 +77,6 @@
                 right:0;
             }
         }      
-         
         .logo{
             color:$clr1
         }
@@ -91,26 +89,26 @@
     display: flex;
     justify-content: flex-start;
     margin-block-end: 40px;
-    .main-title{
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        border-radius: 10px;
-        .text-main-title{
-            font-size: rem(50px);
-            font-family:Anton, serif;
-            color: white;
-            line-height: 1.3;
-        }
-        .text-main-title span{
-            color: $clr1;
-        }
-        .text-sub-title{
-            font-size: rem(60px);
-            font-family:Anton, serif;
-            color: white;
-        }
-    }
+}
+.main-title{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.text-main-title{
+    font-size: rem(50px);
+    font-family:Anton, serif;
+    color: white;
+    line-height: 1.3;
+}
+.text-main-title span{
+    color: $clr1;
+}
+.text-sub-title{
+    font-size: rem(60px);
+    font-family:Anton, serif;
+    color: white;
 }
 .main-search-container{
     padding-block:em(2px);
@@ -139,19 +137,27 @@
     input:focus{
         outline: none;
     }
-    .search-icon{
-        cursor: pointer;
-     font-size: rem(14px);
-     margin-inline-end: em(10px);
-    }   
+    // .search-icon{
+    //     cursor: pointer;
+    //  font-size: rem(14px);
+    //  margin-inline-end: em(10px);
+    // }   
 }
-    .btn-search{
-        border-radius: 50%;
-        // border-radius: em(20px);
-        background: $clr1;
-        color:#ffffff;
-        cursor: pointer; 
-    }
+.btn-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: $clr1;
+    color:#ffffff;
+    cursor: pointer; 
+}
+.btn-search img{
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+
+}
 .screen-main-nav{
     position: fixed;
     pointer-events: all;
@@ -173,26 +179,26 @@
     right:0;
     border-radius: em(10px);
     background:white;
-    .login-signup-border{
-        padding-inline-start: em(20px);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        border-bottom:1px solid rgb(199, 199, 199);
-        margin-block:em(8px)
-    }
-    .login-signup-border >*{
-        margin-block-end:em(8px)
-    }
-    .user-routes{
-        padding-inline-start: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .user-routes >*{
-        margin-block-end:em(8px)
-    }
+}
+.login-signup-border{
+    padding-inline-start: em(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom:1px solid rgb(199, 199, 199);
+    margin-block:em(8px)
+}
+.login-signup-border >*{
+    margin-block-end:em(8px)
+}
+.user-routes{
+    padding-inline-start: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.user-routes >*{
+    margin-block-end:em(8px)
 }
 .becomehost-burger-login-container a{
         margin-inline-end: em(10px);
@@ -238,8 +244,8 @@
     border-radius: 50%;  
     box-shadow: 0px 0px 3px #ff5a002b;
   }
-.screen-login-signup{
-    position: fixed;
+  .screen-login-signup{
+      position: fixed;
     z-index:1;
     top:0;
     left:0;
@@ -262,51 +268,221 @@
     display: flex;
     justify-content: center;
     width: 500px;
-    .login-signup-title-btn{
+}
+.login-signup-title-btn{
         display: flex;
         justify-content: space-between;
-        .login-signup-title{
-            margin-block: em(16px);
-            color:gray
-        }
-        .btn-close{
-            border:none;
-            background: none;
-            cursor: pointer;
-            font-size:em(20px);
-            font-weight: 100;
-        }
+}
+.login-signup-title{
+    margin-block: em(16px);
+    color:gray
+}
+.btn-close{
+    border:none;
+    background: none;
+    cursor: pointer;
+    font-size:em(20px);
+    font-weight: 100;
+}
+.input-login-signup{
+    width: 400px;
+    margin-block-end:em(20px) ;
+    input{
+        border:none;
+        border-radius: 1em;
+        box-shadow: 0px 1px 1px 0px rgb(199, 199, 199);
+        margin:10px 0;
+        padding: 10px;
+        width: 100%;
     }
-    .input-login-signup{
-        width: 400px;
-        margin-block-end:em(20px) ;
-        input{
-            border:none;
-            border-radius: 1em;
-            box-shadow: 0px 1px 1px 0px rgb(199, 199, 199);
-            margin:10px 0;
-            padding: 10px;
+    input:focus {
+        outline:none;
+        border-radius:1em;
+        border:1px solid rgb(0, 110, 255);   
+    }
+}
+.button-login-signup{
+    margin-block-end: em(20px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.btn-login-signup{
+    border:1px solid rgb(177, 177, 177);
+    color:rgb(233, 233, 233);
+    cursor: pointer;
+    font-size:rem(18px);
+    border-radius:em(10px);
+    background-color: rgb(0, 132, 255);
+    padding: em(6px);
+}
+@media (max-width:800px){
+    .top .app-header.home .app-header-container{
+    }
+    .app-header.home{
+        background-image:url(~@/assets/img/back4.jpg);
+        background-position-y: 0;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        height: 80vh;
+        align-items: start;
+        .app-header-container{
+            margin-block-start:0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .becomehost-burger-login-container{
+            order:1;
+            margin-block-start: 20px;
             width: 100%;
+         }
+        .becomehost-burger{
+            width: 100%;
+            justify-content: space-between;
         }
-        input:focus {
-            outline:none;
-            border-radius:1em;
-            border:1px solid rgb(0, 110, 255);   
+        .main-nav{
+            width: 150px;
+        }
+        .logo{
+            order:2;
+            margin-block-end: 100px;
+        }
+        .logo h1{
+            font-size: rem(45px);
+        }
+        .logo span{
+            color:$clr1;
+        }
+        .main-search-container{
+            order:3;
+        }
+            .main-title-container{
+                align-self: center;
+                justify-content: center;
+            }
+            .main-title{
+                flex-direction: row;
+                width: 100%;
+                padding-block-end: em(30px);
+                justify-content: space-between;
+                align-items: center;
+            }
+                .main-title >*{ 
+                font-size: rem(36px);
+            }
+          
+            .main-search-container:hover{
+                border: 1px solid $clr1;
+            }
         }
     }
-    .button-login-signup{
-        margin-block-end: em(20px);
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        .btn-login-signup{
-            border:1px solid rgb(177, 177, 177);
-            color:rgb(233, 233, 233);
-            cursor: pointer;
-            font-size:rem(18px);
-            border-radius:em(10px);
-            background-color: rgb(0, 132, 255);
-            padding: em(6px);
+@media (max-width:700px){
+    
+    .app-header.home{
+        height: 60vh;
+        .main-title >*{ 
+            font-size: rem(28px);
+        }
+        .logo{
+            margin-block-end: 50px;
+        }
+    }
+}
+@media (max-width:500px){
+    
+    .app-header.home{
+        height: 50vh;
+        .becomehost-burger-login-container{
+
+            margin-block-end: 30px;
+    }
+        .main-title >*{ 
+            font-size: rem(22px);
+        }
+        .logo{
+            margin-block-end: 30px;
+        }
+        .main-search-container{
+            // display: none;
+            margin-block-end: 30px;
+        }
+        .btn-search{
+            display: flex;
+            width: 24px;
+            height: 24px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: $clr1;
+            color:#ffffff;
+            cursor: pointer; 
+        }
+        .btn-search img{
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+        
+        }
+        .avatar-menu{
+            margin-inline-end: 0.5em;
+            margin-block: 0.25em;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            width: 1em;
+            height: 1em;
+        }
+        .main-nav{
+            width:80px
+        }
+        .user-routes{
+            display: none;
+        }
+        .login-signup-border{
+            border:none;
+            padding-inline-start: 12px;
+        }
+    }
+}
+@media (max-width:400px){
+    .top .app-header.home .app-header-container{
+    //     flex-direction: column;
+    //     align-items: center;
+        display: none;
+    }
+    .app-header.home{
+        height: 40vh;
+        .becomehost-burger-login-container{
+            margin-block-end: 10px;
+    }
+        .main-title >*{ 
+            font-size: rem(18px);
+        }
+        .logo{
+            margin-block-end: 10px;
+        }
+        .main-search-container{
+            // display: none;
+            margin-block-end: 20px;
+        }
+        .main-nav{
+            width:70px
+        }
+        .user-routes{
+            display: none;
+        }
+        .login-signup-border{
+            border:none;
+            font-size: rem(16px);
+            padding-inline: 8px;
+        }
+        .login-signup-border > *{
+            
+            margin: 0;
         }
     }
 }

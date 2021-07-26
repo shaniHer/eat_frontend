@@ -20,7 +20,6 @@ export default {
   },
   // -----------------------------------@@@@@@@@@@@@@
   created() {
-      // await this.$store.dispatch({ type: "loadMeals" });
     window.onscroll = () => {
       if (window.scrollY !== 0) this.topClass = "top";
       else this.topClass = "";
