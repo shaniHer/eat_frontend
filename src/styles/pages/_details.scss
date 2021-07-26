@@ -14,11 +14,6 @@
     object-fit: cover;
 }
 
-.el-date-editor.el-input, .el-date-editor.el-input__inner {
-    width: 100%;
-}
-
-
 .review-header .details {
     margin: 0px 16px;
 }
@@ -426,8 +421,6 @@ button {
     .main-container{
         display: flex;
         flex-direction: column;
-    }
-    .details-container{
     }
     .booking-container{
         position: static;

@@ -72,9 +72,9 @@
           </div>
         </div>
       </div>
-      <div class="booking-modal booked" v-if="isOrderPlaced">
+      <!-- <div class="booking-modal booked" v-if="isOrderPlaced">
         <h3>Your order has been placed!</h3>
-      </div>
+      </div> -->
     </section>
 
     <div v-else v-loading="loading"></div>
@@ -95,7 +95,7 @@ export default {
       host: null,
       user: this.$store.getters.loggedinUser,
       isBooking: false,
-      isOrderPlaced: false,
+      // isOrderPlaced: false,
       order: {},
     };
   },
@@ -126,13 +126,21 @@ export default {
       try {
         await this.$store.dispatch({ type: "saveOrder", order: this.order });
       this.toggleBookingModal()
-        this.isOrderPlaced = !this.isOrderPlaced;
-        setTimeout(() => {
-          this.isOrderPlaced = !this.isOrderPlaced;
-        }, 3000);
+       const userMsg = {};
+        userMsg.txt = `Your order has been placed! `;
+        userMsg.type = "success";
+        this.$store.dispatch({ type: "setUserMsg", userMsg });
+        // this.isOrderPlaced = !this.isOrderPlaced;
+        // setTimeout(() => {
+        //   this.isOrderPlaced = !this.isOrderPlaced;
+        // }, 3000);
 
         this.updateGuests();
       } catch (err) {
+        const userMsg = {};
+        userMsg.txt = `Problem with the order plz try again `;
+        userMsg.type = "success";
+        this.$store.dispatch({ type: "setUserMsg", userMsg });
         console.log("err in saveOrder", err);
       }
     },
