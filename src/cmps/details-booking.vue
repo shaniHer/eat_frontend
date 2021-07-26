@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="booking-bottom">
-      <form class="flex flex-column" action="">
+      <form class="flex flex-column" action="" @submit.prevent>
         <div class="date-container flex flex-column">
           <div class="calendar">
             <!-- -----------------------------------------------DATE: -->
@@ -117,6 +117,7 @@ export default {
 
   methods: {
     createOrder() {
+      const {buyer:{_id,fullname,imgUrl}} = this.user
       this.order.buyer = {
         _id: this.user._id,
         fullname: this.user.fullname,

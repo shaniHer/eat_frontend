@@ -3,23 +3,50 @@
     "eventTime": "none",
     "title": "Batata Ksbia",
     "price": 12,
-    "guests": 8, //* number of guests?
-    "cuisine": "Asian", //**
+    "guests": 8,
+    "cuisine": "Asian",
     "menu": {
       "starter": [
-        {"name":"Som Tum","desc":"Spicy Green Papaya Salad"},
-        {"name":"Yum Nua", "desc":"Spicy Beef Salad"},
-        {"name":"Tod Mun Pla", "desc":"Thai Fish Cake"}
+        {
+          "name": "Som Tum",
+          "desc": "Spicy Green Papaya Salad"
+        },
+        {
+          "name": "Yum Nua",
+          "desc": "Spicy Beef Salad"
+        },
+        {
+          "name": "Tod Mun Pla",
+          "desc": "Thai Fish Cake"
+        }
       ],
       "main": [
-        {"name":"Tom Yum Goong","desc":"Spicy Shrimp Soup"},
-        {"name":"Pad Thai", "desc":"Thai-Style Fried Noodles"},
-        {"name":"Pad See Ew or Pad Siew ", "desc":"Flat Noodles Stir-Fried with Soy Sauce"}
+        {
+          "name": "Tom Yum Goong",
+          "desc": "Spicy Shrimp Soup"
+        },
+        {
+          "name": "Pad Thai",
+          "desc": "Thai-Style Fried Noodles"
+        },
+        {
+          "name": "Pad See Ew or Pad Siew ",
+          "desc": "Flat Noodles Stir-Fried with Soy Sauce"
+        }
       ],
       "desert": [
-        {"name":"Banana Roti","desc":"Banana Pancake"},
-        {"name":"Mah Hor", "desc":"Galloping Horses"},
-        {"name":"Foy thong", "desc":"Sweet Thai crepe"}
+        {
+          "name": "Banana Roti",
+          "desc": "Banana Pancake"
+        },
+        {
+          "name": "Mah Hor",
+          "desc": "Galloping Horses"
+        },
+        {
+          "name": "Foy thong",
+          "desc": "Sweet Thai crepe"
+        }
       ]
     },
     "host": {
