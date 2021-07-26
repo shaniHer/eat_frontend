@@ -11,6 +11,7 @@ import mealFilter from "@/cmps/meal-filter.vue";
 export default {
   // ----------------------------
   async created() {
+
     window.scrollTo(0, 0);
     try {
       await this.$store.dispatch({ type: "loadMeals" });

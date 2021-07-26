@@ -1,11 +1,10 @@
-.user-host{
+.user-host {
     display: flex;
     // align-items: center;
     justify-content: center;
     gap: 110px;
-    padding: 50px 0px
+    padding: 50px 0px;
 }
-
 
 #bar-chart {
     height: 22.375rem !important;
@@ -16,7 +15,6 @@
 .user-host table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-
 
     tr,
     td {
@@ -34,25 +32,27 @@
         padding: 1rem 3rem 1rem 0px;
         font-family: lato;
     }
-    th:last-child{
+    th:last-child {
         padding-right: 0px;
     }
     tr {
         border-bottom: 0.5px solid rgba(0, 0, 0, 0.178);
     }
 
-    td:last-child{
+    td:last-child {
         padding-right: 0px;
     }
 
-    tr:hover :not(th){
+    tr:hover :not(th) {
         background-color: rgb(238, 238, 238);
         transition: 0.2s;
-
     }
 }
 
-.expected-revenue{
+.user-orders table th {
+    text-align: center;
+}
+.expected-revenue {
     // background-color: blue;
     // border: 1px solid blue;
     // font-weight: bold;
@@ -62,8 +62,3 @@
     width: 100%;
     background-color: rgba(75, 75, 255, 0.082);
 }
-
-
-
-
-
