@@ -6,7 +6,7 @@
           <th><!-- img --></th>
           <th>Name</th>
           <th>Guest</th>
-          <th>Phone</th>
+          <!-- <th>Phone</th> -->
           <th>Meal</th>
           <th>Email</th>
 
@@ -18,12 +18,12 @@
           </td>
           <td>{{ user.buyer.fullname }}</td>
           <td>{{ user.guestsNum }}</td>
-          <td>
-            <font-awesome-icon
+          <!-- <td> -->
+            <!-- <font-awesome-icon
               class="user-orders-icon"
               :icon="['fa', 'phone-square']"
-            />
-          </td>
+            /> -->
+          <!-- </td> -->
           <td>{{ user.meal.title }}</td>
           <td>
             <font-awesome-icon
