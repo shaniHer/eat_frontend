@@ -1,7 +1,7 @@
 
 //CREATING ORDER//////
 
-createOrder() {
+function createOrder() {
     this.order.buyer = {
         _id: this.user._id,
         fullname: this.user.fullname,
@@ -21,7 +21,7 @@ createOrder() {
 
 //SAVE ORDER AND UPDATE GUESTS
 
-async saveOrder() {
+async function saveOrder() {
     try {
         await this.$store.dispatch({ type: "saveOrder", order: this.order });
         this.isBooking = !this.isBooking;
@@ -42,7 +42,7 @@ async saveOrder() {
     }
 }
 
-async updateGuests() {
+async function updateGuests() {
     const updateGuests = {
         mealId: this.order.meal._id,
         guests: this.order.guestsNum,

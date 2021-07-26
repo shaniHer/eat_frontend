@@ -27,7 +27,7 @@
         />
       </div>
       <div>
-        <img class="avatar" :src="require(`@/assets/img/chefs/${meal.host.imgUrl}.jpg`)"/>
+        <img class="avatar" :src="require(`@/assets/img/chefs/${meal.host.imgUrl}.jpg`)" />
       </div>
       <div>
         Hosted by <span class="host-name bold">{{ host.fullname }}</span>
@@ -41,24 +41,34 @@
           @approveBooking="approveBooking"
         ></details-booking>
       </div>
-      <div @click="closeModal" v-if="isBooking" class="dark-screen">
+      <div @click="toggleBookingModal" v-if="isBooking" class="dark-screen">
         <div class="booking-modal flex flex-column" v-if="isBooking">
-          <div class="booking-content">
-            <div class="img">
-              <img :src="require(`@/assets/img/previews/${meal.imgUrl}.jpg`)" />
-            </div>
-            <div class="content">
+          <div class="booking-modal-main flex">
+           <div class="img-gallery-booking">
+        <img :src="require('@/assets/img/details/chef-details.jpg')" class="img1-booking"/>
+        <img :src="require('@/assets/img/details/thai3.jpg')" class="img2-booking"/>
+        <img :src="require('@/assets/img/details/thai2.jpg')" class="img3-booking"/>
+        <!-- <img :src="require('@/assets/img/details/thai1.jpg')" class="img4-booking"/> -->
+        <img :src="require(`@/assets/img/previews/${meal.imgUrl}.jpg`)" class="img5-booking" />
+      </div>
+            <div class="booking-content flex flex-column space-between">
+              <div>
               <h4>You're almost there!</h4>
               <h3 class="bold">{{ meal.title }}</h3>
-              <div><span class="bold"></span>{{ order.eventTime }}</div>
+              <div><span class="bold"></span>{{ eventTime }}</div>
+              
+              <div class="price-details">
               <div>${{ meal.price }} per person</div>
               <div>{{ order.guestsNum }} guests</div>
               <div><span class="bold">Total: </span>${{ totalPrice }}</div>
+              </div>
+
+              </div>
+            <div class="btns">
+              <button class="btn-book" @click.stop="saveOrder">Approve</button>
+              <button class="btn-cancel" @click.stop="toggleBookingModal">Cancel</button>
             </div>
-          </div>
-          <div class="btns">
-            <button class="btn-book" @click="saveOrder">Approve</button>
-            <button class="btn-cancel" @click="closeModal">Cancel</button>
+            </div>
           </div>
         </div>
       </div>
@@ -104,13 +114,18 @@ export default {
       this.order.totalPrice = totalPrice;
       return totalPrice;
     },
+
+    eventTime(){
+      const time = this.order.eventTime
+      return time.toLocaleString('en-GB', { timeZone: 'UTC' })
+    }
   },
 
   methods: {
     async saveOrder() {
       try {
         await this.$store.dispatch({ type: "saveOrder", order: this.order });
-        this.isBooking = !this.isBooking;
+      this.toggleBookingModal()
         this.isOrderPlaced = !this.isOrderPlaced;
         setTimeout(() => {
           this.isOrderPlaced = !this.isOrderPlaced;
@@ -151,13 +166,14 @@ export default {
       }
     },
 
-    closeModal() {
+    toggleBookingModal(){
       this.isBooking = !this.isBooking;
+      console.log(this.isBooking)
     },
 
     approveBooking(order) {
       this.order = order;
-      this.isBooking = !this.isBooking;
+      this.toggleBookingModal()
     },
   },
 

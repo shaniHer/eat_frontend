@@ -5,7 +5,6 @@
         <tr>
           <th><!-- img --></th>
           <th>Name</th>
-          <!-- <th>Time</th> -->
           <th>Guest</th>
           <th>Phone</th>
           <th>Meal</th>
@@ -15,17 +14,25 @@
         </tr>
         <tr v-for="user in ordersToShow" :key="user._id">
           <td>
-            <!-- <img src="require(user.buyer.imgUrl)" /> -->
-             <img class="avatar" :src="require(`@/${user.buyer.imgUrl}.jpg`)" />
+            <img class="avatar" :src="require(`@/${user.buyer.imgUrl}.jpg`)" />
           </td>
           <td>{{ user.buyer.fullname }}</td>
-          <!-- <td>{{ user.createdAt }}</td> -->
           <td>{{ user.guestsNum }}</td>
-          <td>{{ phoneNum }}</td>
+          <td>
+            <font-awesome-icon
+              class="user-orders-icon"
+              :icon="['fa', 'phone-square']"
+            />
+          </td>
           <td>{{ user.meal.title }}</td>
-          <td>{{ randomEmail }}</td>
-          <!-- <td><button class="msg" @click="openChat(user._id)">Msg</button></td>
-          <td><button class="msg" @click="openChat(user._id)">Msg</button></td> -->
+          <td>
+            <font-awesome-icon
+              class="user-orders-icon"
+              :icon="['fas', 'envelope']"
+            />
+          </td>
+
+          <td><button @click="openChat" class="msg">Msg</button></td>
         </tr>
       </table>
     </article>
@@ -34,6 +41,8 @@
 
 <script>
 import { util } from "../services/util.js";
+import chatRoom from "../cmps/chat-room.vue";
+
 export default {
   props: { orders: { type: Array }, logdinUser: { type: Object } },
 
@@ -41,6 +50,18 @@ export default {
   created(){
     window.scrollTo(0, 0);
   },
+  data() {
+    return {
+      chatIsOpen: false,
+    };
+  },
+  //   ---------------------------------
+  methods: {
+    openChat() {
+      this.chatIsOpen = !this.chatIsOpen;
+    },
+  },
+  //   ---------------------------------
   computed: {
     ordersToShow() {
       return this.orders.filter(
@@ -57,6 +78,9 @@ export default {
     },
   },
   //   ---------------------------------
+  components: {
+    chatRoom,
+  },
 };
 </script>
 

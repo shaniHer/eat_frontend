@@ -14,6 +14,11 @@
     object-fit: cover;
 }
 
+.el-date-editor.el-input, .el-date-editor.el-input__inner {
+    width: 100%;
+}
+
+
 .review-header .details {
     margin: 0px 16px;
 }
@@ -43,7 +48,7 @@
 }
 
 .chat {
-    background-color: #fff;
+    background-color: rgb(67, 144, 189);
     width: 300px;
     height: 300px;
     position: absolute;
@@ -172,13 +177,26 @@
     // color: #353530;
     // box-shadow: 0px 6px 9px 0px rgba(0,0,0,0.1);
 }
+.booking-modal-main{
+    gap: 20px;
+    width: 500px;
+    height: 100%;
+
+}
+
+.booking-content{
+    flex-grow: 1;
+    .price-details{
+        margin-top: 20px;
+    }
+}
+
 .booking-price {
     margin-top: 20px;
     font-weight: bold;
 }
 
 .img-gallery {
-    // background-color:lightpink;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: 135px;
@@ -186,13 +204,54 @@
     gap: 17px;
     margin-bottom: 15px;
     margin-top: 20px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
 }
 
-.img-gallery img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
+.img-gallery-booking {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(3, 117px);
+    grid-auto-flow: dense;
+    gap: 10px;
+    // width: 200px;
+    // height:auto;
+    flex-grow: 2;
+
+   img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
+
+
+
+.img1-booking{
+    grid-row: span 2;
+    grid-column: span 2;
+}
+.img2-booking{
+    grid-row: span 1;
+    grid-column: span 3;
+}
+.img3-booking{
+    grid-row: span 1;
+    grid-column: span 5;
+}
+.img4-booking{
+    grid-row: span 2;
+    grid-column: span 2;
+}
+.img5-booking{
+    grid-row: span 1;
+    grid-column: span 3;
 }
 
 .large-img {
@@ -220,7 +279,9 @@
     border-radius: 10px;
     padding: 15px;
     justify-content: center;
-    width: 300px;
+    width: 600px;
+    height: 400px;
+    gap: 20px;
 
     .btn-cancel {
         // background-color: lightgray;
