@@ -1,5 +1,5 @@
 <template>
-  <section class="main-layout">
+  <section class="meal-app main-layout">
     <meal-filter @filter="setFilter"></meal-filter>
     <meal-list :getMeals="getMeals"></meal-list>
   </section>
@@ -11,6 +11,7 @@ import mealFilter from "@/cmps/meal-filter.vue";
 export default {
   // ----------------------------
   async created() {
+    window.scrollTo(0, 0);
     try {
       await this.$store.dispatch({ type: "loadMeals" });
     } catch (err) {
@@ -29,7 +30,6 @@ export default {
     getMeals() {
       return this.$store.getters.getMeals;
     },
-
   },
 
   // --------------------------

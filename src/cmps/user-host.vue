@@ -5,7 +5,7 @@
         <th>Meal</th>
         <th>Guests</th>
         <th>capacity</th>
-        <th>Price</th>
+        <th>Pice</th>
         <th>Total</th>
       </tr>
       <tr v-for="details in mealsHost" :key="details._id">

@@ -1,6 +1,8 @@
-// body{
-//     background-color: lightcoral
-// }
+
+.details-wrapper{
+    flex-grow: 1;
+    min-height: 80vh;
+}
 .details-wrapper p {
     margin: 0;
     color: #353530;
@@ -46,7 +48,7 @@
 }
 
 .chat {
-    background-color: #fff;
+    background-color: rgb(67, 144, 189);
     width: 300px;
     height: 300px;
     position: absolute;
@@ -413,4 +415,39 @@ button {
 
 .order-item :nth-child(1) {
     flex-grow: 3;
+}
+@media (max-width:500px){
+    .details-wrapper{
+        margin-block-start: 160px;
+    }
+    .img-gallery{
+        grid-auto-rows: 50px;
+    }
+    .main-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .details-container{
+    }
+    .booking-container{
+        position: static;
+    }
+    .menu-sections{
+        flex-direction: column;
+    }
+    .menu-section:not(:last-child){
+        border-right:none;
+        border-bottom:1px solid rgb(223, 226, 231);
+    }
+    .review-card{
+        border:none;
+        border-bottom:1px solid rgb(223, 226, 231);
+    }
+    .review-card:not(:nth-child(2n)){
+        border:none;
+        border-bottom:1px solid rgb(223, 226, 231);
+    }
+    .review-card:last-child{
+        border:none;
+    }
 }

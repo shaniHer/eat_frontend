@@ -27,7 +27,7 @@
       <div class="becomehost-burger-login-container">
         <div class="becomehost-burger-login">
           <div class="becomehost-burger">
-            <router-link to="/meal-app">Explore</router-link>
+            <router-link to="/meal-app">Explore <span>|</span></router-link>
             <router-link to="/meal-add">Become a host</router-link>
             <div class="burger-menu">
               <img
@@ -57,7 +57,7 @@
               <!-- <a @click="logout">Logout</a> -->
             <!-- </div> -->
             <div class="user-routes">
-              <router-link to="/user-profile">User profile</router-link>
+              <router-link to="/user-profile">User</router-link>
               <router-link to="/meal-add">Become a host</router-link>
             </div>
           </nav>
@@ -84,6 +84,9 @@
         <h2 class=text-main-title>experiences</h2>
       </div>
     </div>
+
+    <!-- -------------------------------- -->
+    <!-- -------------------------------- -->
   </header>
 </template>
 

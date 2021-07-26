@@ -18,8 +18,8 @@
           <div class="calendar">
             <!-- -----------------------------------------------DATE: -->
 
-            <article class="inline">
-              <span class="demonstration"></span>
+            <!-- <article class="inline"> -->
+              <!-- <span class="demonstration"></span> -->
               <el-date-picker
                 v-model="order.eventTime"
                 type="date"
@@ -27,14 +27,13 @@
                 default-value="2021-07-15"
               >
               </el-date-picker>
-            </article>
+            <!-- </article> -->
           </div>
         </div>
 
         <el-select
           v-model="order.guestsNum"
           placeholder="Guests"
-          default-first-option
         >
           <el-option
             v-for="item in guestOptions"

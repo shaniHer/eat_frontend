@@ -178,6 +178,7 @@ export default {
   },
 
   created() {
+    window.scrollTo(0, 0);
     setTimeout(async () => {
       await this.getMealAndUser();
       socketService.emit("details-host", this.host._id);

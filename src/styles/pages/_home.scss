@@ -1,6 +1,16 @@
 .home{
     flex-grow: 1;
 }
+.text-home-container{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.text-home-container a{
+    color:$clr1;
+    font-weight: 600;
+    // align-self:flex-end;
+}
 .text-home{
     margin-block-end:em(10px);
 }
