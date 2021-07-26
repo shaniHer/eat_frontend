@@ -16,10 +16,7 @@
         <tr v-for="user in ordersToShow" :key="user._id">
           <td>
             <!-- <img src="require(user.buyer.imgUrl)" /> -->
-            <img
-              class="avatar"
-              :src="require('@/assets/img/usersImg/user4.jpg')"
-            />
+             <img class="avatar" :src="require(`@/${user.buyer.imgUrl}.jpg`)" />
           </td>
           <td>{{ user.buyer.fullname }}</td>
           <!-- <td>{{ user.createdAt }}</td> -->

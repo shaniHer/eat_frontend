@@ -49,7 +49,6 @@ export default {
             const regex = new RegExp(state.filterBy.txt, 'i')
             // meals = meals.filter(meal => regex.test(meal.title))
             meals = meals.filter(meal => {
-                console.log(meal.loc, meal._id);
                 return regex.test(meal.loc.name)||regex.test(meal.title)})
             return meals
         }

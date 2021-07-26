@@ -1,9 +1,19 @@
 <template>
   <section class="main-layout user-profile">
     <h2 class="welcome-msg">
-      <img class="avatar" :src="require('@/assets/img/img1.jpg')" />
+      <!-- <img
+        class="avatar"
+        :src="require(`@/${user.imgUrl}.jpg`)"
+        alt=""
+      /> -->
       Hi there! {{ user.username }}
     </h2>
+
+    <!-- <img
+      class="avatar"
+      :src="require(`@/assets/img/usersImg/${review.by.imgUrl}.jpg`)"
+      alt=""
+    /> -->
 
     <article class="user-profile-options">
       <el-button @click="userOrders">User orders</el-button>
@@ -32,7 +42,7 @@ import userHost from "../cmps/user-host.vue";
 export default {
   data() {
     return {
-      // user: null,
+      // user:null
       // orders: [],
       // meals: [],
       show: { orders: true, host: false },

@@ -4,15 +4,14 @@ import { Bar } from "vue-chartjs";
 
 export default {
   extends: Bar,
-  props: { mealsHost: { type: Array }, mealsTitle: Array },
+  props: { mealsHost: { type: Array }, mealsTitle: { type: Array } },
   mounted() {
-    console.log(this.mealsTitle);
     this.renderChart({
       // xAxis: {
       //   data: this.mealsTitle,
       //   // axisLabel: { rotate: 45 },
       // },
-      labels: this.mealsTitle,
+      labels: this.mealsTitleToShow,
       datasets: [
         {
           label: "Orders chart", //???
@@ -60,7 +59,7 @@ export default {
   //   -----------------------------------
 
   computed: {
-    mealsTitle() {
+    mealsTitleToShow() {
       let mealTitle = [];
       this.mealsHost.forEach((meal) => {
         mealTitle.push(meal.title.substring(0, 9));
