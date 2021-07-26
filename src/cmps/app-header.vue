@@ -9,15 +9,20 @@
       <div class="main-search-container">
         <form @submit.prevent="setFilter">
           <div class="main-search">
-            <font-awesome-icon :icon="['fas', 'search']" class="search-icon" />
-            <input
-              type="search"
-              id="main-location"
-              v-model="txt"
-              autocomplete="off"
-              placeholder="search"
-            />
-            <button class="btn-search">search</button>
+            <label for="main-location">
+                <font-awesome-icon
+                  :icon="['fas', 'search']"
+                  class="search-icon"
+                />
+            </label>
+              <input
+                type="search"
+                id="main-location"
+                v-model="txt"
+                autocomplete="off"
+                placeholder="search"
+              />
+              <button class="btn-search">search</button>
           </div>
         </form>
       </div>
@@ -45,10 +50,14 @@
           </div>
           <div class="screen-main-nav" v-if="isNav" @click="onNav"></div>
           <nav class="main-nav" v-if="isNav">
-            <div class="login-signup-border">
+            <div  class="login-signup-border">
               <a @click="onSignup">Sign up</a>
               <a @click="onLogin">Login</a>
             </div>
+            <!-- <div v-else class="login-signup-border"> -->
+              <!-- v-if="!loggedinUser" to login -->
+              <!-- <a @click="logout">Logout</a> -->
+            <!-- </div> -->
             <div class="user-routes">
               <router-link to="/user-profile">User profile</router-link>
               <router-link to="/meal-add">Become a host</router-link>
@@ -72,9 +81,9 @@
     </div>
     <div class="main-title-container" v-if="isHome">
       <div class="main-title">
-        <h2 class="text-main-title">Unforgettable</h2>
-        <h2 class="text-main-title"><span>Culinary</span></h2>
-        <h2 class="text-main-title">experiences</h2>
+        <h2 class=text-main-title>Unforgettable</h2>
+        <h2 class=text-main-title><span>Culinary</span></h2>
+        <h2 class=text-main-title>experiences</h2>
       </div>
     </div>
   </header>
@@ -160,20 +169,20 @@ export default {
         console.log("err in login");
       }
     },
-    async logout() {
-      try {
-        const msg = await this.$store.dispatch({ type: "logout" });
-        const userMsg = {};
-        userMsg.txt = msg;
-        userMsg.type = "success";
-        this.$store.dispatch({ type: "setUserMsg", userMsg });
-      } catch (err) {
-        const userMsg = {};
-        userMsg.txt = "problem in logout try again";
-        userMsg.type = "danger";
-        this.$store.dispatch({ type: "setUserMsg", userMsg });
-      }
-    },
+    // async logout() {
+    //   try {
+    //     const msg = await this.$store.dispatch({ type: "logout" });
+    //     const userMsg = {};
+    //     userMsg.txt = msg;
+    //     userMsg.type = "success";
+    //     this.$store.dispatch({ type: "setUserMsg", userMsg });
+    //   } catch (err) {
+    //     const userMsg = {};
+    //     userMsg.txt = "problem in logout try again";
+    //     userMsg.type = "danger";
+    //     this.$store.dispatch({ type: "setUserMsg", userMsg });
+    //   }
+    // },
     async signup(signupCredentials) {
       try {
         const newUser = await this.$store.dispatch({

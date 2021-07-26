@@ -1,30 +1,50 @@
 <template>
   <section class="meal-add main-layout">
+    <h2 class="page-title">Create new event</h2>
     <div class="add-meal-container flex space-between">
       <form class="meal-details" @submit.prevent="saveMeal" v-if="meal">
-        <h2 class="page-title">Create new event</h2>
-        <div class="flex space-between">
+        <div class="meal-title-container flex space-between">
           <label for="meal-title">Event title</label>
-          <input type="text" v-model="meal.title" id="meal-title" />
+          <input
+            type="text"
+            v-model="meal.title"
+            id="meal-title"
+            autocomplete="off"
+          />
         </div>
         <div class="flex space-between">
           <label for="meal-desc">A word about the experience</label>
-          <input type="text" v-model="meal.desc" id="meal-desc" />
+          <input
+            type="text"
+            v-model="meal.desc"
+            id="meal-desc"
+            autocomplete="off"
+          />
         </div>
         <div class="flex space-between">
-          <label>Price per person</label>
-          <input type="number" v-model="meal.price" />
+          <label for="meal-price">Price per person</label>
+          <input type="number" v-model="meal.price" min="0" id="meal-price" />
+        </div>
+        <div class="meal-capacity flex space-between">
+          <label for="meal-capacity">Capacity</label>
+          <input
+            type="number"
+            v-model.number="meal.capacity"
+            min="0"
+            id="meal-capacity"
+          />
         </div>
         <div class="flex space-between">
-          <label>Capacity</label>
-          <input type="number" v-model.number="meal.capacity" />
+          <label for="meal-vegeterian">Vegeterian</label>
+          <input
+            type="checkbox"
+            v-model="meal.vegeterian"
+            id="meal-vegeterian"
+          />
         </div>
         <div class="flex space-between">
-          <label>Vegeterian</label>
-          <input type="checkbox" v-model="meal.vegeterian" />
-        </div>
-        <div class="flex space-between">
-          <label>Vegan</label> <input type="checkbox" v-model="meal.vegan" />
+          <label for="meal-vegan">Vegan</label>
+          <input type="checkbox" v-model="meal.vegan" id="meal-vegan" />
         </div>
         <div class="flex space-between">
           <label>Cuisine</label>
@@ -136,6 +156,7 @@ export default {
     },
     async saveMeal() {
       try {
+        this.meal.imgUrl=this.imgUrls.large
         await this.$store.dispatch({ type: "saveMeal", meal: this.meal });
         this.createMeal();
       } catch (err) {

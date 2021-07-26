@@ -44,6 +44,7 @@ function getEmptyMeal() {
         desc: '',
         guests: 0,
         cuisine: null,
+        // imgUrl: "",
         imgUrl: "https://static.wixstatic.com/media/2ef66c_fe6f63c8d05543dba5f6d385e06f9fec~mv2.jpg/v1/fill/w_730,h_410,al_c,q_90/2ef66c_fe6f63c8d05543dba5f6d385e06f9fec~mv2.jpg",
         loc: {
             name: "Paris",

@@ -7,19 +7,19 @@
     "cuisine": "Asian", //**
     "menu": {
       "starter": [
-        {"name":"salad meal","desc":"the most amazing salad in the whole world OMG"},
-        {"name":"Tiny chips", "desc":"the most amazing chips in the whole world OMG"},
-        {"name":"Onion meal", "desc":"the most amazing onion in the whole world OMG"}
+        {"name":"Som Tum","desc":"Spicy Green Papaya Salad"},
+        {"name":"Yum Nua", "desc":"Spicy Beef Salad"},
+        {"name":"Tod Mun Pla", "desc":"Thai Fish Cake"}
       ],
       "main": [
-        {"name":"Fish meal","desc":"the most amazing fish in the whole world OMG"},
-        {"name":"MacNCheese", "desc":"the most amazing macN in the whole world OMG"},
-        {"name":"Hamburger", "desc":"the most amazing onion in the whole world OMG"}
+        {"name":"Tom Yum Goong","desc":"Spicy Shrimp Soup"},
+        {"name":"Pad Thai", "desc":"Thai-Style Fried Noodles"},
+        {"name":"Pad See Ew or Pad Siew ", "desc":"Flat Noodles Stir-Fried with Soy Sauce"}
       ],
       "desert": [
-        {"name":"Cheesecake","desc":"the most amazing cheese in the whole world OMG"},
-        {"name":"Choco", "desc":"the most amazing choco in the whole world OMG"},
-        {"name":"Fruits", "desc":"the most amazing fruits in the whole world OMG"}
+        {"name":"Banana Roti","desc":"Banana Pancake"},
+        {"name":"Mah Hor", "desc":"Galloping Horses"},
+        {"name":"Foy thong", "desc":"Sweet Thai crepe"}
       ]
     },
     "host": {
