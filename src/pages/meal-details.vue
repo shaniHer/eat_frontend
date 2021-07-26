@@ -27,7 +27,7 @@
         />
       </div>
       <div>
-        <img class="avatar" :src="require('@/assets/img/img1.jpg')" />
+        <img class="avatar" :src="require(`@/assets/img/chefs/${meal.host.imgUrl}.jpg`)"/>
       </div>
       <div>
         Hosted by <span class="host-name bold">{{ host.fullname }}</span>
@@ -162,6 +162,7 @@ export default {
   },
 
   created() {
+    window.scrollTo(0, 0);
     setTimeout(async () => {
       await this.getMealAndUser();
       socketService.emit("details-host", this.host._id);

@@ -1,11 +1,16 @@
 <template>
   <section class="home main-layout">
+    <div class="text-home-container">
     <h2 class="text-home">Top rated meals</h2>
+    <router-link to="/meal-app">See all</router-link>
+    </div>
     <div class="meal-list-home-container">
       <meal-list-home :meals="meals"></meal-list-home>
     </div>
-
+    <div class="text-home-container">
     <h2 class="text-home">Cuisine type</h2>
+    <router-link to="/meal-app">See all</router-link>
+    </div>
     <div class="cuisine-type-container">
       <div class="cuisine-type" @click="setFilter('asian')">
         <img src="@/assets/img/chefs/4.jpg" alt="" />
@@ -35,7 +40,10 @@
     <div class="cusine-container" v-if="isByCuisine">
       <meal-list-home :meals="mealsByCuisine"></meal-list-home>
     </div>
+    <div class="text-home-container">
     <h2 class="text-home">Where to eat</h2>
+    <router-link to="/meal-app">See all</router-link>
+    </div>
     <div class="where-container">
       <div class="where where-farm">
         <img src="@/assets/img/where/1.jpg" alt="" />
@@ -62,6 +70,7 @@ export default {
     };
   },
   created() {
+    window.scrollTo(0, 0);
     this.loadMeals();
   },
   computed: {

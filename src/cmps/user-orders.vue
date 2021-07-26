@@ -1,7 +1,7 @@
 <template>
   <section class="main-layout user-orders">
     <article v-if="orders">
-      <table>
+      <table class="user-table">
         <tr>
           <th><!-- img --></th>
           <th>Name</th>
@@ -38,6 +38,9 @@ export default {
   props: { orders: { type: Array }, logdinUser: { type: Object } },
 
   //   ---------------------------------
+  created(){
+    window.scrollTo(0, 0);
+  },
   computed: {
     ordersToShow() {
       return this.orders.filter(
