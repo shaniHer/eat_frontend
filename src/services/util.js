@@ -80,7 +80,7 @@ function getMealImgUrl(cuisine) {
 }
 
 function reandomPhoneNum() {
-    let num = `05${+getRndInteger(2, 4)}-`
+    let num = `05${+getRndInteger(2, 4)}`
 
     for (var i = 0; i < 7; i++) {
         num += getRndInteger(0, 9)

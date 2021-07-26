@@ -9,7 +9,7 @@
         <th>Total</th>
       </tr>
       <tr v-for="details in mealsHost" :key="details._id">
-        <td>{{ details.title }}</td>
+        <td>{{ details.shortTitle }}</td>
         <td>{{ details.guests }}</td>
         <td>{{ details.capacity }}</td>
         <td>${{ details.price }}</td>
@@ -37,6 +37,7 @@ export default {
 
   data() {
     return {
+      shortTitle: "",
     };
   },
 
@@ -44,7 +45,6 @@ export default {
 
   computed: {
     mealsHost() {
-      console.log(this.meals);
       return this.meals.filter((meal) => meal.host._id === this.logdinUser._id);
     },
 
@@ -58,6 +58,8 @@ export default {
     mealsTitle() {
       let mealTitle = [];
       this.mealsHost.forEach((meal) => {
+        // meal.shortTitle = meal.title.substring(0, 8);
+
         mealTitle.push(meal.title);
       });
       return mealTitle;
@@ -68,6 +70,9 @@ export default {
 
   created() {
     // this.$store.dispatch({ type: "loadMeals" });
+     this.meals.forEach((meal) => {
+        return meal.shortTitle = meal.title.substring(0,9)
+      });
   },
   // -----------------------------------
   components: {
