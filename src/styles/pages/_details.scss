@@ -418,7 +418,7 @@ button {
 }
 @media (max-width:500px){
     .details-wrapper{
-        margin-block-start: 160px;
+        margin-block-start: 110px;
     }
     .img-gallery{
         grid-auto-rows: 50px;
@@ -442,6 +442,7 @@ button {
     .review-card{
         border:none;
         border-bottom:1px solid rgb(223, 226, 231);
+        padding: 0;
     }
     .review-card:not(:nth-child(2n)){
         border:none;
