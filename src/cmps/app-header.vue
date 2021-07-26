@@ -84,6 +84,9 @@
         <h2 class=text-main-title>experiences</h2>
       </div>
     </div>
+
+    <!-- -------------------------------- -->
+    <!-- -------------------------------- -->
   </header>
 </template>
 

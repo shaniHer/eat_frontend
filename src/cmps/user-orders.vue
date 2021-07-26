@@ -1,11 +1,9 @@
 <template>
   <section class="main-layout user-orders">
-    <!-- <td><button @click="openChat" class="msg">Msg</button></td> -->
     <article v-if="orders">
+
       <!-- --------------------------------------- -->
-      <article v-if="chetIsOpen">
-        <chat-room class="chat" :loggdinUser="logdinUser"></chat-room>
-      </article>
+        <!-- <chat-room class="chat" :loggdinUser="logdinUser"></chat-room> -->
       <!-- --------------------------------------- -->
 
       <table>
@@ -48,7 +46,7 @@
 
 <script>
 import { util } from "../services/util.js";
-// import chatRoom from "../cmps/chat-room.vue";
+import chatRoom from "../cmps/chat-room.vue";
 
 export default {
   props: { orders: { type: Array }, logdinUser: { type: Object } },
@@ -56,14 +54,13 @@ export default {
   //   ---------------------------------
   data() {
     return {
-      chetIsOpen: false,
+      chatIsOpen: false,
     };
   },
   //   ---------------------------------
   methods: {
     openChat() {
-      this.chetIsOpen = !this.chetIsOpen;
-      console.log("aaa");
+      this.chatIsOpen = !this.chatIsOpen;
     },
   },
   //   ---------------------------------
@@ -84,7 +81,7 @@ export default {
   },
   //   ---------------------------------
   components: {
-    // chatRoom,
+    chatRoom,
   },
 };
 </script>
