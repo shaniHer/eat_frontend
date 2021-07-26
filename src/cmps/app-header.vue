@@ -27,13 +27,8 @@
       <div class="becomehost-burger-login-container">
         <div class="becomehost-burger-login">
           <div class="becomehost-burger">
-<<<<<<< HEAD
             <router-link to="/meal-app">Explore <span>|</span></router-link>
             <router-link to="/meal-add">Become a host</router-link>
-=======
-            <router-link to="/meal-app">Explore</router-link>
-              <router-link to="/meal-add">Become a host</router-link>
->>>>>>> 3c2c388174f89696d15ea2aea0aec6d657e85093
             <div class="burger-menu">
               <img
                 src="@/assets/img/ham.svg"
