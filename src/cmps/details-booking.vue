@@ -117,7 +117,6 @@ export default {
 
   methods: {
     createOrder() {
-      const {buyer:{_id,fullname,imgUrl}} = this.user
       this.order.buyer = {
         _id: this.user._id,
         fullname: this.user.fullname,

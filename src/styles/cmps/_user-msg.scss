@@ -2,24 +2,29 @@
     position: fixed;
     z-index: 99;
     left:50%;
-    top:0;
+    top:110px;
     transform: translateX(-50%);
     width:300px;
     // border-radius: em(3px);
     // border:1px solid rgba(13,13,13,1);
     text-align: center;
     .success{
-        background-color:  $clr4;
-        color:$clr5;
-        border:1px solid rgba(13,13,13,1);
-        border-radius: em(3px);
+        background-color:rgb(223,242,191);
+        color:rgb(79,138,55);
+        border:1px solid rgba(199,199,199,0.2);
+        box-shadow: 0px 0px 2px 0px rgba(199,199,199,0.8);
+        border-radius: em(1px);
     }
     .danger{
-        background-color:  $clr4;;
-        color:$clr1;
-        border:1px solid rgba(13,13,13,1);
-        border-radius: em(3px);
+        background-color:  rgb(255,186,186);
+        color:rgb(216,0,12);
+        border:1px solid rgba(199,199,199,0.2);
+        box-shadow: 0px 0px 2px 0px rgba(199,199,199,0.8);
+        // border:1px solid rgba(13,13,13,1);
+        border-radius: em(1px);
+        
 
     }
 }
+
 
